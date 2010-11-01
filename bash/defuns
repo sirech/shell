@@ -35,11 +35,11 @@ function backup_config() {
     dropbox=`find ~/. -name Dropbox`
 
     goemacs
-    svn_export_zip
+    git_export_zip
     mv *bckp*.zip ${dropbox}
 
     goshell
-    svn_export_zip
+    git_export_zip
     mv *bckp*.zip ${dropbox}
 }
 
@@ -254,7 +254,31 @@ ffe () {
     find . -type f -name '*'"$@" ;
 }
 
-## CREATE REPO GIT
+## GIT
+
+# Exports the given git repository, or the current one if no argument
+# is given, to a zip file. The current date is included in the
+# filename. By default, the master branch is selected.
+function git_export_zip() {
+
+    if [ -n "$1" ]; then
+        if [ ! -d "$1" ]; then
+            echo 'the given argument is not a directory'
+            exit 1
+        fi
+        cd -P "$1"
+    fi
+
+    if [ ! -d .git ]; then
+        echo 'the given directory is not a svn repository'
+        exit 1
+    fi
+
+    local dirname
+
+    dirname=$(basename "$PWD")
+    git archive --format=zip --output ${dirname}-bckp-$(date +%Y-%m-%d).zip master
+}
 
 # Create local repo, synchronize with remote one
 function newgit() {
