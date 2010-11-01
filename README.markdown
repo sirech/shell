@@ -39,8 +39,11 @@ The functionality is separated across the following files and folders,
 with the root in the bash folder:
 
 * env: Basic environment variables.
+
 * config: Colors, prompt.
+
 * defuns: Utility functions.
+
 * aliases: Aliases to simplify some commands.
 
 Also:

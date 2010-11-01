@@ -16,6 +16,18 @@ function goshell() {
     cd -P ${SHELL_DIR}
 }
 
+## BACKUPS
+
+function backup_wiki() {
+
+    local dropbox
+    dropbox=`find ~/. -name Dropbox`
+
+    ssh hceris remote_backup_wiki
+    scp hceris:~/wiki/*bckp*.zip ${dropbox}
+    ssh hceris rm wiki/*bckp*.zip
+}
+
 # Backups both the emacs and shell configurations to dropbox
 function backup_config() {
 

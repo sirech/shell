@@ -26,7 +26,7 @@ ln -s ~/opt/Python/${PYTHON_VERSION}/bin/python ~/bin/python
 ## DEFUNS
 
 # Create a new remote git repository
-new_remote_git()
+function new_remote_git()
 {
     if [ -z $1 ]; then
         echo "usage: $FUNCNAME project-name.git"
@@ -40,4 +40,10 @@ new_remote_git()
         touch git-daemon-export-ok
         popd
     fi
+}
+
+# Backup wiki data
+function remote_backup_wiki() {
+    cd ~/wiki
+    zip -r wiki-bckp-$(date +%Y-%m-%d).zip data
 }
