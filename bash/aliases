@@ -1,0 +1,76 @@
+# -*- mode: Shell-script-*-
+
+#
+# Defines aliases for commonly used operations
+#
+
+# Settings management
+alias reload='source ~/.bashrc'
+
+# grep: use perl regexps
+alias grep='grep -P'
+
+# edit file with set editor
+alias edit="$EDITOR"
+
+# python
+alias py='python'
+
+# tag generation
+alias pytags='gettags py'
+alias javatags='gettags java'
+alias gettags='ffe $1 | xargs etags -a -f TAGS'
+
+# unified diff
+alias udiff='diff -u'
+
+## SYSTEM INFO
+
+# current year
+alias year='date +%Y'
+
+# Show running processes, sorted
+alias tu='top -o cpu' #cpu
+alias tm='top -o vsize' #memory
+
+## DIRS
+
+# ls: display more info
+alias ls='ls -lh'
+
+# dir traversal
+alias ..='cd ..'
+alias cdl='cd_and_ls'
+alias cdp='cd -P'
+alias go='go_frequency'
+alias gor='go_recent'
+
+## SVN
+
+alias svnr='svn_revert_all'
+alias svna='svn add'
+alias svns='svn status'
+alias svnu='svn update'
+alias svnc='svn commit'
+alias svnd='svn_diff_tabbed'
+alias svnl='svn log -l 25 | less -F'
+
+## GIT
+
+alias gs='git status'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gp='git push -v'
+alias ga='git add -v'
+alias gd='git diff --color'
+alias gb='git branch -v'
+alias gba='git branch -v -a'
+alias gco='git checkout'
+
+## Counting things
+
+# most used commands
+alias rank="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
+
+# number of non-hidden files in current dir
+alias filec='ls | wc -l'

@@ -1,0 +1,12 @@
+# -*- mode: Shell-script-*-
+
+#
+# Settings for the machine 'Killua'
+#
+
+## ENV
+
+export WINHOME="${C}/Users/Mario/AppData/Roaming"
+export EMACS_DIR="${WINHOME}/.emacs.d"
+
+## ALIASES

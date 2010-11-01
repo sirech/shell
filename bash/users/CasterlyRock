@@ -1,0 +1,35 @@
+# -*- mode: Shell-script-*-
+
+#
+# Settings for the machine 'CasterlyRock'
+#
+
+## ENV
+
+export WINHOME="${C}/Users/Mario/AppData/Roaming"
+export EMACS_DIR="${WINHOME}/.emacs.d"
+export WORKSPACE="${C}/workspace"
+
+export DUNGEONS="${C}/dungeons/CODE/Dungeons"
+
+## ALIASES
+
+# common dirs
+alias gotv="cd ${C}/madtv/GAME"
+alias godungeons="cd ${DUNGEONS}"
+alias goshared="cd ${C}/shared"
+alias gorooms="cd ${C}/dungeons/DATA/3D_DATA/ENVIRONMENT/GIMMICKS_LEVEL0"
+alias gomat="cd ${C}/madtv/GAME/bin/data/shared/gui/Current/materials/.generator"
+alias gocfg="cd ${WINHOME}/Dungeons"
+alias gospace="cd ${WORKSPACE}"
+
+## DEFUNS
+
+function livelog() {
+    gocfg
+    tail -f log.txt | grep -i --line-buffered ${1:?No search string provided}
+}
+
+function checklog() {
+    grep -i ${1} log.txt
+}

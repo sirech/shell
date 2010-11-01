@@ -1,0 +1,36 @@
+# -*- mode: Shell-script-*-
+#
+# File with environment variables
+#
+
+export EDITOR="emacsclient"
+export ALTERNATE_EDITOR="emacs"
+export EMACS_DIR="${HOME}/.emacs.d"
+
+# Common path
+export PATH=${SHELL_DIR}/scripts:/usr/local/bin/:/opt/local/bin:$PATH
+export MANPATH=$MANPATH:/opt/local/share/man
+export INFOPATH=$INFOPATH:/opt/local/share/info
+
+# Folders with libraries for some languages
+export AWK_FUNCS=${SHELL_DIR}/awk/lib
+export PYTHON_FUNCS=${SHELL_DIR}/python
+
+# Log more commands
+export HISTFILESIZE=10000 # Record last 10,000 commands
+export HISTSIZE=10000 # Record last 10,000 commands per session
+
+# Log directory access variables
+export DIRLOGSDB=~/.dirlogsdb
+export LASTDIR=/
+export STORED_LASTDIR=~/.lastdir
+
+# ack-grep config
+export ACKRC=${SHELL_DIR}/ackrc
+
+# [ -n "${VAR+x}" ] ## Fails if VAR is unset
+# [ -n "${VAR:+x}" ] ## Fails if VAR is unset or empty
+
+# Not working, use the above with -z
+# [ -n "${VAR-x}" ] ## Succeeds if VAR is unset
+# [ -n "${VAR:-x}" ] ## Succeeds if VAR is unset or empty

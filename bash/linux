@@ -1,0 +1,19 @@
+# -*- mode: Shell-script-*-
+
+#
+# Linux specific settings
+#
+
+## ENV
+if [ -z $BASH_COMPLETION ]
+then
+    export BASH_COMPLETION="/etc/bash_completion"
+fi
+
+## ALIASES
+
+# redefine ls
+alias ls='ls -lh --color="auto"'
+
+# use a shorter name for ack-grep
+alias ack='ack-grep'

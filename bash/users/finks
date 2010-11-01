@@ -1,0 +1,25 @@
+# -*- mode: Shell-script-*-
+
+#
+# Settings for the machine 'finks'
+#
+
+## ENV
+
+export _DOCS=${HOME}/Documents
+export WORKSPACE=${_DOCS}/workspace
+
+# Python path
+export PYTHONPATH=~/Documents/workspace/stuff/:${PYTHONPATH}
+
+# Closure compiler (for JavaScript)
+export CLOSURE_COMPILER=${WORKSPACE}/closure-compiler/compiler.jar
+
+## ALIASES
+
+# common dirs
+alias gostuff="cd ${WORKSPACE}/stuff"
+alias goalgs="cd ${WORKSPACE}/algorithms"
+alias gores="cd ${_DOCS}/resume"
+alias gocovers="cd ${_DOCS}/resume/covers-$(year)"
+alias gospace="cd $WORKSPACE"

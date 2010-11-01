@@ -1,0 +1,19 @@
+# -*- mode: Shell-script-*-
+
+#
+# CYGWIN specific settings
+#
+
+## ENV
+
+if [ -z $BASH_COMPLETION ];
+then
+    export BASH_COMPLETION="/etc/bash_completion"
+fi
+
+export C="/cygdrive/c"
+
+## ALIASES
+
+# redefine ls
+alias ls='ls -lh --color="auto"'

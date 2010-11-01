@@ -1,0 +1,43 @@
+# -*- mode: Shell-script-*-
+
+#
+# Settings for the machine 'hiwatt'
+#
+
+## ENV
+
+export PATH=~/bin:$PATH
+export GIT_PATH=~/git.hceris.com
+
+# Python
+export PYTHON_VERSION=2.7
+export PYDIR=~/opt/Python/${PYTHON_VERSION}
+export DJANGO_SRC=~/opt/django_src
+export PATH=${PYDIR}/bin:$PATH:${DJANGO_SRC}/django/bin
+export PYTHONPATH=${DJANGO_SRC}:~/projects/django
+export DJANGO_SETTINGS_MODULE=myproject.settings
+
+# Synch ~/bin/python with current version
+rm ~/bin/python
+ln -s ~/opt/Python/${PYTHON_VERSION}/bin/python ~/bin/python
+
+## ALIASES
+
+## DEFUNS
+
+# Create a new remote git repository
+new_remote_git()
+{
+    if [ -z $1 ]; then
+        echo "usage: $FUNCNAME project-name.git"
+    else
+        gitdir="$GIT_PATH/$1"
+        mkdir $gitdir
+        pushd $gitdir
+        git --bare init
+        git --bare update-server-info
+        chmod a+x hooks/post-update
+        touch git-daemon-export-ok
+        popd
+    fi
+}

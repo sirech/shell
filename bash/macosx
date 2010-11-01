@@ -1,0 +1,25 @@
+# -*- mode: Shell-script-*-
+
+#
+# Mac OS X specific settings
+#
+
+## ENV
+if [ -z $BASH_COMPLETION ]
+then
+    export BASH_COMPLETION="/opt/local/etc/bash_completion"
+fi
+
+export JAVA_HOME="/Library/Java/Home"
+export ANT_HOME="/usr/share/ant"
+
+## ALIASES
+
+# cleanup DS_Store files in the current directory
+alias dsclean='find . -name ".DS_Store" | xargs rm'
+
+# MacPorts
+alias port='sudo port'
+
+# redefine ls
+alias ls='ls -lhG'

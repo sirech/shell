@@ -1,0 +1,54 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+
+# luacheckglobals
+# Author: Mario Fernandez
+#
+# Custom script to use the lualint checker on the scripts for a map in
+# the Dungeons project (top secret!). Checks all the lua files present
+# in the current directory.
+#
+# Usage: luacheckglobals
+#
+# Requirements:
+#
+# lualint must be installed and available in the PATH. The DUNGEONS
+# env var must be set.
+
+OUTPUT="global_declarations_lua"
+AUX_FILE=global_declarations_lua_tmp
+
+# General Lua functions
+LUA_SCRIPTS=${DUNGEONS}/bin/data/lua
+find ${LUA_SCRIPTS} -name "*.lua" -exec grep "^function" '{}' \; | awk '{ split($0, array, /[ \(]/); print array[2] }' >> $AUX_FILE
+
+# C# functions exported to Lua
+LUA_FUNCTIONS=${DUNGEONS}/src/Lua
+find ${LUA_FUNCTIONS} -name "*.cs" -exec grep "\[LuaFunction" '{}' \; | awk '{ split($0, array, /"/); print array[2] }' >> $AUX_FILE
+
+# Components
+COMPONENTS=${DUNGEONS}/src/Components
+find ${COMPONENTS} -name "Cmp*.cs" -printf %f\\n | awk '{ split($0, array, /\./); print array[1] }' >> $AUX_FILE
+
+# Functions in the same map
+find ${PWD} -name "*.lua" -exec grep "^function" '{}' \; | awk '{ split($0, array, /[ \(]/); print array[2] }' >> $AUX_FILE
+
+sort -u $AUX_FILE > $OUTPUT
+rm $AUX_FILE
+
+IFS=$'\n'
+for file in ./*.lua ; do
+    if [ -f $file ] ;
+    then
+        for line in $(lualint $file) ; do
+            func=`echo $line | awk '{ print $NF }'`
+            isInFile=`grep "^${func}$" $OUTPUT`
+
+            if [ -z $isInFile ]; then
+                echo $line
+            fi
+        done
+    fi
+done
+unset IFS
+rm $OUTPUT

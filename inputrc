@@ -1,0 +1,5 @@
+# -*- mode: Shell-script-*-
+#
+# Input settings, should be linked to ~/.inputrc to work.
+
+set completion-ignore-case on

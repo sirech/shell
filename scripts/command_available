@@ -1,0 +1,22 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+
+# command_available
+# Author: Mario Fernandez
+#
+# Checks if every command given as parameter can be found in the system.
+#
+# Usage: command_available command1 command2 ... commandN
+#
+# Requirements:
+#
+# The shell configuration at http://svn.hceris.com/shell must be
+# installed. This provides the SHELL_DIR env variable, the sample prj
+# and build files, and the newgit command.
+
+found=`type -P $* | awk 'END { print NR; }'`
+
+if [ $found != $# ] ; then
+    echo "ERROR: ${found}/$# commands found"
+    exit 1
+fi

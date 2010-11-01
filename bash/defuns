@@ -1,0 +1,303 @@
+# -*- mode: Shell-script-*-
+
+#
+# Some utility functions
+#
+
+## CONFIG HELPERS
+
+# Goes to the directory that contains the emacs config
+function goemacs() {
+    cd -P ${EMACS_DIR}
+}
+
+# Goes to the directory that contains the shell config
+function goshell() {
+    cd -P ${SHELL_DIR}
+}
+
+# Backups both the emacs and shell configurations to dropbox
+function backup_config() {
+
+    local dropbox
+    dropbox=`find ~/. -name Dropbox`
+
+    goemacs
+    svn_export_zip
+    mv *bckp*.zip ${dropbox}
+
+    goshell
+    svn_export_zip
+    mv *bckp*.zip ${dropbox}
+}
+
+## EXTENDED AWK
+
+# Allows to call awk with an inline expression and use the available
+# libraries. To do this, the expression is converted into a temporary
+# awk script, which is passed to the awk command as well as every
+# available library
+function eawk () {
+
+    if [ -z "$1" ]; then
+        echo 'no script provided'
+        exit 1
+    fi
+
+    local script
+    local CMD
+    local LIBS
+
+    # Convert input to a temporary script
+    script=/tmp/eawkscript${RANDOM}.awk
+    echo $1 > $script
+
+    # Thanks to http://www.linuxforums.org/forum/programming-scripting/62564-bash-script-problem-preserving-quotes-arguments.html
+    CMD="$2"
+    for (( i = 3; i <= $# ; i++ )); do
+        eval ARG=\$$i
+        CMD="$CMD $ARG"
+        # CMD="$CMD $(echo "$ARG" | awk '{gsub(".", "\\\\&");print}')"
+    done
+
+    # Get all the available libraries
+    LIBS=""
+    for lib in ${AWK_FUNCS}/* ; do
+        if [ -f $lib ] ;
+        then
+            LIBS="$LIBS -f $lib"
+        fi
+    done
+
+    # Call awk
+    if [ -z "$CMD" ]; then
+        awk $LIBS -f $script # Avoid call with trailing whitespace
+    else
+        awk $LIBS -f $script "$CMD"
+    fi
+
+    rm $script
+}
+
+## OTHER
+
+# get a nice hostname
+function ehostname () {
+    hostname | cut -d "." -f 1
+}
+
+# Changes directory and lists files in the new directory
+function cd_and_ls () {
+    cd $1
+    ls
+}
+
+## DIRECTORIES
+
+# Counts the sum of the lines for the files with the given extension
+function count_lines_in_files() {
+    find . -name "*.${1:?No extension provided}" -exec wc -l '{}' \; | awk '{ sum += $1 } END { print sum }'
+}
+
+# Looks for the given string inside the contents of all the files in the current directory
+function find_in_directory() {
+    find . | xargs grep -s -i "${1:?No search string provided}" | grep -v '\.svn'
+}
+
+# Looks for the given string inside the contents of all the files in
+# the current directory. Prints the number of matches in each file
+# (omitting files with zero results)
+function find_in_directory_counts() {
+    find . | xargs grep -s -i -c "${1:?No search string provided}" | grep -v '\.svn|:0$'
+}
+
+# Looks for the given string inside the contents of all the files in
+# the current directory. Prints the names of the files with at least
+# one match
+function find_in_directory_filename() {
+    find_in_directory_counts $1 | cut -d \: -f 1
+}
+
+# Surrounds every line in the input stream with the given delimiter,
+# ignoring empty lines
+function surround() {
+    eawk '$0!~/^$/ { print delimiter$0delimiter; }' delimiter="${1:?No delimiter provided}"
+}
+
+# Joins all the lines from the input stream into one single line,
+# putting the given delimiter in between them
+function oneline() {
+    eawk 'BEGIN { line=""; } $0!~/^$/ { line=line$0delimiter; } END { print take(line, length(line) - length(delimiter)); }' delimiter="${1:?No delimiter provided}"
+}
+
+# Separates a single line in multiple lines, using a delimiter to
+# separate the lines
+function separate() {
+    eawk 'END { n = split($0, a, delimiter); for(i=1; i <= n; i++) { print a[i] } }' delimiter="${1:?No delimiter provided}"
+}
+
+# Logs directory access
+function prompt_command () {
+    if [ -f ${DIRLOGSDB} ]; then
+        local newdir
+
+        newdir=`pwd`
+        if [ ! "$LASTDIR" = "$newdir" ]; then
+            python ${PYTHON_FUNCS}/directory_log.py
+        fi
+
+        LASTDIR=$newdir
+        pwd > ${STORED_LASTDIR}
+    fi
+}
+
+# If called without arguments, presents a list of the most visited
+# directories, as well as a number for each of them. If an argument is
+# given, it changes to the directory identified by that number
+function go_frequency () {
+    go_to_directory directory_frequency.py $1
+}
+
+# Equivalent to go_frequency, but using a list of the most recently
+# visited directories.
+function go_recent () {
+    go_to_directory directory_recent.py $1
+}
+
+# Implements the go_* functions
+function go_to_directory () {
+    local script
+    local output
+
+    script=${PYTHON_FUNCS}/$1
+    if [ -z "$2" ]; then
+        python ${script} | awk 'BEGIN { print "+ change to directory by selecting the number"; } { print NR": "$0; }'
+    else
+        cd "$(python ${script} | awk  -v line=$2 -v home=$HOME '{ if(NR == line) { sub(/~/, home); print $0; } }')"
+    fi
+}
+
+# Builds the directory database
+function build_logging_db () {
+    python ${PYTHON_FUNCS}/directory_build.py
+}
+
+## SVN
+
+# Reverts all the changed files (as returned by svn status)
+function svn_revert_all() {
+    read -p "Revert all? [y/n] " -n 1
+    if [ $REPLY = y ] || [ $REPLY = Y ]
+    then
+        svn stat | awk '{print $2}' | xargs svn revert;
+    else
+        echo '\n'
+    fi
+}
+
+# Shows the diff command, paging the output
+function svn_diff_tabbed() {
+    svn diff "$@" | less -rF
+}
+
+# Exports the given svn repository, or the current one if no argument
+# is given, to a zip file. The current date is included in the
+# filename.
+function svn_export_zip() {
+
+    if [ -n "$1" ]; then
+        if [ ! -d "$1" ]; then
+            echo 'the given argument is not a directory'
+            exit 1
+        fi
+        cd -P "$1"
+    fi
+
+    if [ ! -d .svn ]; then
+        echo 'the given directory is not a svn repository'
+        exit 1
+    fi
+
+    local dirname
+
+    dirname=$(basename "$PWD")
+    svn export . /tmp/${dirname}
+    zip -r ${dirname}-bckp-$(date +%Y-%m-%d).zip /tmp/${dirname}
+    rm -Rf /tmp/${dirname}
+}
+
+## SEARCH
+# Credit to: http://hayne.net/MacDev/Bash/aliases.bash
+
+# ff:  to find a file under the current directory
+function ff() {
+    find . -type f -name "$@" ;
+}
+# ffs: to find a file whose name starts with a given string
+function ffs () {
+    find . -type f -name "$@"'*' ;
+}
+# ffe: to find a file whose name ends with a given string
+ffe () {
+    find . -type f -name '*'"$@" ;
+}
+
+## CREATE REPO GIT
+
+# Create local repo, synchronize with remote one
+function newgit() {
+
+    local repo
+
+    if [ -z "$1" ]; then
+        echo 'usage: repo_name'
+        exit 1
+    fi
+
+    repo=$1.git
+
+    create_git_local $repo
+    sync_remote_git $repo
+}
+
+# Create a new local repository
+function create_git_local() {
+
+    if [ -z "$1" ]; then
+        echo 'usage: repo_name'
+        exit 1
+    fi
+
+    if [ -z ${WORKSPACE:+1} ]; then
+        echo 'env variable WORKSPACE is not set'
+        exit 1
+    fi
+
+    echo "Creating repository named $1"
+
+    cd $WORKSPACE
+    mkdir $1
+    cd $1
+    git init
+    touch .gitignore
+    echo '.DS_Store' > .gitignore
+    git add .gitignore
+    git commit -m "setup"
+}
+
+# Synchronize the repository in the current directory with a remote one
+function sync_remote_git () {
+
+    if [ -z "$1" ]; then
+        echo 'usage: repo_name'
+        exit 1
+    fi
+
+    echo "Synchronizing repository $1 with the remote version"
+
+    ssh hceris new_remote_git $1
+    git remote add origin ssh://hceris/home/sirech/git.hceris.com/$1
+    git config branch.master.remote origin
+    git config branch.master.merge refs/heads/master
+    git push --all
+}
