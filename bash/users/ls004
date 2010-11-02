@@ -14,7 +14,7 @@ export TOMCAT_HOME_GUEST=/opt/guest-tomcat
 export TOMCAT_HOME_MEMBER=/opt/member-tomcat
 export PATH=${PATH}:${JAVA_HOME}/bin:${ANT_HOME}/bin:${JMETER_HOME}/bin
 
-export http_proxy=http://proxy01.internal.friendscout24.de:3128/ 
+export http_proxy=http://10.0.175.40:3128/ 
 export HTTP_PROXY=${http_proxy}
 
 export WORKSPACE=${HOME}/workspace

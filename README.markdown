@@ -61,24 +61,35 @@ it to your ssh config with something like `ln -s ~/shell/ssh/config
 To log without a key follow this advice: [RSA without
 pass](http://linuxproblem.org/art_9.html)
 
+## GIT
+
+There are some functions to create new git repositories, synchronized
+with a remote server. The prompt is modified to show the state of a
+git repository, if we are in a folder that contains one.
+
 ### Git without SSH
 
 If ssh is not available for some reason (like a proxy), git may not
 work. In this case, the http interface can be used. For example in
 github, this would be some thing like `git clone
-https://{user}@github.com/{user}/{project}.git`. The only problem with
+https://github.com/{user}/{project}.git`. The only problem with
 this is that the password is requested every time. To avoid this,
 create a *.netrc* file with the contents `machine <host> login <user>
 password <pass>`. Don't forget to remove permissions with `chmod 600
 .netrc`.
 
+### Proxy for Git
+
+If you connect through a proxy, it may work if you set it up in the
+shell config. Otherwise use `git config --global http.proxy
+host:port`.
+
+Note that if the url of the repository is written as something like
+_https://user@github.com..._ (as github recommends), the _.netrc_
+configuration may be ignored. This can be fixed by removing the user@
+part from the url.
+
 ## Project initialization
-
-### GIT
-
-There are some functions to create new git repositories, synchronized
-with a remote server. The prompt is modified to show the state of a
-git repository, if we are in a folder that contains one.
 
 ### JAVA
 
