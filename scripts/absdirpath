@@ -1,0 +1,19 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+#
+# absdirpath
+# Author: Mario Fernandez
+#
+# Gets the absolute path of the given directory, or of the parent
+# directory if the argument is a file
+
+path="$1"
+
+if [ ! -d "$path" ]; then
+    path=$(dirname "$path")
+fi
+
+pushd $PWD > /dev/null
+cd $path
+echo "$PWD"
+popd > /dev/null
