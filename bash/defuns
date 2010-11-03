@@ -148,6 +148,22 @@ function separate() {
     eawk 'END { n = split($0, a, delimiter); for(i=1; i <= n; i++) { print a[i] } }' delimiter="${1:?No delimiter provided}"
 }
 
+# Gets the absolute path of the given directory, or of the parent
+# directory if the argument is a file
+function dirpath() {
+    local path
+    path="$1"
+
+    if [ ! -d "$path" ]; then
+        path=$(dirname "$path")
+    fi
+
+    pushd $PWD > /dev/null
+    cd $path
+    echo "$PWD"
+    popd > /dev/null    
+}
+
 # Logs directory access
 function prompt_command () {
     if [ -f ${DIRLOGSDB} ]; then
