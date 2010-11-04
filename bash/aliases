@@ -16,6 +16,9 @@ alias edit="$EDITOR"
 # python
 alias py='python'
 
+# ruby
+alias rb='ruby'
+
 # tag generation
 alias pytags='gettags py'
 alias javatags='gettags java'
@@ -37,6 +40,9 @@ alias tm='top -o vsize' #memory
 
 # ls: display more info
 alias ls='ls -lh'
+
+# cat: paging
+alias catl='cat | less -F'
 
 # dir traversal
 alias ..='cd ..'
