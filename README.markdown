@@ -26,9 +26,19 @@ machine.
 -s` in the bashrc file. If your os is not there, create a file and
 link it from there.
 
-6. You can also add completion files by putting them in the completion
-folder.
+### Completion
 
+Any file added to the completion folder will be used in case that
+bash\_completion is available. Installing bash\_completion can be done
+with a package manager (apt,macports,cygwin), and then by setting the
+_BASH\_COMPLETION_ environment variable. Default values are provided
+for each os.
+
+For reference, here is the origin of some of the files:
+
+- (j)ruby, gem, rails, rake:
+  [https://github.com/mernen/completion-ruby]()
+  
 ## Structure
 
 the _bashrc_ file is where everything begins. It contains all the files
@@ -119,10 +129,10 @@ For example this line sets the script to run every Sunday at 22.30:
 
 After this, the go functions will be available. You can get the most
 visited directories, and navigate to them easily, via the
-go_frequency. To get the most recently visited ones, use go_recent.
+*go_frequency*. To get the most recently visited ones, use *go_recent*.
 
 Note that if you want the directory where the DB is saved, as defined
 in the environment variable DIRLOGSDB, you should also edit the
-get_db_path python function, which is defined in
+*get_db_path* python function, which is defined in
 directory_recent.py. This method cannot use it because it is called by
 the cron job.
