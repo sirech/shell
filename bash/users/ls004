@@ -7,12 +7,13 @@
 ## ENV
 
 export JAVA_HOME=/opt/java/jdk1.6.0_21
+export JRUBY_HOME=/opt/jruby
 export ANT_HOME=/opt/ant/apache-ant-1.7.1
 export JACORB_HOME=/opt/jacorb/JacORB-2.2.3_patched_20060131
 export JMETER_HOME=/opt/jmeter/jakarta-jmeter-2.4
 export TOMCAT_HOME_GUEST=/opt/guest-tomcat
 export TOMCAT_HOME_MEMBER=/opt/member-tomcat
-export PATH=${PATH}:${JAVA_HOME}/bin:${ANT_HOME}/bin:${JMETER_HOME}/bin
+export PATH=${PATH}:${JRUBY_HOME}/bin:${JAVA_HOME}/bin:${ANT_HOME}/bin:${JMETER_HOME}/bin
 
 export http_proxy=http://10.0.175.40:3128/ 
 export HTTP_PROXY=${http_proxy}
