@@ -52,6 +52,20 @@
     </javac>
   </target>
 
+  <target name="run" depends="compile"
+          description="run the specified class">
+    <fail unless="main">You need to specify a class to run</fail>
+    <java
+        fork="yes"
+        classname="${main}"
+        maxmemory="${maxmemory}"
+        failonerror="yes">
+      <classpath>
+        <pathelement location="${build.dir}/classes"/> <path refid="classpath.build" />
+      </classpath>
+    </java>
+  </target>
+
   <target name="test.compile" depends="compile"
           description="compile test source">
     <javac
