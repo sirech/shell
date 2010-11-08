@@ -60,7 +60,7 @@ for f in ${SHELL_DIR}/scripts/* ; do
 done
 
 # Activate directory logging
-if [ -n "${PS1_COPY}" ] && [ -f ${DIRLOGSDB} ] ; then
+if [ -n "${PS1_COPY}" ]; then
     export PROMPT_COMMAND="prompt_command"
 else
     export PROMPT_COMMAND=""
