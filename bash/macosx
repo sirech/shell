@@ -4,6 +4,13 @@
 # Mac OS X specific settings
 #
 
+## DEFUNS
+
+# Updates the title of the terminal window
+function change_title() {
+    echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
+}
+
 ## ENV
 if [ -z $BASH_COMPLETION ]
 then
@@ -12,6 +19,7 @@ fi
 
 export JAVA_HOME="/Library/Java/Home"
 export ANT_HOME="/usr/share/ant"
+export EXTRA_PROMPT_COMMAND=change_title
 
 ## ALIASES
 
