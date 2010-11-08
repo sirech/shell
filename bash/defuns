@@ -148,21 +148,6 @@ function separate() {
     eawk 'END { n = split($0, a, delimiter); for(i=1; i <= n; i++) { print a[i] } }' delimiter="${1:?No delimiter provided}"
 }
 
-# Logs directory access
-function prompt_command () {
-    if [ -f ${DIRLOGSDB} ]; then
-        local newdir
-
-        newdir=`pwd`
-        if [ ! "$LASTDIR" = "$newdir" ]; then
-            python ${PYTHON_FUNCS}/directory_log.py
-        fi
-
-        LASTDIR=$newdir
-        pwd > ${STORED_LASTDIR}
-    fi
-}
-
 # If called without arguments, presents a list of the most visited
 # directories, as well as a number for each of them. If an argument is
 # given, it changes to the directory identified by that number
@@ -336,4 +321,28 @@ function sync_remote_git () {
     git config branch.master.remote origin
     git config branch.master.merge refs/heads/master
     git push --all
+}
+
+## prompt_command
+
+# This function is executed each time that the current directory is
+# changed
+function prompt_command () {
+    # Log directory access
+    if [ -f ${DIRLOGSDB} ]; then
+        local newdir
+
+        newdir=`pwd`
+        if [ ! "$LASTDIR" = "$newdir" ]; then
+            python ${PYTHON_FUNCS}/directory_log.py
+        fi
+
+        LASTDIR=$newdir
+        pwd > ${STORED_LASTDIR}
+    fi
+
+    # Extra command
+    if [ -n ${EXTRA_PROMPT_COMMAND:+1} ]; then
+        ${EXTRA_PROMPT_COMMAND}
+    fi
 }
