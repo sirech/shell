@@ -301,7 +301,9 @@ function create_git_local() {
     cd $1
     git init
     touch .gitignore
-    echo '.DS_Store' > .gitignore
+    echo '.DS_Store' >> .gitignore
+    echo '*~' >> .gitignore
+    echo '#*#' >> .gitignore
     git add .gitignore
     git commit -m "setup"
 }
