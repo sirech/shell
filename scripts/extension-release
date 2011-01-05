@@ -129,7 +129,7 @@ function check_new_files () {
         if [ -f $file ] && [[ $file != *.min.js ]]; # Avoid already minified files
         then
             fileName=$(basename $file)
-            if [ -z $(grep "$fileName" ../.gitattributes) ] ; then
+            if [ -z "$(grep $fileName ../.gitattributes)" ] ; then
                 echo "ERROR: File ${fileName} has been newly added, and should be added to the ignore list. References to it should be updated to the minified version too"
                 exit 1
             fi

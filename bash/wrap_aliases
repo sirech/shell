@@ -49,7 +49,7 @@ function wrap_alias() {
 
   eval "
 function ${wrapper_name}() {
-  let COMP_CWORD+=$num_alias_arguments
+  ((COMP_CWORD+=$num_alias_arguments))
   args=( \"${alias_arguments}\" )
   COMP_WORDS=( $aliased_command \${args[@]} \${COMP_WORDS[@]:1} )
   $completion_function
