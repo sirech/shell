@@ -34,6 +34,9 @@ with a package manager (apt,macports,cygwin), and then by setting the
 _BASH\_COMPLETION_ environment variable. Default values are provided
 for each os.
 
+Additionally, completions are generated for every alias that allows
+so.
+
 For reference, here is the origin of some of the files:
 
 - (j)ruby, gem, rails, rake:
