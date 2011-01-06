@@ -23,6 +23,9 @@ ln -s ~/opt/Python/${PYTHON_VERSION}/bin/python ~/bin/python
 
 ## ALIASES
 
+# Disable perl regexps
+alias grep='grep'
+
 ## DEFUNS
 
 # Create a new remote git repository
