@@ -45,4 +45,9 @@ GIT_PS1_SHOWSTASHSTATE=1 #... if something is stashed($)
 GIT_PS1_SHOWUNTRACKEDFILES=1 #... untracked files(%)
 
 # Set prompt
-PS1="\[$txtgrn\]\u@\h:\w \$(__git_ps1 \" (%s)\")$ \[$txtrst\]"
+case "$USER" in
+    root) _c_user="\[$txtred\]" ;;
+    *) _c_user="\[$txtgrn\]" ;;
+esac
+
+PS1="$_c_user\u\[$bldgrn\]@\[$txtgrn\]\h\[$bldgrn\]:\[$txtcyn\]\w \[$txtylw\]\$(__git_ps1 \" (%s)\")\[$txtgrn\]$ \[$txtrst\]"
