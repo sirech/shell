@@ -1,0 +1,65 @@
+# -*- mode: Shell-script-*-
+#
+# Configuration file for git.
+#
+# Credit
+# - http://stackoverflow.com/questions/267761/what-does-your-gitconfig-contain
+# - Gary Bernhardt
+#
+# Author: Mario Fernandez
+
+[user]
+        name = Mario Fernandez
+        # Set up this manually, as the email can vary between machines
+        #email = username@mydomain.com
+
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        interactive = auto
+        ui = true
+        pager = true
+
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+
+[core]
+        pager = less -FRSX
+        whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[diff]
+        # Make diffs shorter when moving/copying files
+        rename = copy
+
+[alias]
+        # SVN-style abbreviations
+        st = status
+
+        ci = commit
+        amend = commit --amend
+
+        co = checkout
+
+        di = diff
+        dh = diff HEAD
+        dc = diff --cached
+
+        w = whatchanged
+        info = config --list
+        aa = add --all
+
+        lg = log --pretty='format:%C(3)%h%Creset %s %Cred%d%Creset' --graph

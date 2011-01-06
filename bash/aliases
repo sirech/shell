@@ -61,7 +61,7 @@ alias svnc='svn commit'
 alias svnd='svn_diff_tabbed'
 alias svnl='svn log -l 25 | less -F'
 
-## GIT
+## GIT (dependent on gitconfig)
 
 alias gs='git status'
 alias gc='git commit -v'
@@ -70,10 +70,11 @@ alias gp='git push -v'
 alias gu='git pull -v'
 alias gup='git pull -v && git push -v'
 alias ga='git add -v'
-alias gd='git diff --color'
+alias gd='git diff'
 alias gb='git branch -v'
 alias gba='git branch -v -a'
 alias gco='git checkout'
+alias gl='git log'
 
 ## Counting things
 
