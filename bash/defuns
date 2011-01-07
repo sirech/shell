@@ -24,7 +24,7 @@ function backup_wiki() {
     dropbox=`find ~/. -name Dropbox`
 
     ssh hceris remote_backup_wiki
-    scp hceris:~/wiki/*bckp*.zip ${dropbox}
+    scp hceris:~/wiki/*bckp*.zip ${dropbox}/backups
     ssh hceris rm wiki/*bckp*.zip
 }
 
@@ -36,11 +36,11 @@ function backup_config() {
 
     goemacs
     git_export_zip
-    mv *bckp*.zip ${dropbox}
+    mv *bckp*.zip ${dropbox}/backups
 
     goshell
     git_export_zip
-    mv *bckp*.zip ${dropbox}
+    mv *bckp*.zip ${dropbox}/backups
 }
 
 ## EXTENDED AWK
