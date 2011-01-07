@@ -181,12 +181,17 @@ function build_logging_db () {
 
 ## SVN
 
+# Calls svn, running the output through a colorizer script
+function svn_color() {
+    python ${PYTHON_FUNCS}/svn_color.py "$@"
+}
+
 # Reverts all the changed files (as returned by svn status)
 function svn_revert_all() {
     read -p "Revert all? [y/n] " -n 1
     if [ $REPLY = y ] || [ $REPLY = Y ]
     then
-        svn stat | awk '{print $2}' | xargs svn revert;
+        svn_color stat | awk '{print $2}' | xargs svn revert;
     else
         echo '\n'
     fi
@@ -194,7 +199,7 @@ function svn_revert_all() {
 
 # Shows the diff command, paging the output
 function svn_diff_tabbed() {
-    svn diff "$@" | less -rF
+    svn_color diff "$@" | less -RF
 }
 
 # Exports the given svn repository, or the current one if no argument

@@ -54,12 +54,12 @@ alias gor='go_recent'
 ## SVN
 
 alias svnr='svn_revert_all'
-alias svna='svn add'
-alias svns='svn status'
-alias svnu='svn update'
-alias svnc='svn commit'
+alias svna='svn_color add'
+alias svns='svn_color status'
+alias svnu='svn_color update'
+alias svnc='svn_color commit'
 alias svnd='svn_diff_tabbed'
-alias svnl='svn log -l 25 | less -F'
+alias svnl='svn_color log -l 25 | less -rF'
 
 ## GIT (dependent on gitconfig)
 
