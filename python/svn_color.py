@@ -20,7 +20,8 @@ colorizedSubcommands = (
     'status', 'st',
     'add',
     'remove', 'rm',
-    'diff', 'di'
+    'diff', 'di',
+    'log'
     )
 
 statusColors = {
@@ -28,6 +29,7 @@ statusColors = {
     "---"    : "1;33",     # yellow
     "\+\+\+" : "1;33",     # yellow
     "="      : "1;33",     # yellow
+    "r"      : "1;33",     # yellow
     "\+"     : "1;32",     # green
     "-"      : "1;31",     # red
     "@@"     : "1;35",      # purple
