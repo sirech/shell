@@ -48,7 +48,15 @@ For reference, here is the origin of some of the files:
 
 - (j)ruby, gem, rails, rake:
   [https://github.com/mernen/completion-ruby]()
-  
+
+### ACK
+
+_Very_ useful.
+
+* Mac OS X: `sudo port install p5-app-ack`
+
+* Linux: `apt-get install ack-grep`
+
 ## Structure
 
 the _bashrc_ file is where everything begins. It contains all the files
