@@ -143,6 +143,7 @@ if [ -z "$status" ]; then
 # if [ $status != 0 ]; then
     echo "Commiting minified files"
     check_new_files
+    git ls-files --other --exclude-standard | xargs git add
     git commit -a -q -m "Minified files for release ${version}"
 fi
 

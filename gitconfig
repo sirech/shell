@@ -62,5 +62,6 @@
         w = whatchanged
         info = config --list
         aa = add --all
+        au = !git add $(git ls-files -o --exclude-standard)
 
         lg = log --pretty='format:%C(3)%h%Creset %s %Cred%d%Creset' --graph

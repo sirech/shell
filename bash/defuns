@@ -330,6 +330,26 @@ function sync_remote_git () {
     git push --all
 }
 
+# Adds the git repository in the current directory to github
+function add_to_github () {
+
+    if [ ! -d .git ]; then
+        echo 'the given directory is not a svn repository'
+        exit 1
+    fi
+
+    local dirname
+    dirname=$(basename "$PWD")
+
+    if [[ $dirname != *.git ]]; then
+        echo 'the directory should end with .git'
+        exit 1
+    fi
+
+    git remote add public git@github.com:sirech/${dirname}
+    git push public master
+}
+
 ## prompt_command
 
 # This function is executed each time that the current directory is
