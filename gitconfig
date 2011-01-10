@@ -58,8 +58,9 @@
         di = diff
         dh = diff HEAD
         dc = diff --cached
-
         w = whatchanged
+        rdi = log --no-merges --stat @{1}..
+
         info = config --list
         aa = add --all
         au = !git add $(git ls-files -o --exclude-standard)
