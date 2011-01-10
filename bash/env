@@ -28,6 +28,10 @@ export STORED_LASTDIR=~/.lastdir
 # ack-grep config
 export ACKRC=${SHELL_DIR}/ackrc
 
+# var used for changing prompt based on success/error of previous
+# command
+export LAST_EXIT_CODE_FLAG=
+
 # [ -n "${VAR+x}" ] ## Fails if VAR is unset
 # [ -n "${VAR:+x}" ] ## Fails if VAR is unset or empty
 

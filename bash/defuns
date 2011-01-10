@@ -355,6 +355,13 @@ function add_to_github () {
 # This function is executed each time that the current directory is
 # changed
 function prompt_command () {
+    # Set flag based on exit of last command
+    if [ $? -ne 0 ]; then
+        LAST_EXIT_CODE_FLAG=1
+    else
+        LAST_EXIT_CODE_FLAG=
+    fi
+
     # Log directory access
     if [ -f ${DIRLOGSDB} ]; then
         local newdir
