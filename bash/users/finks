@@ -15,26 +15,11 @@ export PYTHONPATH=~/Documents/workspace/stuff/:${PYTHONPATH}
 # Closure compiler (for JavaScript)
 export CLOSURE_COMPILER=${WORKSPACE}/closure-compiler/compiler.jar
 
+# remote ssh background
+export REMOTE_BACKGROUND='change_profile Remote'
+export RESET_BACKGROUND='change_profile Pro'
 
 ## DEFUNS
-
-set_term_bgcolor() {
-    /usr/bin/osascript <<EOF
-tell application "Terminal" to set current settings of first window to settings set named "Remote"
-EOF
-}
-
-reset_term_bgcolor() {
-    /usr/bin/osascript <<EOF
-tell application "Terminal" to set current settings of first window to settings set named "Pro"
-EOF
-}
-
-ssh_color() {
-    set_term_bgcolor
-    ssh "$@"
-    reset_term_bgcolor
-}
 
 ## ALIASES
 
@@ -44,6 +29,3 @@ alias goalgs="cd ${WORKSPACE}/algorithms"
 alias gores="cd ${_DOCS}/resume"
 alias gocovers="cd ${_DOCS}/resume/covers-$(year)"
 alias gospace="cd $WORKSPACE"
-
-# ssh with color
-alias ssh="ssh_color"

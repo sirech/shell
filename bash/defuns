@@ -350,7 +350,31 @@ function add_to_github () {
     git push public master
 }
 
-## prompt_command
+## PROMPT_COMMAND
+
+# Updates the title of the terminal window
+function change_title() {
+    change_title_impl "${USER}@${HOSTNAME}: ${PWD/$HOME/~}"
+    # echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
+}
+
+function change_title_impl() {
+    echo -ne "\033]0;${1:?No name provided}\007"
+}
+
+# Use ssh changing the background/title of the window
+function ssh_custom() {
+    if [ -n ${REMOTE_BACKGROUND:+1} ]; then
+        ${REMOTE_BACKGROUND}
+    fi
+
+    change_title_impl "ssh:$1"
+    ssh "$@"
+
+    if [ -n ${RESET_BACKGROUND:+1} ]; then
+        ${RESET_BACKGROUND}
+    fi
+}
 
 # This function is executed each time that the current directory is
 # changed

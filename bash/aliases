@@ -27,6 +27,9 @@ alias gettags='ffe $1 | xargs etags -a -f TAGS'
 # unified diff
 alias udiff='diff -u'
 
+## SSH
+alias ssh='ssh_custom'
+
 ## SYSTEM INFO
 
 # current year

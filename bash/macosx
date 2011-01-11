@@ -6,9 +6,11 @@
 
 ## DEFUNS
 
-# Updates the title of the terminal window
-function change_title() {
-    echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
+# Changes the profile of the current Terminal window to the given one.
+function change_profile() {
+        /usr/bin/osascript <<EOF
+tell application "Terminal" to set current settings of first window to settings set named "${1:?No profile name provided}"
+EOF
 }
 
 ## ENV
