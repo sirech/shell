@@ -199,7 +199,7 @@ function svn_revert_all() {
 
 # Shows the diff command, paging the output
 function svn_diff_tabbed() {
-    svn_color diff "$@" | less -RF
+    svn_color diff "$@" | less -rXF
 }
 
 # Exports the given svn repository, or the current one if no argument
