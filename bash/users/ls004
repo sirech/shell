@@ -16,12 +16,64 @@ export TOMCAT_HOME_GUEST=/opt/guest-tomcat
 export TOMCAT_HOME_MEMBER=/opt/member-tomcat
 export PATH=${PATH}:${JRUBY_HOME}/bin:${JAVA_HOME}/bin:${ANT_HOME}/bin:${JMETER_HOME}/bin:${MONGODB_HOME}/bin
 
-export http_proxy=http://10.0.175.40:3128/ 
+export http_proxy=http://10.0.175.40:3128/
 export HTTP_PROXY=${http_proxy}
 
 export WORKSPACE=${HOME}/workspace
 
+
+## DEFUNS
+
+function ant_build() {
+    cd build
+    ant "$@"
+    cd ..
+}
+
+function publish_project() {
+
+    local jarFile
+    local oldJar
+
+    ant_build dist.publish
+
+    if [ -d dist ] ; then
+
+        jarFile=$(basename $(find dist/ -name *.jar))
+        echo $jarFile
+
+        for project in ../* ; do
+            oldJar=${project}/lib/${jarFile}
+            if [ -d ${project}/lib ] && [ -f "$oldJar" ]; then
+                cp dist/$jarFile $oldJar
+            fi
+        done
+
+    fi
+}
+
+function left_something_uncommited() {
+    local projects
+    local status
+
+    projects=( admin-r5 admin-r5-api datingr4backend datingr5 datingr5api datingr5guest shop shopapi )
+
+    cd $WORKSPACE
+
+    for project in "${projects[@]}" ; do
+        status=`svn status -q $project`
+        if [ -n "$status" ] ; then
+            echo "$project has something uncommitted"
+        fi
+    done
+
+
+}
 ## ALIASES
 
 # common dirs
 alias gospace="cd $WORKSPACE"
+
+# Workspace related
+alias pub='publish_project'
+alias left='left_something_uncommited'
