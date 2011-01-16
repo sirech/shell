@@ -65,4 +65,4 @@
         aa = add --all
         au = !git add $(git ls-files -o --exclude-standard)
 
-        lg = log --pretty='format:%C(3)%h%Creset %s %Cred%d%Creset' --graph
+        lg = log --pretty='format:%C(3)%h%Creset %Cblue%ad%Creset %s %Cred%d%Creset' --graph --date=short
