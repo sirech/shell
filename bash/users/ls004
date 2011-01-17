@@ -75,7 +75,7 @@ function update_every_project() {
 
     for project in "${PROJECTS[@]}" ; do
         echo "project: $project"
-        svn update $project
+        svnu $project
     done
 }
 

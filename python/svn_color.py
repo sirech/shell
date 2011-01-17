@@ -21,7 +21,8 @@ colorizedSubcommands = (
     'add',
     'remove', 'rm',
     'diff', 'di',
-    'log'
+    'log',
+    'update', 'up'
     )
 
 statusColors = {
@@ -39,7 +40,9 @@ statusColors = {
     "A"      : "33",     # yellow
     "X"      : "31",     # red
     "C"      : "30;41",  # black on red
-    "D"      : "31;1"   # bold red
+    "D"      : "31;1",   # bold red
+    "U"      : "32",     # green
+    "At revision"  : "1;33"     # yellow
 }
 
 def colorize(line):
