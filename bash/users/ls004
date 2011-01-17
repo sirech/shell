@@ -16,11 +16,12 @@ export TOMCAT_HOME_GUEST=/opt/guest-tomcat
 export TOMCAT_HOME_MEMBER=/opt/member-tomcat
 export PATH=${PATH}:${JRUBY_HOME}/bin:${JAVA_HOME}/bin:${ANT_HOME}/bin:${JMETER_HOME}/bin:${MONGODB_HOME}/bin
 
+export COMPUTERNAME=ls004
 export http_proxy=http://10.0.175.40:3128/
 export HTTP_PROXY=${http_proxy}
 
 export WORKSPACE=${HOME}/workspace
-
+export PROJECTS=( admin-r5 admin-r5-api datingr4backend datingr5 datingr5api datingr5guest shop shopapi )
 
 ## DEFUNS
 
@@ -53,22 +54,42 @@ function publish_project() {
 }
 
 function left_something_uncommited() {
-    local projects
     local status
-
-    projects=( admin-r5 admin-r5-api datingr4backend datingr5 datingr5api datingr5guest shop shopapi )
+    local project
 
     cd $WORKSPACE
 
-    for project in "${projects[@]}" ; do
+    for project in "${PROJECTS[@]}" ; do
         status=`svn status -q $project`
         if [ -n "$status" ] ; then
             echo "$project has something uncommitted"
         fi
     done
-
-
 }
+
+function update_every_project() {
+    local status
+    local project
+
+    cd $WORKSPACE
+
+    for project in "${PROJECTS[@]}" ; do
+        echo "project: $project"
+        svn update $project
+    done
+}
+
+function redeploy_app_to_local() {
+    cd ${TOMCAT_HOME_MEMBER}
+    sh bin/shutdown.sh
+    cd ${WORKSPACE}/datingr5
+    ant_build clean.web
+    ant_build build.web -Divy=no
+    cd ${TOMCAT_HOME_MEMBER}
+    sh bin/startup.sh
+    cd ${WORKSPACE}/datingr5
+}
+
 ## ALIASES
 
 # common dirs
@@ -76,4 +97,7 @@ alias gospace="cd $WORKSPACE"
 
 # Workspace related
 alias pub='publish_project'
+alias build='ant_build'
 alias left='left_something_uncommited'
+alias up='update_every_project'
+alias redeploy='redeploy_app_to_local'
