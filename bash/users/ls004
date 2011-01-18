@@ -57,7 +57,7 @@ function left_something_uncommited() {
     local status
     local project
 
-    cd $WORKSPACE
+    pushd $WORKSPACE > /dev/null
 
     for project in "${PROJECTS[@]}" ; do
         status=`svn status -q $project`
@@ -65,18 +65,22 @@ function left_something_uncommited() {
             echo "$project has something uncommitted"
         fi
     done
+
+    popd > /dev/null
 }
 
 function update_every_project() {
     local status
     local project
 
-    cd $WORKSPACE
+    pushd $WORKSPACE > /dev/null
 
     for project in "${PROJECTS[@]}" ; do
         echo "project: $project"
         svnu $project
     done
+
+    popd > /dev/null
 }
 
 function redeploy_app_to_local() {
@@ -98,6 +102,7 @@ alias gospace="cd $WORKSPACE"
 # Workspace related
 alias pub='publish_project'
 alias build='ant_build'
+alias lbuild='ant_build -f buildlocal.xml'
 alias left='left_something_uncommited'
 alias up='update_every_project'
 alias redeploy='redeploy_app_to_local'

@@ -15,3 +15,7 @@
 
 # Use "less -r" as my pager
 --pager=less -r
+
+# Ignore dirs with binary files
+--ignore-dir=build
+--ignore-dir=bin
