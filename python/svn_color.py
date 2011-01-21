@@ -34,14 +34,14 @@ statusColors = {
     "\+"     : "1;32",     # green
     "-"      : "1;31",     # red
     "@@"     : "1;35",      # purple
-    "M\b"      : "32",     # green
-    "\?\b"     : "36",     # cyan
-    "!\b"      : "37",     # grey
-    "A\b"      : "33",     # yellow
-    "X\b"      : "31",     # red
-    "C\b"      : "30;41",  # black on red
-    "D\b"      : "31;1",   # bold red
-    "U\b"      : "32",     # green
+    "M\s"      : "32",     # green
+    "\?\s"     : "36",     # cyan
+    "!\s"      : "37",     # grey
+    "A\s"      : "33",     # yellow
+    "X\s"      : "31",     # red
+    "C\s"      : "30;41",  # black on red
+    "D\s"      : "31;1",   # bold red
+    "U\s"      : "32",     # green
     "At revision"  : "1;33"     # yellow
 }
 
