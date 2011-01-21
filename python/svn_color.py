@@ -30,7 +30,7 @@ statusColors = {
     "---"    : "1;33",     # yellow
     "\+\+\+" : "1;33",     # yellow
     "="      : "1;33",     # yellow
-    "r"      : "1;33",     # yellow
+    "r\d+"      : "1;33",     # yellow
     "\+"     : "1;32",     # green
     "-"      : "1;31",     # red
     "@@"     : "1;35",      # purple

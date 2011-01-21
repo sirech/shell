@@ -21,7 +21,7 @@ export http_proxy=http://10.0.175.40:3128/
 export HTTP_PROXY=${http_proxy}
 
 export WORKSPACE=${HOME}/workspace
-export PROJECTS=( admin-r5 admin-r5-api datingr4backend datingr5 datingr5api datingr5guest shop shopapi )
+export PROJECTS=( admin-r5 admin-r5-api datingr4backend datingr5 datingr5api datingr5guest shop shopapi frsgeneric )
 
 ## DEFUNS
 
