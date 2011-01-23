@@ -8,7 +8,10 @@
 alias reload='source ~/.bashrc'
 
 # grep: use perl regexps
-alias grep='grep -P'
+alias grep='grep -P --color=always'
+
+# less: allow color
+alias less='less -r'
 
 # edit file with set editor
 alias edit="$EDITOR"
@@ -43,9 +46,6 @@ alias tm='top -o vsize' #memory
 
 # ls: display more info
 alias ls='ls -lh'
-
-# cat: paging
-alias catl='cat | less -F'
 
 # dir traversal
 alias ..='cd ..'

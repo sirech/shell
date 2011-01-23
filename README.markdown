@@ -17,12 +17,14 @@ the _.bashrc_ file.
 
 3. Link the _inputrc_ file with `ln -s ~/shell/inputrc ~/.inputrc`.
 
-4. Add settings for a specific machine by creating a file in the users
+4. Link the _vimrc_ file with `ln -s ~/shell/vimrc ~/.vimrc`.
+
+5. Add settings for a specific machine by creating a file in the users
 directory with the name returned by the _ehostname_ command. This file
 can contain specific settings, like aliases for the folders in the
 machine.
 
-5. Check if your os is included by looking for the result of `uname
+6. Check if your os is included by looking for the result of `uname
 -s` in the bashrc file. If your os is not there, create a file and
 link it from there.
 
