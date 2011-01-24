@@ -32,6 +32,9 @@ export ACKRC=${SHELL_DIR}/ackrc
 # command
 export LAST_EXIT_CODE_FLAG=
 
+# Use less as a pager
+export PAGER=less
+
 # [ -n "${VAR+x}" ] ## Fails if VAR is unset
 # [ -n "${VAR:+x}" ] ## Fails if VAR is unset or empty
 
