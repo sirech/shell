@@ -130,6 +130,16 @@ function find_in_directory_filename() {
     find_in_directory_counts $1 | cut -d \: -f 1
 }
 
+# Looks for the given class inside the jar files in the given
+# directory. Subdirs are also considered in the search for jar files.
+function find_class_in_jars() {
+
+    for i in `find . -name *.jar`; do
+        echo $i
+        jar -tvf $i | grep "${1:?No class name provided}"
+    done
+}
+
 # Surrounds every line in the input stream with the given delimiter,
 # ignoring empty lines
 function surround() {
