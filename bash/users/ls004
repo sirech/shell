@@ -22,7 +22,6 @@ export http_proxy=http://10.0.175.40:3128/
 export HTTP_PROXY=${http_proxy}
 
 export WORKSPACE=${HOME}/workspace
-export PROJECTS=( admin-r5 admin-r5-api datingr4backend datingr5 datingr5api datingr5guest datingshared datingsearch shop shopapi frsgeneric frsapi frsshared frstools PageController )
 
 ## DEFUNS
 
@@ -60,10 +59,12 @@ function left_something_uncommited() {
 
     pushd $WORKSPACE > /dev/null
 
-    for project in "${PROJECTS[@]}" ; do
-        status=`svn status -q $project`
-        if [ -n "$status" ] ; then
-            echo "$project has something uncommitted"
+    for project in * ; do
+        if [ -d ${project}/.svn ] && [ -n "$(grep 'svn://develop.internal.friendscout24.de/dev' ${project}/.svn/entries)" ] ; then
+            status=`svn status -q $project`
+            if [ -n "$status" ] ; then
+                echo "$project has something uncommitted"
+            fi
         fi
     done
 
@@ -76,9 +77,11 @@ function update_every_project() {
 
     pushd $WORKSPACE > /dev/null
 
-    for project in "${PROJECTS[@]}" ; do
-        echo "project: $project"
-        svnu $project
+    for project in * ; do
+        if [ -d ${project}/.svn ] && [ -n "$(grep 'svn://develop.internal.friendscout24.de/dev' ${project}/.svn/entries)" ] ; then
+            echo "project: $project"
+            svnu $project
+        fi
     done
 
     popd > /dev/null
