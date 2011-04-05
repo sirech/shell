@@ -51,8 +51,8 @@ if [ -n ${BASH_COMPLETION:+1} ] && [ -f $BASH_COMPLETION ]; then
         . $file
     done
     # TODO: find out why this hangs with some commands
-    # cfg_echo "Generating completion for aliases"
-    # . ${SHELL_DIR}/bash/wrap_aliases
+    cfg_echo "Generating completion for aliases"
+    . ${SHELL_DIR}/bash/wrap_aliases
 fi
 
 # Make sure scripts are executable
