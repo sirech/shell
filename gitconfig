@@ -46,23 +46,31 @@
         # Make diffs shorter when moving/copying files
         rename = copy
 
+# The abbreviations are based on SVN. Other useful commands are also
+# here
 [alias]
-        # SVN-style abbreviations
+
         st = status
 
-        ci = commit
+        # commit
+        ci = commit -v
+        ca = commit -v -a
         amend = commit --amend
 
+        # checkout
         co = checkout
 
+        # add
+        aa = add --all
+        au = !git add $(git ls-files -o --exclude-standard)
+
+        # diff
         di = diff
         dh = diff HEAD
         dc = diff --cached
         w = whatchanged
-        rdi = log --no-merges --stat @{1}..
 
         info = config --list
-        aa = add --all
-        au = !git add $(git ls-files -o --exclude-standard)
 
+        rdi = log --no-merges --stat @{1}..
         lg = log --pretty='format:%C(3)%h%Creset %Cblue%ad%Creset %s %Cred%d%Creset' --graph --date=short

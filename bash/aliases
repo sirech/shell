@@ -66,6 +66,7 @@ alias svnl='svn_color log -l 25 | less -rF'
 
 ## GIT (dependent on gitconfig)
 
+alias g='git'
 alias gs='git status'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
