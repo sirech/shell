@@ -1,2 +1,5 @@
 .DS_Store
 *.pyc
+
+# rvm completion is manually set up as a symlink
+bash/completion/rvm
