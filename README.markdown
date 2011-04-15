@@ -59,7 +59,9 @@ _Very_ useful.
 
 * Linux: `apt-get install ack-grep`
 
-### RVM
+### Ruby
+
+#### RVM
 
 Best option for _ruby_ hacking. To install it, follow these steps
 _exactly_.
@@ -81,7 +83,7 @@ lib`, where lib is each of these libraries.
 
 2. Install _ruby_ with `rvm install 1.9.2 --with-openssl-dir=$rvm_path/usr --with-zlib-dir=$rvm_path/usr --with-readline-dir=$rvm_path/usr`.
 
-3. Mark the version with `rvm use 1.9.2`.
+3. Mark the version with `rvm --default use 1.9.2`.
 
 (To test if this worked, `gem install bundler`. More info
 [https://rvm.beginrescueend.com/packages/zlib/]()).
@@ -90,6 +92,10 @@ It might happen that _readline_ does not work. If _irb_ gives a weird
 error, follow the instructions in this
 [http://stackoverflow.com/questions/4498919/problems-with-the-rails-console-rvm-and-readline](Stack
 Overflow post).)
+
+#### irb
+
+Follow the instructions in `irbrc/README.textile`.
 
 
 ## Structure
