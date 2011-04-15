@@ -344,7 +344,7 @@ function sync_remote_git () {
 function add_to_github () {
 
     if [ ! -d .git ]; then
-        echo 'the given directory is not a svn repository'
+        echo 'the given directory is not a git repository'
         exit 1
     fi
 
