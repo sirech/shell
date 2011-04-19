@@ -9,9 +9,6 @@
 export _DOCS=${HOME}/Documents
 export WORKSPACE=${_DOCS}/workspace
 
-# Python path
-export PYTHONPATH=~/Documents/workspace/stuff/:${PYTHONPATH}
-
 # Closure compiler (for JavaScript)
 export CLOSURE_COMPILER=${WORKSPACE}/closure-compiler/compiler.jar
 
