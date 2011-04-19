@@ -18,6 +18,7 @@ alias edit="$EDITOR"
 
 # python
 alias py='python'
+alias ip='ipython'
 
 # ruby
 alias rb='ruby'
