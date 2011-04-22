@@ -4,6 +4,10 @@
 # Settings for the machine 'finks'
 #
 
+## LOADING STUFF
+
+. ~/.rvm/scripts/rvm
+
 ## ENV
 
 export _DOCS=${HOME}/Documents
@@ -15,6 +19,8 @@ export CLOSURE_COMPILER=${WORKSPACE}/closure-compiler/compiler.jar
 # remote ssh background
 export REMOTE_BACKGROUND='change_profile Remote'
 export RESET_BACKGROUND='change_profile Pro'
+
+export RSENSE_HOME=/opt/rsense
 
 ## DEFUNS
 
