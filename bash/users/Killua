@@ -6,6 +6,7 @@
 
 ## ENV
 
+export PATH="${PATH}:${C}/Python27"
 export WINHOME="${C}/Users/Mario/AppData/Roaming"
 export EMACS_DIR="${WINHOME}/.emacs.d"
 
