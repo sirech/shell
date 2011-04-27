@@ -13,6 +13,8 @@ fi
 
 export C="/cygdrive/c"
 
+export EXTRA_PROMPT_COMMAND=change_title
+
 ## ALIASES
 
 # redefine ls
