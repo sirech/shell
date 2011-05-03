@@ -79,7 +79,8 @@ To install _ruby_ itself, follow this _exactly_. This applies for
 version 1.9.2:
 
 1. Install _zlib_, _openssl_, and _readline_ with `rvm package install
-lib`, where lib is each of these libraries.
+lib`, where lib is each of these libraries. Mac OS X might give some
+compilation error, but it doesn't seem to matter.
 
 2. Install _ruby_ with `rvm install 1.9.2 --with-openssl-dir=$rvm_path/usr --with-zlib-dir=$rvm_path/usr --with-readline-dir=$rvm_path/usr`.
 
