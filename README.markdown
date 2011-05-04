@@ -15,18 +15,28 @@ another directory, you will need to edit the __SHELL__ variable in bashrc.
 2. Add the line `. ~/shell/bashrc` (or equivalent value of __SHELL__) to
 the _.bashrc_ file.
 
-3. Link the _inputrc_ file with `ln -s ~/shell/inputrc ~/.inputrc`.
-
-4. Link the _vimrc_ file with `ln -s ~/shell/vimrc ~/.vimrc`.
-
-5. Add settings for a specific machine by creating a file in the users
+3. Add settings for a specific machine by creating a file in the users
 directory with the name returned by the _ehostname_ command. This file
 can contain specific settings, like aliases for the folders in the
 machine.
 
-6. Check if your os is included by looking for the result of `uname
+4. Check if your os is included by looking for the result of `uname
 -s` in the bashrc file. If your os is not there, create a file and
 link it from there.
+
+### Configuration files
+
+There are configuration files for some common programs. To use them,
+link them with something like:
+
+`ln -s ~/shell/progrc ~/.progrc`
+
+where _progrc_ is one of:
+
+ * ackrc
+ * inputrc
+ * screenrc
+ * vimrc
 
 ### Mac OS X
 
