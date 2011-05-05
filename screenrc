@@ -23,6 +23,14 @@ caption string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%
 # If hardstatus is set to alwayslastline, this gets ignored.
 termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 
+# Explanation:
+# [hostname] [ list of open windows ] [date time]
+
+# Colors: %{g} %{G} => green/bright green, same with (r)ed, (w)hite, (b)lue.
+# Windows:
+# Hostname: %H
+# Time: %Y-%m-%d => date in YYYY/mm/dd format; %c => HH:MM, 24h
+
 # hardstatus alwayslastline '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 
 # right status
