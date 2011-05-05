@@ -250,7 +250,7 @@ function ffs () {
     find . -type f -name "$@"'*' ;
 }
 # ffe: to find a file whose name ends with a given string
-ffe () {
+function ffe () {
     find . -type f -name '*'"$@" ;
 }
 
@@ -362,21 +362,50 @@ function add_to_github () {
 
 ## PROMPT_COMMAND
 
-# Updates the title of the terminal window
+# Updates the title of the terminal window with the given string. If
+# no argument is given, a default value is used.
+# Additionally, if the terminal is a screen terminal, the screen title
+# is changed too.
 function change_title() {
-    change_title_impl "${USER}@${HOSTNAME}: ${PWD/$HOME/~}"
+
+    local title
+    local screen_title
+
+    if [ $# -ne 0 ]; then
+        title="$1"
+    else
+        title="${USER}@${HOSTNAME}: ${PWD/$HOME/~}"
+    fi
+
+    if [ "$TERM" = "screen" ]; then
+        change_title_screen $1
+    fi
+
+    echo -ne "\033]0;$title\007"
 }
 
-function change_title_impl() {
-    echo -ne "\033]0;$@\007"
-}
-
-# Updates the title of the terminal window for screen
 function change_title_screen() {
     local title
-    title="${PWD/$HOME/~}"
+
+    if [ $# -ne 0 ]; then
+        title="$1"
+    else
+        title="${PWD/$HOME/~}"
+        if [ ${#title} -ge 20 ]; then
+            title=".../$(basename $PWD)"
+        fi
+    fi
+
     printf "\033k%s\033\\" "$title"
-    change_title
+}
+
+# Runs the given command, changing the title to the given string
+# during the duration of the command.
+# Usage: title command ...
+function run_with_title() {
+    change_title "$1"
+    shift
+    $@
 }
 
 # Use ssh changing the background/title of the window
@@ -385,8 +414,7 @@ function ssh_custom() {
         ${REMOTE_BACKGROUND}
     fi
 
-    change_title_impl "ssh:$1"
-    ssh "$@"
+    run_with_title "ssh:$1" ssh "$@"
 
     if [ -n ${RESET_BACKGROUND:+1} ]; then
         ${RESET_BACKGROUND}

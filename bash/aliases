@@ -18,10 +18,11 @@ alias edit="$EDITOR"
 
 # python
 alias py='python'
-alias ip='ipython'
+alias ip='run_with_title python ipython'
 
 # ruby
 alias rb='ruby'
+alias irb='run_with_title ruby irb'
 
 # tag generation
 alias pytags='gettags py'
