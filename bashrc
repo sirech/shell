@@ -35,6 +35,15 @@ case $(uname -s) in
     Linux ) . ${SHELL_DIR}/bash/linux ;;
 esac
 
+# Terminal-Specific settings
+cfg_echo "Loading settings for Terminal: $TERM"
+case $TERM in
+    screen|screen-w)
+        export EXTRA_PROMPT_COMMAND=change_title_screen ;;
+    xterm)
+        export EXTRA_PROMPT_COMMAND=change_title ;;
+esac
+
 # Machine-specific settings
 if [ -f ${SHELL_DIR}/bash/users/$(ehostname) ]; then
     cfg_echo "Loading settings for user: $(ehostname)"

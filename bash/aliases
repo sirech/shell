@@ -31,6 +31,10 @@ alias gettags='ffe $1 | xargs etags -a -f TAGS'
 # unified diff
 alias udiff='diff -u'
 
+## SCREEN
+# Rename window before entering screen
+alias screen='echo -ne "\[\033]0;${USER}@`hostname` > screen\007\]"; screen'
+
 ## SSH
 alias ssh='ssh_custom'
 

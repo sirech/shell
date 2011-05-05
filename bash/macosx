@@ -21,7 +21,6 @@ fi
 
 export JAVA_HOME="/Library/Java/Home"
 export ANT_HOME="/usr/share/ant"
-export EXTRA_PROMPT_COMMAND=change_title
 
 ## ALIASES
 

@@ -365,11 +365,18 @@ function add_to_github () {
 # Updates the title of the terminal window
 function change_title() {
     change_title_impl "${USER}@${HOSTNAME}: ${PWD/$HOME/~}"
-    # echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
 }
 
 function change_title_impl() {
-    echo -ne "\033]0;${1:?No name provided}\007"
+    echo -ne "\033]0;$@\007"
+}
+
+# Updates the title of the terminal window for screen
+function change_title_screen() {
+    local title
+    title="${PWD/$HOME/~}"
+    printf "\033k%s\033\\" "$title"
+    change_title
 }
 
 # Use ssh changing the background/title of the window

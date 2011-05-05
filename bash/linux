@@ -12,8 +12,6 @@ then
     export BASH_COMPLETION="/etc/bash_completion"
 fi
 
-export EXTRA_PROMPT_COMMAND=change_title
-
 ## ALIASES
 
 # redefine ls

@@ -6,15 +6,28 @@
 
 escape ^X^X
 
+# Allow scrolling back n lines
+defscrollback 15000
+
+# Encoding
+defutf8 on
+
 # Skip the startup message
 startup_message off
 
-# Display a caption string below, appearing like tabs and
-# displaying the window number and application name (by default).
-# caption always
-# caption string "%{kw}%-w%{wr}%n %t%{-}%+w"
+# Use caption instead of hardstatus to allow updates to the xterm title
+caption always
+caption string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 
-hardstatus alwayslastline
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+# Allow screen to change xterm title.
+# If hardstatus is set to alwayslastline, this gets ignored.
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 
+# hardstatus alwayslastline '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+
+# right status
+# white on blue.
+# red highlight
+# hostname MM/dd hh:mm am/pm
+# hardstatus alwayslastline "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "
 
