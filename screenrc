@@ -17,7 +17,7 @@ startup_message off
 
 # Use caption instead of hardstatus to allow updates to the xterm title
 caption always
-caption string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+caption string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-w%?%{r}(%{W}%n %t%?(%u)%?%{r})%{w}%?%+w%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 
 # Allow screen to change xterm title.
 # If hardstatus is set to alwayslastline, this gets ignored.
