@@ -1,3 +1,9 @@
+Host *
+     TCPKeepAlive yes
+     ServerAliveInterval 15
+     ServerAliveCountMax 6
+     Compression yes
+
 Host hceris
      HostName hiwatt.dreamhost.com
      User sirech            
