@@ -9,11 +9,12 @@ Bash is available on most systems, so you will probably only need to
 configure your own system. It should work as well on older versions of
 bash.
 
-1. Check out this directory and put it in _~/shell_. If you want to use
-another directory, you will need to edit the __SHELL__ variable in bashrc.
+1. Check out this directory and put it in _~/shell_. If you want to
+use another directory, you will need to edit the __SHELL_DIR__
+variable in bashrc.
 
-2. Add the line `. ~/shell/bashrc` (or equivalent value of __SHELL__) to
-the _.bashrc_ file.
+2. Add the line `. ~/shell/bashrc` (or equivalent value of
+__SHELL_DIR__) to the _.bashrc_ file.
 
 3. Add settings for a specific machine by creating a file in the users
 directory with the name returned by the _ehostname_ command. This file
@@ -202,14 +203,6 @@ Note that if the url of the repository is written as something like
 _https://user@github.com..._ (as github recommends), the _.netrc_
 configuration may be ignored. This can be fixed by removing the user@
 part from the url.
-
-## Project initialization
-
-### JAVA
-
-There is also code to create new java projects, with some build and
-project files (for ant/jdee, respectively).
-
 
 ## Directory logging
 
