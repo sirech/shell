@@ -34,7 +34,6 @@ link them with something like:
 
 where _progrc_ is one of:
 
- * ackrc
  * inputrc
  * screenrc
  * vimrc
@@ -69,6 +68,8 @@ _Very_ useful.
 * Mac OS X: `sudo port install p5-app-ack`
 
 * Linux: `apt-get install ack-grep`
+
+The configuration file is automatically loaded.
 
 ### Ruby
 
