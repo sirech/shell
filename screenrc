@@ -39,3 +39,14 @@ termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 # hostname MM/dd hh:mm am/pm
 # hardstatus alwayslastline "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "
 
+## BINDINGS
+
+bind s split
+bind S split -v
+
+bind x remove
+
+bindkey -k k1 help
+bindkey -k k2 select
+bindkey -k k3 prev
+bindkey -k k4 next
