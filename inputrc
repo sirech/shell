@@ -3,3 +3,9 @@
 # Input settings, should be linked to ~/.inputrc to work.
 
 set completion-ignore-case on
+
+# Don't ring the bell in case of multiple completions
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+set skip-completed-text on
