@@ -6,6 +6,8 @@
 #
 # Gets the absolute path of the given directory, or of the parent
 # directory if the argument is a file
+#
+# NOTE: this is equivalent to readlink -f
 
 path="$1"
 
