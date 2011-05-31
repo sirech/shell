@@ -6,8 +6,9 @@
 
 ## ENV
 
-export PATH=~/bin:$PATH
-export GIT_PATH=~/git.hceris.com
+# Ruby: Deploy Rails app via Capistrano
+export GEM_HOME=~/.gems/
+export GEM_PATH=$GEM_HOME:/usr/lib/ruby/gems/1.8
 
 # Python
 export PYTHON_VERSION=2.7
@@ -16,6 +17,10 @@ export DJANGO_SRC=~/opt/django_src
 export PATH=${PYDIR}/bin:$PATH:${DJANGO_SRC}/django/bin
 export PYTHONPATH=${DJANGO_SRC}:~/projects/django
 export DJANGO_SETTINGS_MODULE=myproject.settings
+
+export GIT_PATH=~/git.hceris.com
+
+export PATH=~/bin:~/.gems/bin:$PATH
 
 # Synch ~/bin/python with current version
 rm ~/bin/python
