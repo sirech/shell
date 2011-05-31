@@ -4,6 +4,10 @@
 # Settings for the machine 'hiwatt'
 #
 
+## LOADING STUFF
+
+. ~/.rvm/scripts/rvm
+
 ## ENV
 
 export PATH=~/bin:$PATH
