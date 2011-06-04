@@ -13,6 +13,7 @@ tell application "Terminal" to set current settings of first window to settings 
 EOF
 }
 
+
 ## ENV
 if [ -z $BASH_COMPLETION ]
 then
@@ -21,6 +22,11 @@ fi
 
 export JAVA_HOME="/Library/Java/Home"
 export ANT_HOME="/usr/share/ant"
+
+# Use colors than can actually be seen
+export CLICOLOR=1
+export LSCOLORS=DxGxcxdxCxegedabagacad
+
 
 ## ALIASES
 
