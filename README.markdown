@@ -38,6 +38,10 @@ where _progrc_ is one of:
  * screenrc
  * vimrc
 
+additionally, there is a config for `tmux` that needs another symlink:
+
+`ln -s ~/shell/tmux.conf ~/.tmux.conf`
+
 ### Mac OS X
 
 1. To use _emacsclient_ properly, don't use the version that ships
