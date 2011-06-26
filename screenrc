@@ -46,6 +46,7 @@ bind s split
 bind S split -v
 bind x remove
 bind o focus
+bind O focus up
 
 # Use Function keys
 bindkey -k k1 help
