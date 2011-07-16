@@ -27,10 +27,24 @@ fi
 
 alias reload='source ~/.zshrc'
 
-source ${SHELL_DIR}/zshrc/activate-customizations
+# Don't source directly, but schedule by symlinking to OMZ custom
+# folder. Prefix is built to ensure load order
+function schedule_load () {
 
+    if [ $# -ne 2 ]; then
+        cfg_echo 'usage: prefix source'
+        exit 1
+    fi
 
+    prefix=$1
+    source=$2
+    target=$(basename $source)
+    ln -f -s $source $ZSH/custom/$prefix$target
+}
 
+source ${SHELL_DIR}/zshrc/activate-customizations ${SHELL_DIR}/zshrc
+source ${SHELL_DIR}/zshrc/activate-os-config ${SHELL_DIR}/zshrc
+# source ${SHELL_DIR}/zshrc/activate-machine-config ${SHELL_DIR}/zshrc
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -58,4 +72,4 @@ plugins=(git macports osx)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+unfunction cfg_echo
