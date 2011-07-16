@@ -1,0 +1,9 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+#
+# ff
+# Author: Mario Fernandez
+#
+# Find a file in the current directory
+find . -type f -name "$@"
+
