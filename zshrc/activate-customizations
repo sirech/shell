@@ -1,0 +1,4 @@
+# -*- mode: Shell-script-*-
+for config_file ($SHELL_DIR/zshrc/config/*.zsh); do
+    ln -f -s $config_file $ZSH/custom
+done

@@ -1,0 +1,61 @@
+# -*- mode: Shell-script-*-
+
+# Don't allow echo in non-interactive terminals
+PS1_COPY=${PS1}
+function cfg_echo () {
+    if [ -n "${PS1_COPY}" ]; then
+        command echo $@
+    fi
+}
+
+# Change this variable to the path of the folder that contains the
+# zsh directory.
+SHELL_DIR="${HOME}/shell"
+
+if [ ! -d ${SHELL_DIR} ] ; then
+    cfg_echo "Directory ${SHELL_DIR} does not exist"
+    exit 1
+fi
+
+# Change this variable to the path of the folder where oh-my-zsh is located.
+export ZSH=~/.oh-my-zsh
+
+if [ ! -d ${ZSH} ] ; then
+    cfg_echo "Directory ${ZSH} does not exist"
+    exit 1
+fi
+
+alias reload='source ~/.zshrc'
+
+source ${SHELL_DIR}/zshrc/activate-customizations
+
+
+
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+export ZSH_THEME="lukerandall"
+
+# Set to this to use case-sensitive completion
+# export CASE_SENSITIVE="true"
+
+# Comment this out to disable weekly auto-update checks
+# export DISABLE_AUTO_UPDATE="true"
+
+# Uncomment following line if you want to disable colors in ls
+# export DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# export DISABLE_AUTO_TITLE="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Example format: plugins=(rails git textmate ruby lighthouse)
+
+
+plugins=(git macports osx)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...

@@ -7,6 +7,10 @@ extensions for shell work.
 
 See `bashrc/README.markdown`.
 
+## ZSH
+
+See `zshrc/README.markdown`.
+
 ## Dot files
 
 There are configuration files for some common programs. To use them,
