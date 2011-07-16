@@ -1,0 +1,18 @@
+# -*- mode: Shell-script-*-
+
+#
+# Schedule for loading OS-specific settings
+#
+
+basedir=$1
+
+cfg_echo "Loading settings for OS: $(uname -s)"
+case $(uname -s) in
+    Darwin ) os_file=macosx.zsh ;;
+    CYGWIN_NT* ) os_file=cygwin.zsh ;;
+    Linux ) os_file=linux.zsh ;;
+esac
+
+if [ -n "${os_file}" ]; then
+    schedule_load 'L01_' $basedir/os/$os_file
+fi
