@@ -31,9 +31,9 @@ fi
 # OS-specific settings
 cfg_echo "Loading settings for OS: $(uname -s)"
 case $(uname -s) in
-    Darwin ) . ${SHELL_DIR}/bashrc/macosx ;;
-    CYGWIN_NT* ) . ${SHELL_DIR}/bashrc/cygwin ;;
-    Linux ) . ${SHELL_DIR}/bashrc/linux ;;
+    Darwin ) . ${SHELL_DIR}/bashrc/os/macosx ;;
+    CYGWIN_NT* ) . ${SHELL_DIR}/bashrc/os/cygwin ;;
+    Linux ) . ${SHELL_DIR}/bashrc/os/linux ;;
 esac
 
 # Terminal-Specific settings

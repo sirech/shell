@@ -62,7 +62,7 @@ The functionality is separated across the following files and folders:
 
 Also:
 
-* macosx|cygwin|linux: Settings for specific operating systems.
+* os (macosx|cygwin|linux): Folder with settings for specific operating systems.
 * users : Folder with settings for specific machines.
 * completion: Folder with completion files for specific programs.
 
