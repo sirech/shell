@@ -1,7 +1,7 @@
 # Shell config
 
-This project provides a set of defaults for bash, as well as custom
-settings for each OS/Machine.
+This project provides a set of defaults, configuration files and
+extensions for shell work.
 
 ## Installation
 
@@ -35,6 +35,7 @@ link them with something like:
 where _progrc_ is one of:
 
  * inputrc
+ * ackrc
  * screenrc
  * vimrc
 
