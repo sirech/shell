@@ -2,7 +2,7 @@
 #
 # Base file, that loads all the other settings.
 # This file can be loaded from the .bashrc file with something like this:
-#      . (PATH_TO_FOLDER_OF_THIS_FILE)/bashrc
+#      . (PATH_TO_FOLDER_OF_THIS_FILE)/bash.sh
 #
 # Author: Mario Fernandez
 
@@ -14,7 +14,8 @@ function cfg_echo () {
     fi
 }
 
-# Change this variable to the path of the folder that contains the bashrc file.
+# Change this variable to the path of the folder that contains the
+# bash directory.
 SHELL_DIR="${HOME}/shell"
 
 if [ ! -d ${SHELL_DIR} ] ; then
@@ -22,17 +23,17 @@ if [ ! -d ${SHELL_DIR} ] ; then
     exit 1
 fi
 
-. ${SHELL_DIR}/bash/env
-. ${SHELL_DIR}/bash/config
-. ${SHELL_DIR}/bash/defuns
-. ${SHELL_DIR}/bash/aliases
+. ${SHELL_DIR}/bashrc/env
+. ${SHELL_DIR}/bashrc/config
+. ${SHELL_DIR}/bashrc/defuns
+. ${SHELL_DIR}/bashrc/aliases
 
 # OS-specific settings
 cfg_echo "Loading settings for OS: $(uname -s)"
 case $(uname -s) in
-    Darwin ) . ${SHELL_DIR}/bash/macosx ;;
-    CYGWIN_NT* ) . ${SHELL_DIR}/bash/cygwin ;;
-    Linux ) . ${SHELL_DIR}/bash/linux ;;
+    Darwin ) . ${SHELL_DIR}/bashrc/macosx ;;
+    CYGWIN_NT* ) . ${SHELL_DIR}/bashrc/cygwin ;;
+    Linux ) . ${SHELL_DIR}/bashrc/linux ;;
 esac
 
 # Terminal-Specific settings
@@ -44,23 +45,23 @@ case $TERM in
 esac
 
 # Machine-specific settings
-if [ -f ${SHELL_DIR}/bash/users/$(ehostname) ]; then
+if [ -f ${SHELL_DIR}/bashrc/users/$(ehostname) ]; then
     cfg_echo "Loading settings for user: $(ehostname)"
-    . ${SHELL_DIR}/bash/users/$(ehostname)
+    . ${SHELL_DIR}/bashrc/users/$(ehostname)
 fi
 
 # Load bash-completion
 if [ -n ${BASH_COMPLETION:+1} ] && [ -f $BASH_COMPLETION ]; then
     cfg_echo "Loading bash completion file"
     . $BASH_COMPLETION
-    for file in ${SHELL_DIR}/bash/completion/*
+    for file in ${SHELL_DIR}/bashrc/completion/*
     do
         cfg_echo "Loading completion file: $file"
         . $file
     done
     # TODO: find out why this hangs with some commands
     cfg_echo "Generating completion for aliases"
-    . ${SHELL_DIR}/bash/wrap_aliases
+    . ${SHELL_DIR}/bashrc/wrap_aliases
 fi
 
 # Make sure scripts are executable
