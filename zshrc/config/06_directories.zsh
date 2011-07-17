@@ -41,6 +41,23 @@ function go_to_directory () {
     fi
 }
 
+# This function is executed each time that the current directory is
+# changed
+function chpwd () {
+    # Log directory access
+    if [ -f ${DIRLOGSDB} ]; then
+        local newdir
+
+        newdir=`pwd`
+        if [ ! "$LASTDIR" = "$newdir" ]; then
+            python ${PYTHON_FUNCS}/directory_log.py
+        fi
+
+        LASTDIR=$newdir
+        pwd > ${STORED_LASTDIR}
+    fi
+}
+
 # Builds the directory database
 function build_logging_db () {
     python ${PYTHON_FUNCS}/directory_build.py

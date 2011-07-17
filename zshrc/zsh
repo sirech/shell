@@ -74,4 +74,9 @@ source $ZSH/oh-my-zsh.sh
 unset plugins
 unfunction cfg_echo schedule_load load_old_plugin
 
+# Go to the last directory
+if [ -d ${STORED_LASTDIR} ]; then
+    cd $(cat ${STORED_LASTDIR})
+fi
+
 

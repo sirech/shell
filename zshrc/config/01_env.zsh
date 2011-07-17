@@ -16,3 +16,8 @@ export EMACS_DIR="${HOME}/.emacs.d"
 # Folders with libraries for some languages
 export AWK_FUNCS=${SHELL_DIR}/awk/lib
 export PYTHON_FUNCS=${SHELL_DIR}/python
+
+# Log directory access variables
+export DIRLOGSDB=~/.dirlogsdb
+export LASTDIR=/
+export STORED_LASTDIR=~/.lastdir
