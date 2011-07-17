@@ -49,12 +49,11 @@ function chpwd () {
         local newdir
 
         newdir=`pwd`
-        if [ ! "$LASTDIR" = "$newdir" ]; then
+        if [ ! "$LASTDIR" = "x$newdir" ]; then
             python ${PYTHON_FUNCS}/directory_log.py
         fi
 
-        LASTDIR=$newdir
-        pwd > ${STORED_LASTDIR}
+        LASTDIR=x$newdir
     fi
 }
 
