@@ -3,6 +3,8 @@
 # File functions to navigate to directories
 #
 
+## FUNCTIONS
+
 # Goes to the directory that contains the emacs config
 function goemacs() {
     cd -P ${EMACS_DIR}
@@ -44,7 +46,23 @@ function build_logging_db () {
     python ${PYTHON_FUNCS}/directory_build.py
 }
 
+# Counts the sum of the lines for the files with the given extension
+function count_lines_in_files() {
+    find . -name "*.${1:?No extension provided}" -exec wc -l '{}' \; | awk '{ sum += $1 } END { print sum }'
+}
 
-# Aliases
+# Looks for the given class inside the jar files in the given
+# directory. Subdirs are also considered in the search for jar files.
+function find_class_in_jars() {
+
+    for i in `find . -name *.jar`; do
+        echo $i
+        jar -tvf $i | grep "${1:?No class name provided}"
+    done
+}
+
+
+## ALIASES
+
 alias go='go_frequency'
 alias gor='go_recent'
