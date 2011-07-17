@@ -6,7 +6,10 @@
 #
 
 # Link plugins
-md $ZSH/custom/plugins
+if [ ! -d $ZSH/custom/plugins ]; then
+    mkdir $ZSH/custom/plugins
+fi
+
 for plugin ($1/plugins/*); do
     if [ -d $plugin ] && [ -f $plugin/$(basename $plugin).plugin.zsh ]; then
         schedule_load '' $plugin
@@ -16,12 +19,17 @@ done
 # Activate plugins
 
 # Plugins that refer to an executable
-desired=(ant awk bundler cap git grep lein rvm svn)
-for plugin in $desired; do
-    if which -a $plugin > /dev/null; then
-        plugins+=($plugin)
-    fi
-done
+desired=(ant awk git grep lein svn)
+
+    for plugin in $desired; do
+        if which -a $plugin > /dev/null; then
+            plugins+=($plugin)
+        fi
+    done
+
+# RVM stuff
+plugins+=(bundler cap rails3 rvm)
+
 
 
 
