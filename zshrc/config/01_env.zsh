@@ -20,4 +20,3 @@ export PYTHON_FUNCS=${SHELL_DIR}/python
 # Log directory access variables
 export DIRLOGSDB=~/.dirlogsdb
 export LASTDIR=/
-export STORED_LASTDIR=~/.lastdir
