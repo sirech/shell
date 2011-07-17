@@ -6,9 +6,14 @@
 
 cfg_echo "Loading settings for OS: $(uname -s)"
 case $(uname -s) in
-    Darwin ) os_file=macosx.zsh ;;
+    Darwin )
+        os_file=macosx.zsh
+        plugins+=(macports osx) ;;
     CYGWIN_NT* ) os_file=cygwin.zsh ;;
-    Linux ) os_file=linux.zsh ;;
+    Linux )
+        os_file=linux.zsh
+        plugins+=(debian)
+        ;;
 esac
 
 if [ -n "${os_file}" ]; then

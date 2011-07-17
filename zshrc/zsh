@@ -68,9 +68,10 @@ source ${SHELL_DIR}/zshrc/activate-machine-config ${SHELL_DIR}/zshrc
 source ${SHELL_DIR}/zshrc/activate-plugins ${SHELL_DIR}/zshrc
 
 export ZSH_THEME="lukerandall"
-plugins=(git svn macports osx awk grep)
+cfg_echo "Plugins to load: $plugins"
 source $ZSH/oh-my-zsh.sh
 
+unset plugins
 unfunction cfg_echo schedule_load load_old_plugin
 
 

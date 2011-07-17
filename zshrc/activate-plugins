@@ -1,12 +1,27 @@
 # -*- mode: Shell-script-*-
 
 #
-# Schedule loading of the plugins in the plugin folder
+# Schedule loading of the plugins in the plugin folder, and add
+# plugins to load to the list
 #
 
+# Link plugins
 md $ZSH/custom/plugins
 for plugin ($1/plugins/*); do
     if [ -d $plugin ] && [ -f $plugin/$(basename $plugin).plugin.zsh ]; then
         schedule_load '' $plugin
     fi
 done
+
+# Activate plugins
+
+# Plugins that refer to an executable
+desired=(ant awk bundler cap git grep lein rvm svn)
+for plugin in $desired; do
+    if which -a $plugin > /dev/null; then
+        plugins+=($plugin)
+    fi
+done
+
+
+

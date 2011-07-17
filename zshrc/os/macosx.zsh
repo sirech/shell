@@ -29,8 +29,3 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 # cleanup DS_Store files in the current directory
 alias dsclean='find . -name ".DS_Store" | xargs rm'
 
-# MacPorts
-alias port='sudo port'
-
-# redefine ls
-alias ls='ls -lhG'
