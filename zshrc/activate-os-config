@@ -4,8 +4,6 @@
 # Schedule for loading OS-specific settings
 #
 
-basedir=$1
-
 cfg_echo "Loading settings for OS: $(uname -s)"
 case $(uname -s) in
     Darwin ) os_file=macosx.zsh ;;
@@ -14,5 +12,5 @@ case $(uname -s) in
 esac
 
 if [ -n "${os_file}" ]; then
-    schedule_load 'L01_' $basedir/os/$os_file
+    schedule_load 'L01_' $1/os/$os_file
 fi

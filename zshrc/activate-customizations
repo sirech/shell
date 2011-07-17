@@ -1,11 +1,9 @@
 # -*- mode: Shell-script-*-
 
 #
-# Schedule for loading the customizations in the config folder
+# Schedule loading of the customizations in the config folder
 #
 
-basedir=$1
-
-for config_file ($basedir/config/*.zsh); do
+for config_file ($1/config/*.zsh); do
     schedule_load F $config_file
 done
