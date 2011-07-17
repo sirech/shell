@@ -31,6 +31,12 @@ alias reload='source ~/.zshrc'
 # folder. Prefix is built to ensure load order
 function schedule_load () {
 
+    local prefix
+    local source
+    local target
+    local dir
+    local dest
+
     if [ $# -ne 2 ]; then
         cfg_echo 'usage: prefix source'
         exit 1
@@ -45,7 +51,11 @@ function schedule_load () {
         dir=custom/plugins
     fi
 
-    ln -f -s $source $ZSH/$dir/$prefix$target
+    dest=$ZSH/$dir/$prefix$target
+    if [ ! -h "$dest" ]; then
+        ln -f -s $source $dest
+    fi
+
 }
 
 function load_old_plugin {
@@ -58,7 +68,7 @@ source ${SHELL_DIR}/zshrc/activate-machine-config ${SHELL_DIR}/zshrc
 source ${SHELL_DIR}/zshrc/activate-plugins ${SHELL_DIR}/zshrc
 
 export ZSH_THEME="lukerandall"
-plugins=(git macports osx)
+plugins=(git svn macports osx)
 source $ZSH/oh-my-zsh.sh
 
 unfunction cfg_echo schedule_load load_old_plugin
