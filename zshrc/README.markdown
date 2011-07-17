@@ -51,7 +51,7 @@ _custom_ folder in __OMZ__, so that they will be loaded with it. A
 prefix is appended to the symlink to ensure a concrete loading
 order. The folders are loaded in the order:
 
-config > os > machine
+config > os > machine > plugins
 
 Inside each folder, the order can be specified by providing a
 numerical prefix, like 01_first.zsh, 02_second.zsh, ...
@@ -68,4 +68,11 @@ Configuration specific to each operating system.
 ### Machine
 
 Configuration for a machine with a name like the file name.
+
+### Plugins
+
+Plugins in the _plugins_ folder are linked to _custom/plugins_. They
+are not loaded by default, just if they are included in the list of
+plugins. Be sure to follow the conventions for them (e.g a plugin for
+git would have a folder named git, with a file git.plugin.zsh inside).
 
