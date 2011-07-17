@@ -177,17 +177,6 @@ function svn_color() {
     python ${PYTHON_FUNCS}/svn_color.py "$@"
 }
 
-# Reverts all the changed files (as returned by svn status)
-function svn_revert_all() {
-    read -p "Revert all? [y/n] " -n 1
-    if [ $REPLY = y ] || [ $REPLY = Y ]
-    then
-        svn_color stat | awk '{print $2}' | xargs svn revert;
-    else
-        echo '\n'
-    fi
-}
-
 # Shows the diff command, paging the output
 function svn_diff_tabbed() {
     svn_color diff -x -b "$@" | less -rXF
