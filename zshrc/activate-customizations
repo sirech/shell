@@ -1,0 +1,9 @@
+# -*- mode: Shell-script-*-
+
+#
+# Schedule loading of the customizations in the config folder
+#
+
+for config_file ($1/config/*.zsh); do
+    schedule_load F $config_file
+done

@@ -1,0 +1,75 @@
+# -*- mode: Shell-script-*-
+
+# Don't allow echo in non-interactive terminals
+PS1_COPY=${PS1}
+function cfg_echo () {
+    if [ -n "${PS1_COPY}" ]; then
+        command echo $@
+    fi
+}
+
+# Change this variable to the path of the folder that contains the
+# zsh directory.
+SHELL_DIR="${HOME}/shell"
+
+if [ ! -d ${SHELL_DIR} ] ; then
+    cfg_echo "Directory ${SHELL_DIR} does not exist"
+    exit 1
+fi
+
+# Change this variable to the path of the folder where oh-my-zsh is located.
+export ZSH=~/.oh-my-zsh
+
+if [ ! -d ${ZSH} ] ; then
+    cfg_echo "Directory ${ZSH} does not exist"
+    exit 1
+fi
+
+alias reload='source ~/.zshrc'
+
+# Don't source directly, but schedule by symlinking to OMZ custom
+# folder. Prefix is built to ensure load order
+function schedule_load () {
+
+    local prefix
+    local source
+    local target
+    local dir
+    local dest
+
+    if [ $# -ne 2 ]; then
+        cfg_echo 'usage: prefix source'
+        exit 1
+    fi
+
+    prefix=$1
+    source=$2
+    target=$(basename $source)
+    dir=custom
+
+    if [ -d $source ]; then
+        dir=custom/plugins
+    fi
+
+    dest=$ZSH/$dir/$prefix$target
+    if [ ! -h "$dest" ]; then
+        ln -f -s $source $dest
+    fi
+
+}
+
+function load_old_plugin {
+    source ${(S)1##custom/}
+}
+
+source ${SHELL_DIR}/zshrc/activate-customizations ${SHELL_DIR}/zshrc
+source ${SHELL_DIR}/zshrc/activate-os-config ${SHELL_DIR}/zshrc
+source ${SHELL_DIR}/zshrc/activate-machine-config ${SHELL_DIR}/zshrc
+source ${SHELL_DIR}/zshrc/activate-plugins ${SHELL_DIR}/zshrc
+
+export ZSH_THEME="sirech"
+cfg_echo "Plugins to load: $plugins"
+source $ZSH/oh-my-zsh.sh
+
+unset plugins
+unfunction cfg_echo schedule_load load_old_plugin

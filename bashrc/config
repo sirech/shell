@@ -50,4 +50,4 @@ case "$USER" in
     *) _c_user="\[$txtgrn\]" ;;
 esac
 
-PS1="$_c_user\u\[$bldgrn\]@\[$txtgrn\]\h\[$bldgrn\]:\[$txtcyn\]\w \[$txtylw\]\$(__git_ps1 \" (%s)\")\[$txtgrn\]\${LAST_EXIT_CODE_FLAG:+\[$txtred\]}\$ \[$txtrst\]"
+PS1="$_c_user\u\[$bldgrn\]@\[$txtgrn\]\h\[$bldgrn\] \[$txtcyn\]\w \[$txtylw\]\$(__git_ps1 \"(%s)\")\[$txtgrn\]\${LAST_EXIT_CODE_FLAG:+\[$txtred\]}\$ \[$txtrst\]"

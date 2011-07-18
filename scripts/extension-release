@@ -47,7 +47,7 @@ if [ -z ${WORKSPACE:+1} ]; then
     exit 1
 fi
 
-directory=${WORKSPACE}/extensions/$extension.git
+directory=${WORKSPACE}/extensions/$extension
 
 if [ ! -d $directory ]; then
     echo 'ERROR: the given extension does not exist'

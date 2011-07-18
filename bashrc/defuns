@@ -35,11 +35,11 @@ function backup_config() {
     dropbox=`find ~/. -name Dropbox`
 
     goemacs
-    git_export_zip
+    git-export-zip
     mv *bckp*.zip ${dropbox}/backups
 
     goshell
-    git_export_zip
+    git-export-zip
     mv *bckp*.zip ${dropbox}/backups
 }
 
@@ -111,25 +111,6 @@ function count_lines_in_files() {
     find . -name "*.${1:?No extension provided}" -exec wc -l '{}' \; | awk '{ sum += $1 } END { print sum }'
 }
 
-# Looks for the given string inside the contents of all the files in the current directory
-function find_in_directory() {
-    find . | xargs grep -s -i "${1:?No search string provided}" | grep -v '\.svn'
-}
-
-# Looks for the given string inside the contents of all the files in
-# the current directory. Prints the number of matches in each file
-# (omitting files with zero results)
-function find_in_directory_counts() {
-    find . | xargs grep -s -i -c "${1:?No search string provided}" | grep -v '\.svn|:0$'
-}
-
-# Looks for the given string inside the contents of all the files in
-# the current directory. Prints the names of the files with at least
-# one match
-function find_in_directory_filename() {
-    find_in_directory_counts $1 | cut -d \: -f 1
-}
-
 # Looks for the given class inside the jar files in the given
 # directory. Subdirs are also considered in the search for jar files.
 function find_class_in_jars() {
@@ -196,89 +177,12 @@ function svn_color() {
     python ${PYTHON_FUNCS}/svn_color.py "$@"
 }
 
-# Reverts all the changed files (as returned by svn status)
-function svn_revert_all() {
-    read -p "Revert all? [y/n] " -n 1
-    if [ $REPLY = y ] || [ $REPLY = Y ]
-    then
-        svn_color stat | awk '{print $2}' | xargs svn revert;
-    else
-        echo '\n'
-    fi
-}
-
 # Shows the diff command, paging the output
 function svn_diff_tabbed() {
     svn_color diff -x -b "$@" | less -rXF
 }
 
-# Exports the given svn repository, or the current one if no argument
-# is given, to a zip file. The current date is included in the
-# filename.
-function svn_export_zip() {
-
-    if [ -n "$1" ]; then
-        if [ ! -d "$1" ]; then
-            echo 'the given argument is not a directory'
-            exit 1
-        fi
-        cd -P "$1"
-    fi
-
-    if [ ! -d .svn ]; then
-        echo 'the given directory is not a svn repository'
-        exit 1
-    fi
-
-    local dirname
-
-    dirname=$(basename "$PWD")
-    svn export . /tmp/${dirname}
-    zip -r ${dirname}-bckp-$(date +%Y-%m-%d).zip /tmp/${dirname}
-    rm -Rf /tmp/${dirname}
-}
-
-## SEARCH
-# Credit to: http://hayne.net/MacDev/Bash/aliases.bash
-
-# ff:  to find a file under the current directory
-function ff() {
-    find . -type f -name "$@" ;
-}
-# ffs: to find a file whose name starts with a given string
-function ffs () {
-    find . -type f -name "$@"'*' ;
-}
-# ffe: to find a file whose name ends with a given string
-function ffe () {
-    find . -type f -name '*'"$@" ;
-}
-
 ## GIT
-
-# Exports the given git repository, or the current one if no argument
-# is given, to a zip file. The current date is included in the
-# filename. By default, the master branch is selected.
-function git_export_zip() {
-
-    if [ -n "$1" ]; then
-        if [ ! -d "$1" ]; then
-            echo 'the given argument is not a directory'
-            exit 1
-        fi
-        cd -P "$1"
-    fi
-
-    if [ ! -d .git ]; then
-        echo 'the given directory is not a svn repository'
-        exit 1
-    fi
-
-    local dirname
-
-    dirname=$(basename "$PWD")
-    git archive --format=zip --output ${dirname}-bckp-$(date +%Y-%m-%d).zip master
-}
 
 # Create local repo, synchronize with remote one
 function newgit() {

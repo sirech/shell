@@ -1,0 +1,8 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+#
+# ff
+# Author: Mario Fernandez
+#
+# Find a file whose name starts with the given string
+find . -type f -name "$@"'*'

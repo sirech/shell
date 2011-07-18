@@ -1,0 +1,116 @@
+# -*- mode: Shell-script-*-
+
+#
+# Settings for the machine 'ls004'
+#
+
+## LOADING STUFF
+
+. ~/.rvm/scripts/rvm
+
+## ENV
+
+export JAVA_HOME=/opt/jdk
+export ANT_HOME=/opt/ant
+export MAVEN_HOME=/opt/maven
+export MONGODB_HOME=/opt/mongodb
+export JACORB_HOME=/opt/jacorb
+export JMETER_HOME=/opt/jmeter/jakarta-jmeter-2.4
+export TOMCAT_HOME_GUEST=/opt/guest-tomcat
+export TOMCAT_HOME_MEMBER=/opt/member-tomcat
+export RSENSE_HOME=/opt/rsense
+export PATH=${PATH}:${JAVA_HOME}/bin:${ANT_HOME}/bin:${JMETER_HOME}/bin:${MONGODB_HOME}/bin:${MAVEN_HOME}/bin
+
+export COMPUTERNAME=ls004
+export http_proxy=http://10.0.175.40:3128/
+export HTTP_PROXY=${http_proxy}
+
+export WORKSPACE=${HOME}/workspace
+
+## DEFUNS
+
+function ant_build() {
+    cd build
+    ant "$@"
+    cd ..
+}
+
+function publish_project() {
+
+    local jarFile
+    local oldJar
+
+    ant_build dist.publish
+
+    if [ -d dist ] ; then
+
+        jarFile=$(basename $(find dist/ -name *.jar))
+        echo $jarFile
+
+        for project in ../* ; do
+            oldJar=${project}/lib/${jarFile}
+            if [ -d ${project}/lib ] && [ -f "$oldJar" ]; then
+                cp dist/$jarFile $oldJar
+            fi
+        done
+
+    fi
+}
+
+function left_something_uncommited() {
+    local status
+    local project
+
+    pushd $WORKSPACE > /dev/null
+
+    for project in * ; do
+        if [ -d ${project}/.svn ] && [ -n "$(grep 'svn://develop.internal.friendscout24.de/dev' ${project}/.svn/entries)" ] ; then
+            status=`svn status -q $project`
+            if [ -n "$status" ] ; then
+                echo "$project has something uncommitted"
+            fi
+        fi
+    done
+
+    popd > /dev/null
+}
+
+function update_every_project() {
+    local status
+    local project
+
+    pushd $WORKSPACE > /dev/null
+
+    for project in * ; do
+        if [ -d ${project}/.svn ] && [ -n "$(grep 'svn://develop.internal.friendscout24.de/dev' ${project}/.svn/entries)" ] ; then
+            echo "project: $project"
+            svnu $project
+        fi
+    done
+
+    popd > /dev/null
+}
+
+function redeploy_app_to_local() {
+    cd ${TOMCAT_HOME_MEMBER}
+    sh bin/shutdown.sh
+    cd ${WORKSPACE}/datingr5
+    ant_build clean.web
+    ant_build build.web -Divy=no
+    cd ${TOMCAT_HOME_MEMBER}
+    sh bin/startup.sh
+    cd ${WORKSPACE}/datingr5
+}
+
+## ALIASES
+
+# common dirs
+alias gospace="cd $WORKSPACE"
+
+# Workspace related
+alias pub='publish_project'
+alias build='ant_build'
+alias lbuild='ant_build -f buildlocal.xml'
+alias left='left_something_uncommited'
+alias up='update_every_project'
+alias redeploy='redeploy_app_to_local'

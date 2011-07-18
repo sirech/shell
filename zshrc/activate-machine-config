@@ -1,0 +1,15 @@
+# -*- mode: Shell-script-*-
+
+#
+# Schedule loading of machine-specific settings
+#
+
+# get a nice hostname
+function ehostname () {
+    hostname | cut -d "." -f 1
+}
+
+if [ -f $1/machines/$(ehostname).zsh ]; then
+    cfg_echo "Loading settings for machine: $(ehostname)"
+    schedule_load 'S01_' $1/machines/$(ehostname).zsh
+fi

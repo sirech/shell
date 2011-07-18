@@ -2,4 +2,4 @@
 *.pyc
 
 # rvm completion is manually set up as a symlink
-bash/completion/rvm
+bashrc/completion/rvm
