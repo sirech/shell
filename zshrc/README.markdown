@@ -28,10 +28,9 @@ Run: `chsh -s /bin/zsh`
 
 ### Oh-my-zsh
 
-This configuration requires the __Oh-my-zsh__. Clone it from:
+This configuration requires __Oh-my-zsh__. Clone it from:
 
-* `git clone https://github.com/robbyrussell/oh-my-zsh.git` for the
-* original
+* `git clone https://github.com/robbyrussell/oh-my-zsh.git` for the original
 * `git clone git@github.com:sirech/shell.git` for my modified version
 
 Then set the _ZSH_ enviroment variable in the _zsh_ file to the folder
