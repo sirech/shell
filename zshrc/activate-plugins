@@ -19,7 +19,7 @@ done
 # Activate plugins
 
 # Plugins that refer to an executable
-desired=(ant awk git grep lein play svn)
+desired=(ant awk git grep lein svn)
 
     for plugin in $desired; do
         if which -a $plugin > /dev/null; then
@@ -29,6 +29,9 @@ desired=(ant awk git grep lein play svn)
 
 # RVM stuff
 plugins+=(bundler cap rails3 rvm)
+
+# Play
+plugins+=(play)
 
 
 
