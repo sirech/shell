@@ -36,6 +36,13 @@ This configuration requires __Oh-my-zsh__. Clone it from:
 Then set the _ZSH_ enviroment variable in the _zsh_ file to the folder
 where you cloned the project.
 
+### Zsh-Completions
+
+The [Zsh-Completions](https://github.com/zsh-users/zsh-completions) is
+included as a submodule. It is necessary to initialize it with `git
+submodule init`. To fetch the latest version, use `git submodule
+update`.
+
 ## Structure
 
 This configuration tries to leverage existing functionality from
