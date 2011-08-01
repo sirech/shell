@@ -30,8 +30,8 @@ desired=(ant awk git grep lein svn)
 # RVM stuff
 plugins+=(bundler cap rails3 rvm)
 
-# Play
-plugins+=(play)
+# Useful plugins
+plugins+=(extract history-substring-search)
 
 
 

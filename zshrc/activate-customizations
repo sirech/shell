@@ -1,5 +1,8 @@
 # -*- mode: Shell-script-*-
 
+# Load extra completion files
+fpath=(${SHELL_DIR}/zshrc/completions $fpath)
+
 #
 # Schedule loading of the customizations in the config folder
 #
