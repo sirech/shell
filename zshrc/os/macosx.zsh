@@ -8,11 +8,10 @@
 
 # Changes the profile of the current Terminal window to the given one.
 function change_profile() {
-        /usr/bin/osascript <<EOF
-tell application "Terminal" to set current settings of first window to settings set named "${1:?No profile name provided}"
+    /usr/bin/osascript <<EOF
+    tell application "Terminal" to set current settings of first window to settings set named "${1:?No profile name provided}"
 EOF
 }
-
 
 ## ENV
 
@@ -29,3 +28,5 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 # cleanup DS_Store files in the current directory
 alias dsclean='find . -name ".DS_Store" | xargs rm'
 
+# Use native Tk to launch gitk
+alias gitk="/usr/bin/wish $(which gitk)"
