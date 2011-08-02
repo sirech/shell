@@ -61,7 +61,7 @@ if [ ! -d $js ]; then
     exit 1
 fi
 
-if ! command_available git minifyjs; then
+if ! type git > /dev/null || ! type minifyjs > /dev/null ; then
     echo 'ERROR: Not all required commands can be found'
     exit 1
 fi
