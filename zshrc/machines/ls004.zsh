@@ -59,15 +59,13 @@ function publish_project() {
 }
 
 function left_something_uncommited() {
-    local status
     local project
 
     pushd $WORKSPACE > /dev/null
 
     for project in * ; do
         if [ -d ${project}/.svn ] && [ -n "$(grep 'svn://develop.internal.friendscout24.de/dev' ${project}/.svn/entries)" ] ; then
-            status=`svn status -q $project`
-            if [ -n "$status" ] ; then
+            if [ -n "$(svn status -q $project)" ] ; then
                 echo "$project has something uncommitted"
             fi
         fi
@@ -77,7 +75,6 @@ function left_something_uncommited() {
 }
 
 function update_every_project() {
-    local status
     local project
 
     pushd $WORKSPACE > /dev/null
