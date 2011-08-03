@@ -14,7 +14,7 @@ function svn_diff_tabbed() {
 
 # Aliases
 
-alias svnr='svn_revert_all'
+alias svnr='svn-revert-all'
 alias svna='svn_color add'
 alias svns='svn_color status'
 alias svnu='svn_color update'
