@@ -38,3 +38,6 @@ alias port='sudo port'
 
 # redefine ls
 alias ls='ls -lhG'
+
+# Use native Tk to launch gitk
+alias gitk="/usr/bin/wish $(which gitk)"
