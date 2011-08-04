@@ -1,3 +1,0 @@
-[submodule "zshrc/completions"]
-	path = zshrc/completions
-	url = https://github.com/sirech/zsh-completions
