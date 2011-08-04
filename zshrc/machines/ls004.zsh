@@ -99,6 +99,11 @@ function redeploy_app_to_local() {
     ant_build clean.web
     ant_build build.web -Divy=no
     cd ${TOMCAT_HOME_MEMBER}
+
+    if [ -f log4j.xml ]; then
+        cp log4j.xml webapps/ROOT/WEB-INF/classes
+    fi
+    
     sh bin/startup.sh
     cd ${WORKSPACE}/datingr5
 }
