@@ -31,7 +31,7 @@ Run: `chsh -s /bin/zsh`
 This configuration requires __Oh-my-zsh__. Clone it from:
 
 * `git clone https://github.com/robbyrussell/oh-my-zsh.git` for the original
-* `git clone git@github.com:sirech/shell.git` for my modified version
+* `git clone git@github.com:sirech/oh-my-zsh.git` for my modified version
 
 Then set the _ZSH_ enviroment variable in the _zsh_ file to the folder
 where you cloned the project.
