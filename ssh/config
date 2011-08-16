@@ -4,6 +4,12 @@ Host *
      ServerAliveCountMax 6
      Compression yes
 
+     # Reuse connections to the same host
+     ControlMaster auto
+     ControlPath /tmp/ssh_mux_%h_%p_%r
+
+     GSSAPIAuthentication no
+
 Host hceris
      HostName hiwatt.dreamhost.com
      User sirech            
