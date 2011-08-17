@@ -13,6 +13,12 @@ function change_profile() {
 EOF
 }
 
+# Launch gitk with using native widgets
+function nice_gitk() {
+    /usr/bin/wish /opt/local/bin/gitk
+}
+
+
 ## ENV
 
 export JAVA_HOME="/Library/Java/Home"
@@ -29,4 +35,5 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 alias dsclean='find . -name ".DS_Store" | xargs rm'
 
 # Use native Tk to launch gitk
-alias gitk="/usr/bin/wish $(which gitk)"
+alias gitk="nice_gitk"
+compdef _git nice_gitk=git-log
