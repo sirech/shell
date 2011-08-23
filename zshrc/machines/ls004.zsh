@@ -117,3 +117,6 @@ alias lbuild='ant_build -f buildlocal.xml'
 alias left='left_something_uncommited'
 alias up='update_every_project'
 alias redeploy='redeploy_app_to_local'
+
+# ACK That ignores build directories
+alias a='ack-grep --ignore-dir=build --ignore-dir=bin'
