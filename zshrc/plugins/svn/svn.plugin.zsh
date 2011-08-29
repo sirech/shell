@@ -6,6 +6,7 @@ load_old_plugin $0
 function svn_color() {
     python ${PYTHON_FUNCS}/svn_color.py "$@"
 }
+compdef _svn svn_color=svn
 
 # Shows the diff command, paging the output
 function svn_diff_tabbed() {
