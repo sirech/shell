@@ -3,3 +3,6 @@
 
 # rvm completion is manually set up as a symlink
 bashrc/completion/rvm
+
+# completions is an external repository
+zshrc/completions
