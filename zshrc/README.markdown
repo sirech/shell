@@ -31,17 +31,16 @@ Run: `chsh -s /bin/zsh`
 This configuration requires __Oh-my-zsh__. Clone it from:
 
 * `git clone https://github.com/robbyrussell/oh-my-zsh.git` for the original
-* `git clone git@github.com:sirech/oh-my-zsh.git` for my modified version
+* `git clone git@github.com:sirech/oh-my-zsh.git` for my modified
+  version. Make sure to use the _devel_ branch to get the latest changes.
 
 Then set the _ZSH_ enviroment variable in the _zsh_ file to the folder
 where you cloned the project.
 
 ### Zsh-Completions
 
-The [Zsh-Completions](https://github.com/zsh-users/zsh-completions) is
-included as a submodule. It is necessary to initialize it with `git
-submodule init`. To fetch the latest version, use `git submodule
-update`.
+The [Zsh-Completions](https://github.com/zsh-users/zsh-completions)
+should be checked out under _~/shell/zshrc/completions
 
 ## Structure
 
@@ -82,3 +81,15 @@ are not loaded by default, just if they are included in the list of
 plugins. Be sure to follow the conventions for them (e.g a plugin for
 git would have a folder named git, with a file git.plugin.zsh inside).
 
+## Updating to the last version
+
+Given the dependencies of this configuration, simply checking out the
+last version of this repository is not enough. The following steps
+should be followed:
+
+1. Pulling the last version of this repository
+2. Pulling the last version of _zsh-completions_, in the completions folder.
+3. Pulling the last version of _Oh-my-zsh_. In case that you are in
+   the _devel_ branch, do this:
+
+`switch to master > pull from the original omz > merge changes back to devel`   
