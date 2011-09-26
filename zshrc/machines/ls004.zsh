@@ -20,6 +20,8 @@ export TOMCAT_HOME_GUEST=/opt/guest-tomcat
 export TOMCAT_HOME_MEMBER=/opt/member-tomcat
 export RSENSE_HOME=/opt/rsense
 
+export JAVA_OPTS="$JAVA_OPTS -Djava.endorsed.dirs=$JACORB_HOME/lib"
+
 path=($path ${JAVA_HOME}/bin ${ANT_HOME}/bin ${JMETER_HOME}/bin ${MONGODB_HOME}/bin ${MAVEN_HOME}/bin /opt/play)
 
 export COMPUTERNAME=ls004
