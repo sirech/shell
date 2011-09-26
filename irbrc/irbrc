@@ -1,32 +1,92 @@
+# -*- mode: ruby -*-
 # Credit to https://github.com/logankoester/irbrc/blob/master/irbrc
 
+#
+# REQUIRE's
+#
+
+# Require library, catching possible exceptions. A block can be passed
+# for initialization
+#
+# Credit to http://stackoverflow.com/questions/123494/whats-your-favourite-irb-trick
+def desire(what, &block)
+  loaded, require_result = false, nil
+
+  begin
+    require_result = require what
+    loaded = true
+
+  rescue Exception => ex
+    puts "** Unable to require '#{what}'"
+    puts "--> #{ex.class}: #{ex.message}"
+  end
+
+  yield if loaded and block_given?
+
+  require_result
+end
+
 # Make gems available
-require 'rubygems'
+desire 'rubygems'
 
 # http://drnicutilities.rubyforge.org/map_by_method/
-require 'map_by_method'
+desire 'map_by_method'
 
 # Dr Nic's gem inspired by
 # http://redhanded.hobix.com/inspect/stickItInYourIrbrcMethodfinder.html
-require 'what_methods'
+desire 'what_methods'
 
 # Pretty Print method
-require 'pp'
+desire 'pp'
 
 # Awesome Print gem (gem install awesome_print)
-require 'ap'
+desire 'ap'
 
 # Print information about any HTTP requests being made
-require 'net-http-spy'
+desire 'net-http-spy'
 
 # Draw ASCII tables
-require 'hirb'
-require 'hirb/import_object'
-Hirb.enable
-extend Hirb::Console
+desire 'hirb'
+desire 'hirb/import_object' do
+  Hirb.enable
+  extend Hirb::Console
+end
 
 # 'lp' to show method lookup path
-require 'looksee/shortcuts'
+desire 'looksee/shortcuts'
+
+# Tab Completion
+desire 'irb/completion'
+
+# Save History between irb sessions
+desire('irb/ext/save-history') do
+  IRB.conf[:SAVE_HISTORY] = 100
+  IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+end
+
+# Wirble is a set of enhancements for irb
+# http://pablotron.org/software/wirble/README
+# Implies require 'pp', 'irb/completion', and 'rubygems'
+desire('wirble') do
+  Wirble.init
+  # Enable colored output
+  Wirble.colorize
+end
+
+# http://sketches.rubyforge.org/
+desire('sketches') do
+  Sketches.config :editor => 'vim'
+end
+
+# Bond (Bash-like tab completion)
+desire('bond') do
+  Bond.start
+end
+
+
+#
+# ENV
+#
 
 # Load the readline module.
 IRB.conf[:USE_READLINE] = true
@@ -34,25 +94,13 @@ IRB.conf[:USE_READLINE] = true
 # Remove the annoying irb(main):001:0 and replace with >>
 IRB.conf[:PROMPT_MODE]  = :SIMPLE
 
-# Tab Completion
-require 'irb/completion'
-
 # Automatic Indentation
 IRB.conf[:AUTO_INDENT]=true
 
-# Save History between irb sessions
-require 'irb/ext/save-history'
-IRB.conf[:SAVE_HISTORY] = 100
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 
-# Wirble is a set of enhancements for irb
-# http://pablotron.org/software/wirble/README
-# Implies require 'pp', 'irb/completion', and 'rubygems'
-require 'wirble'
-Wirble.init
-
-# Enable colored output
-Wirble.colorize
+#
+# DEFUNS
+#
 
 # Clear the screen
 def clear
@@ -133,18 +181,14 @@ class Object
   end
 end
 
-# http://sketches.rubyforge.org/
-require 'sketches'
-Sketches.config :editor => 'vim'
-
-# Bond (Bash-like tab completion)
-require 'bond'
-Bond.start
-
 # Quick way to run just a few specific lines from a file
 def eval_lines(fn, lines)
   eval( File.readlines(fn)[lines].join)
 end
+
+#
+# RAILS
+#
 
 # Credit to http://quotedprintable.com/2007/9/13/my-irbrc
 # Just for Rails...
