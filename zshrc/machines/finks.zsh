@@ -18,8 +18,6 @@ export CLOSURE_COMPILER=${WORKSPACE}/closure-compiler/compiler.jar
 
 export RSENSE_HOME=/opt/rsense
 
-path=($path /opt/play)
-
 ## DEFUNS
 
 ## ALIASES

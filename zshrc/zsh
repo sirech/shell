@@ -10,7 +10,7 @@ function cfg_echo () {
 
 # Change this variable to the path of the folder that contains the
 # zsh directory.
-SHELL_DIR="${HOME}/shell"
+export SHELL_DIR="${HOME}/shell"
 
 if [ ! -d ${SHELL_DIR} ] ; then
     cfg_echo "Directory ${SHELL_DIR} does not exist"
