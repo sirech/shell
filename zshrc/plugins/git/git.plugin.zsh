@@ -73,12 +73,7 @@ function add_to_github () {
     local dirname
     dirname=$(basename "$PWD")
 
-    if [[ $dirname != *.git ]]; then
-        echo 'the directory should end with .git'
-        exit 1
-    fi
-
-    git remote add public git@github.com:sirech/${dirname}
+    git remote add public git@github.com:sirech/${dirname}.git
     git push public master
 }
 
