@@ -40,7 +40,7 @@ where you cloned the project.
 ### Zsh-Completions
 
 The [Zsh-Completions](https://github.com/zsh-users/zsh-completions)
-should be checked out under _~/shell/zshrc/completions
+should be checked out under _~/shell/zshrc/completions_
 
 ## Structure
 
