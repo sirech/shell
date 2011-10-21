@@ -69,6 +69,7 @@ source ${SHELL_DIR}/zshrc/activate-plugins ${SHELL_DIR}/zshrc
 
 export ZSH_THEME="sirech"
 cfg_echo "Plugins to load: $plugins"
+export DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
 unset plugins
