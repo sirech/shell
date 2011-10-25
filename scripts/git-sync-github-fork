@@ -1,0 +1,58 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+
+# git-sync-github-fork
+# Author: Mario Fernandez
+#
+# Synchronizes the given github fork with the original.
+#
+# The following assumptions are made:
+#
+# - The original repo is available as a remote under the 'remote'
+# variable.
+# - The master branch can be fast-forwarded with the content of the
+# main branch of the source.
+# - There is a branch where changes are integrated, under the 'devel'
+# variable.
+#
+# The master branch is synchronized with the latest changes in the
+# source repo. This changes are merged to the development branch, and
+# both branches are pushed to origin.
+#
+# By using this setup, the master is always compatible with the source
+# repository, and thus any feature branch created from master can be
+# used for a clean pull request, without unnecessary merge commits.
+
+devel=devel
+remote=source
+
+if [ -n "$1" ]; then
+    if [ ! -d "$1" ]; then
+        echo 'the given argument is not a directory'
+        exit 1
+    fi
+    cd -P "$1"
+fi
+
+if [ ! -d .git ]; then
+    echo 'the given directory is not a svn repository'
+    exit 1
+fi
+
+status=`git status | awk '/^nothing to commit/'`
+if [ -z "$status" ]; then
+    echo "ERROR: There are pending changes"
+    exit 1
+fi
+
+git checkout -q master
+changes=`git fetch $remote`
+if [ -z "$changes" ]; then
+    echo 'there are no changes to synchronize'
+    exit 1
+fi
+
+git merge $remote/master
+git checkout -q $devel
+git merge master
+git push origin
