@@ -5,6 +5,7 @@
 # Credit
 # - http://stackoverflow.com/questions/267761/what-does-your-gitconfig-contain
 # - Gary Bernhardt
+# - http://yanpritzker.com/git-book/
 #
 # Author: Mario Fernandez
 
@@ -46,6 +47,11 @@
         # Make diffs shorter when moving/copying files
         rename = copy
 
+[merge]
+        summary = true
+[gc]
+        auto = 1
+
 # The abbreviations are based on SVN. Other useful commands are also
 # here
 [alias]
@@ -59,6 +65,9 @@
 
         # checkout
         co = checkout
+
+        # cherry pick
+        cp = cherry-pick -x
 
         # add
         aa = add --all
@@ -97,3 +106,4 @@
 
         # revert
         unstage = reset HEAD
+        uncommit = reset --soft HEAD^
