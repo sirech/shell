@@ -25,8 +25,11 @@ export JAVA_OPTS="$JAVA_OPTS -Djava.endorsed.dirs=$JACORB_HOME/lib"
 path=($path ${JAVA_HOME}/bin ${ANT_HOME}/bin ${JMETER_HOME}/bin ${MONGODB_HOME}/bin ${MAVEN_HOME}/bin /opt/play)
 
 export COMPUTERNAME=ls004
-export http_proxy=http://10.0.175.40:3128/
+export PROXY_HOST=10.0.175.40
+export PROXY_PORT=3128
+export http_proxy=http://$PROXY_HOST:$PROXY_PORT/
 export HTTP_PROXY=${http_proxy}
+export GIT_PROXY_COMMAND=git-proxy-cmd
 
 export WORKSPACE=${HOME}/workspace
 
@@ -102,9 +105,17 @@ function redeploy_app_to_local() {
     if [ -f log4j.xml ]; then
         cp log4j.xml webapps/ROOT/WEB-INF/classes
     fi
-    
+
     sh bin/startup.sh
     cd ${WORKSPACE}/datingr5
+}
+
+function smart_ssh() {
+    if [[ "$@" =~ intqm ]] && [[ ! "$@" =~ intqmbuild01 ]] ; then
+        ssh -t intqmbuild01 ssh -t $@
+    else
+        ssh $@
+    fi
 }
 
 ## ALIASES
@@ -122,3 +133,7 @@ alias redeploy='redeploy_app_to_local'
 
 # ACK That ignores build directories
 alias a='ack-grep --ignore-dir=build --ignore-dir=bin'
+
+# Remap ssh
+alias ssh='smart_ssh'
+compdef _ssh smart_ssh=ssh
