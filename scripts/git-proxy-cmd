@@ -1,0 +1,14 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+#
+# git-proxy-cmd
+# Author: Mario Fernandez
+#
+# Credit to http://twopenguins.org/tips/git-through-proxy.php
+#
+# Connects to a git repo using a git:// URL through a proxy.
+#
+# Requirements:
+# - netcat-openbsd: Usually there already, can be installed via apt otherwise
+# - PROXY_HOST should be defined as an environment variable with the data for the proxy to use.
+nc -x$PROXY_HOST:1080 -X5 $*
