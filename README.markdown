@@ -26,6 +26,14 @@ where _progrc_ is one of:
  * tmux.conf (link to .tmux.conf instead)
  * vimrc
 
+## Extra scripts
+
+There are some executables in the scripts folder. The easiest way to
+make them available is to link this folder to `~/bin`, with something
+like:
+
+`ln -s ~/shell/scripts ~/bin`
+
 ## SSH
 
 You can add ssh profiles in the ssh/config file. You'll need to link

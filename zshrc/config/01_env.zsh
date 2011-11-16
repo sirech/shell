@@ -4,7 +4,7 @@
 #
 
 # Common path
-path=(/usr/local/bin /opt/local/bin $path ${SHELL_DIR}/scripts)
+path=(/usr/local/bin /opt/local/bin $path ~/bin)
 manpath=($manpath /opt/local/share/man)
 infopath=($infopath /opt/local/share/info)
 

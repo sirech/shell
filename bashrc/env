@@ -8,7 +8,7 @@ export ALTERNATE_EDITOR="emacs"
 export EMACS_DIR="${HOME}/.emacs.d"
 
 # Common path
-export PATH=${SHELL_DIR}/scripts:/usr/local/bin/:/opt/local/bin:$PATH
+export PATH=~/bin:/usr/local/bin/:/opt/local/bin:$PATH
 export MANPATH=$MANPATH:/opt/local/share/man
 export INFOPATH=$INFOPATH:/opt/local/share/info
 
