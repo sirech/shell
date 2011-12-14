@@ -49,6 +49,7 @@ git checkout -q master
 changes=`git fetch $remote`
 if [ -z "$changes" ]; then
     echo 'there are no changes to synchronize'
+    git checkout -q $devel
     exit 1
 fi
 
