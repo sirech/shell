@@ -6,7 +6,7 @@ set nocompatible                  " Must come first because it changes other opt
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
-runtime macros/matchit.vim        " Load the matchit plugin.
+set encoding=utf-8
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -18,14 +18,14 @@ set hidden                        " Handle multiple buffers better.
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
-
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 
+" Search
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
 
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
