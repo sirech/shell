@@ -184,3 +184,9 @@ To use _emacsclient_ properly, don't use the version that ships with
 the OS. Link the good one with `sudo ln -s
 /Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 /usr/local/bin/emacsclient`.
+
+### Standard error in red
+
+Clone the repository with `git clone
+git://github.com/sickill/stderred.git` and follow the instructions in
+https://github.com/sickill/stderred

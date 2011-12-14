@@ -33,6 +33,8 @@ export GIT_PROXY_COMMAND=git-proxy-cmd
 
 export WORKSPACE=${HOME}/workspace
 
+export LD_PRELOAD="${HOME}/stderred/lib64/stderred.so"
+
 ## DEFUNS
 
 function ant_build() {
