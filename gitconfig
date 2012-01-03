@@ -83,7 +83,7 @@
 
         # log
         rdi = log --no-merges --stat @{1}..
-        lg = log --pretty='format:%C(3)%h%Creset %Cblue%ad%Creset %s %Cred%d%Creset' --graph --date=short
+        lg = log --graph --pretty=format':%C(yellow)%h%Cred%d%Creset %s %C(cyan) %an, %ar%Creset'
 
         # Creates/deletes the current branch at the remote origin repo
         publish = !sh -c 'CURRENT=$(git symbolic-ref HEAD | sed -e s@.*/@@) \
