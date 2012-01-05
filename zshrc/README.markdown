@@ -87,9 +87,9 @@ Given the dependencies of this configuration, simply checking out the
 last version of this repository is not enough. The following steps
 should be followed:
 
-1. Pulling the last version of this repository
+1. Pulling the last version of this repository.
 2. Pulling the last version of _zsh-completions_, in the completions folder.
-3. Pulling the last version of _Oh-my-zsh_. In case that you are in
-   the _devel_ branch, do this:
+3. Pulling the last version of _Oh-my-zsh_. Covered by the
+_git-sync-github-fork_ script.
 
-`switch to master > pull from the original omz > merge changes back to devel`   
+The whole process is covered by the _update-shell_ script.

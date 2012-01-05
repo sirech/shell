@@ -1,0 +1,30 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+
+# update-shell
+# Author: Mario Fernandez
+#
+# Updates this shell configuration to the latest version
+
+pushd $PWD > /dev/null
+
+if [ -n "${SHELL_DIR}" ] ; then
+    echo "Updating shell configuration at ${SHELL_DIR}"
+    cd -P ${SHELL_DIR}
+    git pull
+fi
+
+if [ -n "${ZSH}" ] ; then
+    echo "Updating Oh-My-Zsh at ${ZSH}"
+    cd -P ${ZSH}
+    git-sync-github-fork
+fi
+
+completions="${SHELL_DIR}/zshrc/completions"
+if [ -d $completions ] ; then
+    echo "Updating zsh completions at ${completions}"
+    cd -P ${completions}
+    git pull
+fi
+
+popd > /dev/null
