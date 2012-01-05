@@ -49,6 +49,7 @@
 
 [merge]
         summary = true
+        
 [gc]
         auto = 1
 
@@ -105,5 +106,7 @@
         searchcommits = "!f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
 
         # revert
+        rv = revert
         unstage = reset HEAD
         uncommit = reset --soft HEAD^
+        pointbranchto = reset --hard
