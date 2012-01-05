@@ -26,6 +26,7 @@
 devel=devel
 remote=source
 
+# Is a git repo?
 if [ -n "$1" ]; then
     if [ ! -d "$1" ]; then
         echo 'the given argument is not a directory'
@@ -35,16 +36,30 @@ if [ -n "$1" ]; then
 fi
 
 if [ ! -d .git ]; then
-    echo 'the given directory is not a svn repository'
+    echo 'the given directory is not a git repository'
     exit 1
 fi
 
+# Is the repo dirty?
 status=`git status | awk '/^nothing to commit/'`
 if [ -z "$status" ]; then
     echo "ERROR: There are pending changes"
     exit 1
 fi
 
+# Is the integration branch there?
+if [ ! -f .git/refs/heads/$devel ] ; then
+    echo "ERROR: The integration branch ${devel} does not exist"
+    exit 1
+fi
+
+# Is the remote branch there?
+if [ ! -d .git/refs/remotes/$remote ] ; then
+    echo "ERROR: The original repository is not available as the remote ${remote}"
+    exit 1
+fi
+
+# Are there changes in the remote branch?
 git checkout -q master
 git fetch $remote
 git diff --quiet master $remote/master
@@ -54,8 +69,18 @@ if [ $? -eq 0 ]; then
     exit 1
 fi
 
+# Get the changes in the remote branch, but only by ff
 git branch -f last-before-sync
-git merge $remote/master
+git merge $remote/master --ff-only
+if [ $? -ne 0 ]; then
+    echo 'Master branch cannot be merged with $remote/master with a fast forward'
+    git checkout -q $devel
+    exit 1
+fi
+
+# Get the changes to the integration branch by regular merge
 git checkout -q $devel
 git merge master
+
+# Update origin
 git push origin
