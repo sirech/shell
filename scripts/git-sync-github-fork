@@ -54,6 +54,7 @@ if [ $? -eq 0 ]; then
     exit 1
 fi
 
+git branch -f last-before-sync
 git merge $remote/master
 git checkout -q $devel
 git merge master
