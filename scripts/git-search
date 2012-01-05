@@ -1,0 +1,20 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+
+# git-search
+# Author: Mario Fernandez
+#
+# Credit to:
+# http://joseantony.com/2010/11/30/my-gitconfig/#.TwXRiFzKltI
+#
+# Search for a given string in all patches and print commit messages
+# example: search for any commit that adds or removes string "foobar"
+#     git-search foobar
+# example: search commits for string "foobar" in directory src/lib
+#     git-search foobar src/lib
+# example: search commits for "foobar", print full diff of commit with 1 line context
+#     git-search foobar --pickaxe-all -U1 src/lib
+
+query="$1"
+shift
+git log -S"$query" "$@"

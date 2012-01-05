@@ -96,15 +96,6 @@
         kconflict = !gitk --left-right HEAD...MERGE_HEAD
         history-all = !gitk --all $( git fsck | awk '/dangling commit/ {print $3}' )
 
-        # Search for a given string in all patches and print commit messages
-        # example: search for any commit that adds or removes string "foobar"
-        #     git searchcommits foobar
-        # example: search commits for string "foobar" in directory src/lib
-        #     git searchcommits foobar src/lib
-        # example: search commits for "foobar", print full diff of commit with 1 line context
-        #     git searchcommits foobar --pickaxe-all -U1 src/lib
-        searchcommits = "!f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
-
         # revert
         rv = revert
         unstage = reset HEAD
