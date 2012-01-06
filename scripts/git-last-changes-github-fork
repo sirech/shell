@@ -1,0 +1,13 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+
+# git-last-changes-github-fork
+# Author: Mario Fernandez
+#
+# List the last changes between the original repository and the local
+# branch of a github fork.
+#
+# It is assumed that the synchronization was performed via the
+# git-sync-github-fork script.
+git log last-before-sync..master --no-merges -p
+
