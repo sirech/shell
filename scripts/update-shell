@@ -17,6 +17,7 @@ fi
 if [ -n "${ZSH}" ] ; then
     echo "Updating Oh-My-Zsh at ${ZSH}"
     cd -P ${ZSH}
+    git pull
     git-sync-github-fork
 fi
 
