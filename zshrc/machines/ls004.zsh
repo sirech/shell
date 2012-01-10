@@ -114,9 +114,9 @@ function redeploy_app_to_local() {
 
 function smart_ssh() {
     if [[ "$@" =~ intqm ]] && [[ ! "$@" =~ intqmbuild01 ]] ; then
-        ssh -t intqmbuild01 ssh -t $@
+        command ssh -t intqmbuild01 command ssh -t $@
     else
-        ssh $@
+        command ssh $@
     fi
 }
 
