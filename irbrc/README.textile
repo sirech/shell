@@ -1,16 +1,9 @@
-h1. How to install
+h2. Installation
 
-# Clone this repo using git
-  	<pre>git clone git://github.com/logankoester/irbrc.git</pre>
-# Install the prerequisite ruby gems: 
-    <pre>(cd irbrc; rvm gemset import irbrc.gems)</pre>
-# Symlink the file to ~/.irbrc
-  	<pre>ln -s ~/irbrc/irbrc ~/.irbrc</pre>
-# Run 'irb' and enjoy!
-
-These settings will also affect your script/console sessions in Rails
+Run _install.sh_
 
 h2. What it does
+
 * Sets a shorter prompt (">>")
 * Saves your command history between irb sessions
 * Adds color highlighting to your output
