@@ -1,0 +1,19 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+#
+# py-syntax-check
+#
+# Credit to http://scrollingtext.org/git-pre-commit-python-syntax
+#
+# Checks if the modified python files pass the pyflakes check.
+
+files_modified=`git diff-index --cached --name-only --diff-filter=ACM HEAD`
+
+for f in $files_modified; do
+    if [[ $f == *.py ]]; then
+        pyflakes $f
+        if [ $? != 0 ]; then
+            exit 1
+        fi
+    fi
+done
