@@ -16,6 +16,9 @@ export INFOPATH=$INFOPATH:/opt/local/share/info
 export AWK_FUNCS=${SHELL_DIR}/awk/lib
 export PYTHON_FUNCS=${SHELL_DIR}/python
 
+# Folder with hooks for git
+export GIT_HOOKS=${SHELL_DIR}/git/hooks
+
 # Log more commands
 export HISTFILESIZE=10000 # Record last 10,000 commands
 export HISTSIZE=10000 # Record last 10,000 commands per session

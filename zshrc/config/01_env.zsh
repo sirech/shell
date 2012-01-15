@@ -17,6 +17,9 @@ export EMACS_DIR="${HOME}/.emacs.d"
 export AWK_FUNCS=${SHELL_DIR}/awk/lib
 export PYTHON_FUNCS=${SHELL_DIR}/python
 
+# Folder with hooks for git
+export GIT_HOOKS=${SHELL_DIR}/git/hooks
+
 # Log directory access variables
 export DIRLOGSDB=~/.dirlogsdb
 export LASTDIR=/

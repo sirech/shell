@@ -1,0 +1,4 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+
+${GIT_HOOKS}/pre-commit/fail-if-strings-in-diff 'System.out.println'

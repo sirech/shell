@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+# fail-if-strings-in-diff
+#
+# Author: Mario Fernandez
+#
+# This script receives a list of strings as arguments, which are
+# interpreted as regexps as the forbidden list.
+#
+# If any element of the forbidden list is stagged as an addition, the
+# script exits with an error code of 1.
+
+FORBIDDEN = ARGV.collect { |arg| Regexp.new(arg)}
+
+full_diff = `git diff --cached --`
+
+full_diff.scan(%r{^\+\+\+ b/(.+)\n@@.*\n([\s\S]*?)(?:^diff|\z)}).each do |file, diff|
+  added = diff.split("\n").select { |x| x.start_with?("+") }.collect { |x| x[1..-1] }.join("\n")
+
+  if FORBIDDEN.any? { |re| added.match(re) }
+    puts %{Git hook forbids adding "#{$1 || $&}" to #{file}}
+    puts "To commit anyway, use --no-verify"
+    exit 1
+  end
+end
+
