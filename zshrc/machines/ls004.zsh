@@ -40,7 +40,9 @@ export LD_PRELOAD="${HOME}/stderred/lib64/stderred.so"
 function ant_build() {
     cd build
     ant "$@"
+    code=$?
     cd ..
+    return $code
 }
 
 function publish_project() {
