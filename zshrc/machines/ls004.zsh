@@ -120,6 +120,20 @@ function smart_ssh() {
     fi
 }
 
+function migrate() {
+    repo=$1
+
+    if [ -z "$repo" ] || [ ! -d $repo/.svn ] ; then
+        echo "No valid svn repository given"
+        exit 1
+    fi
+
+    url=`grep svn $repo/.svn/entries | head -n 1`
+    # mv $repo old-svn
+    git svn clone "$url" test
+    echo "git svn clone $url $repo"
+}
+
 ## ALIASES
 
 # common dirs
