@@ -134,6 +134,12 @@ function migrate() {
     echo "git svn clone $url $repo"
 }
 
+# Convert an epoch from postgresql (stored in ms) to a human-readable
+# date
+function psql-to-date() {
+    date --date "Jan 1, 1970 00:00:00 +0000 + $((${1:?No date given} / 1000)) seconds"
+}
+
 ## ALIASES
 
 # common dirs
