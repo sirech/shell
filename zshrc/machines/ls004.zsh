@@ -99,19 +99,17 @@ function update_every_project() {
 }
 
 function redeploy_app_to_local() {
-    cd ${TOMCAT_HOME_MEMBER}
-    sh bin/shutdown.sh
     cd ${WORKSPACE}/datingr5
     ant_build clean.web
     ant_build build.web -Divy=no
-    cd ${TOMCAT_HOME_MEMBER}
+    ssh dev-dom9 '~/bin/restart_member_tomcat'
+}
 
-    if [ -f log4j.xml ]; then
-        cp log4j.xml webapps/ROOT/WEB-INF/classes
-    fi
-
-    sh bin/startup.sh
-    cd ${WORKSPACE}/datingr5
+function redeploy_guest_to_local() {
+    cd ${WORKSPACE}/datingr5guest
+    ant_build clean.web
+    ant_build build.web -Divy=no
+    ssh dev-dom9 '~/bin/restart_guest_tomcat'
 }
 
 function smart_ssh() {
@@ -134,6 +132,7 @@ alias lbuild='ant_build -f buildlocal.xml'
 alias left='left_something_uncommited'
 alias up='update_every_project'
 alias redeploy='redeploy_app_to_local'
+alias guest_redeploy='redeploy_guest_to_local'
 
 # ACK That ignores build directories
 alias a='ack-grep --ignore-dir=build --ignore-dir=bin'
