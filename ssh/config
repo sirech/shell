@@ -12,4 +12,8 @@ Host *
 
 Host hceris
      HostName hiwatt.dreamhost.com
-     User sirech            
+     User sirech
+
+Host erza
+     HostName 178.79.132.62
+     User sirech
