@@ -1,0 +1,28 @@
+# -*- mode: Shell-script-*-
+
+#
+# Settings for the remote machine 'erza'
+#
+
+## ENV
+
+export GIT_PATH=~/git
+
+## DEFUNS
+
+# Create a new remote git repository
+function new_remote_git()
+{
+    if [ -z $1 ]; then
+        echo "usage: $FUNCNAME project-name.git"
+    else
+        gitdir="$GIT_PATH/$1"
+        mkdir $gitdir
+        pushd $gitdir
+        git --bare init
+        git --bare update-server-info
+        chmod a+x hooks/post-update
+        touch git-daemon-export-ok
+        popd
+    fi
+}
