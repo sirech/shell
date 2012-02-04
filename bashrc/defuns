@@ -23,9 +23,11 @@ function backup_wiki() {
     local dropbox
     dropbox=`find ~/. -name Dropbox`
 
-    ssh hceris remote_backup_wiki
-    scp hceris:~/wiki/*bckp*.zip ${dropbox}/backups
-    ssh hceris rm wiki/*bckp*.zip
+    local remote
+    remote=/srv/www/moin/wiki
+    ssh erza remote_backup_wiki
+    scp erza:${remote}/*bckp*.zip ${dropbox}/backups
+    ssh erza rm ${remote}/*bckp*.zip
 }
 
 # Backups both the emacs and shell configurations to dropbox

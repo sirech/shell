@@ -26,3 +26,9 @@ function new_remote_git()
         popd
     fi
 }
+
+# Backup wiki data
+function remote_backup_wiki() {
+    cd ~/wiki
+    zip -r wiki-bckp-$(date +%Y-%m-%d).zip data
+}
