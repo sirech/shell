@@ -23,3 +23,6 @@ export GIT_HOOKS=${SHELL_DIR}/git/hooks
 # Log directory access variables
 export DIRLOGSDB=~/.dirlogsdb
 export LASTDIR=/
+
+export LC_CTYPE=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
