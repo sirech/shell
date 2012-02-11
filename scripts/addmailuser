@@ -1,4 +1,4 @@
-# -*- mode: Shell-script-*-
+# *- mode: Shell-script-*-
 #!/usr/bin/bash
 #
 # addmailuser
@@ -16,9 +16,13 @@ pwd=${2?No password provided}
 encr_pwd=$(perl -e 'print crypt($ARGV[0], "password")' $pwd)
 
 # Create user
-useradd $login -m -p $encr_pwd
+echo "Creating user $login"
+useradd $login -m -p $encr_pwd || { echo "Create user failed" ; exit 1; }
 
 # Make mail directories
-maildir=${HOME}/${login}/Maildir
-mkdir -p ${maildir}/{cur,new,old}
-chown -R $login $maildir
+maildir=/home/${login}/Maildir
+echo "Creating mail directories in $maildir"
+for  d in cur new old ; do
+  mkdir -p ${maildir}/${d} || { echo "Could not create mail directory ${maildir}/${d}" ; exit 1; }
+done
+chown -R $login:$login $maildir || { echo "Could not change permissions for $login" ; exit 1; }
