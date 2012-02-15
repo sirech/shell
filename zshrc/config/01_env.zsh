@@ -24,5 +24,6 @@ export GIT_HOOKS=${SHELL_DIR}/git/hooks
 export DIRLOGSDB=~/.dirlogsdb
 export LASTDIR=/
 
-export LC_CTYPE=en_GB.UTF-8
-export LC_ALL=en_GB.UTF-8
+# Avoid annoying completion problems when ssh'ing to a machine with a
+# different locale
+unset LC_CTYPE
