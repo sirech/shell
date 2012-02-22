@@ -46,9 +46,13 @@
 [diff]
         # Make diffs shorter when moving/copying files
         rename = copy
+        # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+        # instead of a/b/c/d as prefixes for patches
+        mnemonicprefix = true
 
 [merge]
         summary = true
+        verbosity = 1
         
 [gc]
         auto = 1
@@ -80,11 +84,16 @@
         dc = diff --cached
         w = whatchanged
 
-        info = config --list
+        # push
+        ps = push
 
+        # pull
+        pl = pull
+        
         # log
         rdi = log --no-merges --stat @{1}..
         lg = log --graph --pretty=format':%C(yellow)%h%Cred%d%Creset %s %C(cyan) %an, %ar%Creset'
+        changes = log --pretty=format:':%C(yellow)%h%Cred%d%Creset %s %C(cyan) %an, %ar%Creset' --name-status
 
         # Creates/deletes the current branch at the remote origin repo
         publish = !sh -c 'CURRENT=$(git symbolic-ref HEAD | sed -e s@.*/@@) \
@@ -101,3 +110,12 @@
         unstage = reset HEAD
         uncommit = reset --soft HEAD^
         pointbranchto = reset --hard
+
+        # stash
+        ss = stash                        # stash changes
+        sl = stash list                   # list stashes
+        sa = stash apply                  # apply stash (restore changes)
+        sd = stash drop                   # drop stashes (destory changes)
+  
+        # config
+        info = config --list
