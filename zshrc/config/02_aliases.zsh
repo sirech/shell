@@ -37,3 +37,17 @@ alias year='date +%Y'
 # Show running processes, sorted
 alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
+
+# PS
+alias psg="ps aux | grep "
+
+# show me files matching "ls grep"
+alias lsg='ll | grep'
+
+# Global aliases
+alias -g C='| wc -l'
+alias -g H='| head'
+alias -g L="| less"
+alias -g N="| /dev/null"
+alias -g S='| sort'
+alias -g G='| grep' # now you can do: ls foo G something
