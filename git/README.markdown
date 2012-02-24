@@ -7,12 +7,11 @@ aliases, color settings and other useful things. Such a file is
 included here, named _gitconfig_. The problem is, that as of Jan 2011,
 there is no way to include other files in this config. Therefore, if
 different machines need to configure settings differently (like
-email), you are out of luck. There are some workarounds using git
-rebase or branching, but they are too complicated for my
-liking. Therefore, right now the only way to use this is to copy
-_gitconfig_ to `~/.gitconfig` and edit manually the settings that need
-to be changed. It sucks, but there is no easy solution to this right
-now.
+email), you are out of luck. To fix this, put the specific settings in
+the file `~/.secrets`. An example is found in _secrets.example_. Then,
+link the configuration with:
+
+`ln -s ~/shell/git/gitconfig ~/.gitconfig`
 
 ## Gitk
 

@@ -3,6 +3,9 @@
 # File with environment variables
 #
 
+# Configuration that should remain private
+[[ -s "${HOME}/.secrets" ]] && source "${HOME}/.secrets"
+
 # Common path
 path=(/usr/local/bin /opt/local/bin $path ~/bin)
 manpath=($manpath /opt/local/share/man)
