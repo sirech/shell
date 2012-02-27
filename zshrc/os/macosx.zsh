@@ -15,7 +15,7 @@ EOF
 
 # Launch gitk with using native widgets
 function nice_gitk() {
-    /usr/bin/wish /opt/local/bin/gitk
+    /usr/bin/wish /usr/local/bin/gitk
 }
 
 
