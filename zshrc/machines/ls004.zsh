@@ -143,6 +143,10 @@ function psql-to-date() {
     date --date "Jan 1, 1970 00:00:00 +0000 + $((${1:?No date given} / 1000)) seconds"
 }
 
+function slave-vnc() {
+    vinagre ${1:?HostName is required}:5902:2 &
+}
+
 ## ALIASES
 
 # common dirs
