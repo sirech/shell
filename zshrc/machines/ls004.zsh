@@ -27,8 +27,9 @@ path=($path ${JAVA_HOME}/bin ${ANT_HOME}/bin ${JMETER_HOME}/bin ${MONGODB_HOME}/
 export COMPUTERNAME=ls004
 export PROXY_HOST=10.0.175.40
 export PROXY_PORT=3128
-export http_proxy=http://$PROXY_HOST:$PROXY_PORT/
-export HTTP_PROXY=${http_proxy}
+for proxy in http_proxy HTTP_PROXY https_proxy HTTPS_PROXY ; do
+    export $proxy=http://$PROXY_HOST:$PROXY_PORT/
+done
 export GIT_PROXY_COMMAND=git-proxy-cmd
 
 export WORKSPACE=${HOME}/workspace
