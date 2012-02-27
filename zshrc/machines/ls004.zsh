@@ -42,6 +42,7 @@ function ant_build() {
     ant "$@"
     code=$?
     cd ..
+    notify-send "build: $@ is finished"
     return $code
 }
 
@@ -103,6 +104,7 @@ function redeploy_app_to_local() {
     ant_build clean.web
     ant_build build.web -Divy=no
     ssh dev-dom9 '~/bin/restart_member_tomcat'
+    notify-send "redeploy frontend finished"
 }
 
 function redeploy_guest_to_local() {
@@ -110,6 +112,7 @@ function redeploy_guest_to_local() {
     ant_build clean.web
     ant_build build.web -Divy=no
     ssh dev-dom9 '~/bin/restart_guest_tomcat'
+    notify-send "redeploy guest finished"
 }
 
 function smart_ssh() {
