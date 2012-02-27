@@ -16,8 +16,7 @@
 # variable.
 #
 # The master branch is synchronized with the latest changes in the
-# source repo. This changes are merged to the development branch, and
-# both branches are pushed to origin.
+# source repo. This changes are merged to the development branch.
 #
 # By using this setup, the master is always compatible with the source
 # repository, and thus any feature branch created from master can be
@@ -81,6 +80,3 @@ fi
 # Get the changes to the integration branch by regular merge
 git checkout -q $devel
 git merge master
-
-# Update origin
-git push origin
