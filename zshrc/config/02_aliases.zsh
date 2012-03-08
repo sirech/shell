@@ -5,6 +5,7 @@
 
 # most used commands
 alias rank="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
+alias h="history"
 
 # number of non-hidden files in current dir
 alias filec='ls | wc -l'
