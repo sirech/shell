@@ -10,10 +10,6 @@ Host *
 
      GSSAPIAuthentication no
 
-Host hceris
-     HostName hiwatt.dreamhost.com
-     User sirech
-
 Host erza
      HostName 178.79.132.62
      User sirech
