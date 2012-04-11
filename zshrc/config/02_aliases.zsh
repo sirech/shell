@@ -10,6 +10,9 @@ alias h="history"
 # number of non-hidden files in current dir
 alias filec='ls | wc -l'
 
+# size of files in the current directory
+alias ndu='du -hsc .[!.]* *'
+
 # less: allow color
 alias less='less -r'
 
