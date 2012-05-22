@@ -25,6 +25,7 @@ The proxy url and port are needed (the port is usually 1080) to access
 external hosts. Internal hosts don't need to use the proxy.
 
 Additionally, *connect* must be installed. It is a C program that can
-be compiled and installed in the PATH. Instructions and download can
+be compiled and installed in the PATH. Instructions can
 be found
-[here](http://bent.latency.net/bent/git/goto-san-connect-1.85/src/connect.html#sec5).
+[here](http://bent.latency.net/bent/git/goto-san-connect-1.85/src/connect.html#sec5);
+use [this](http://dl.dropbox.com/u/3093385/connect.c) link for the program.
