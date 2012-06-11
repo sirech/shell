@@ -42,7 +42,7 @@ so.
 For reference, here is the origin of some of the files:
 
 - (j)ruby, gem, rails, rake:
-  [https://github.com/mernen/completion-ruby]()
+  [](https://github.com/mernen/completion-ruby)
 
 ## Structure
 

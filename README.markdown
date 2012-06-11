@@ -82,12 +82,11 @@ compilation error, but it doesn't seem to matter.
 3. Mark the version with `rvm --default use 1.9.2`.
 
 (To test if this worked, `gem install bundler`. More info
-[https://rvm.beginrescueend.com/packages/zlib/]()).
+[](https://rvm.beginrescueend.com/packages/zlib/)).
 
 It might happen that _readline_ does not work. If _irb_ gives a weird
 error, follow the instructions in this
-[http://stackoverflow.com/questions/4498919/problems-with-the-rails-console-rvm-and-readline](Stack
-Overflow post).)
+[Stack Overflow post](http://stackoverflow.com/questions/4498919/problems-with-the-rails-console-rvm-and-readline).)
 
 #### irb
 
