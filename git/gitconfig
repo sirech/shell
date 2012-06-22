@@ -53,6 +53,9 @@
 [merge]
         summary = true
         verbosity = 1
+
+[push]
+        default = current
         
 [gc]
         auto = 1
