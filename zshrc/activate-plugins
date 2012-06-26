@@ -19,7 +19,7 @@ done
 # Activate plugins
 
 # Plugins that refer to an executable
-desired=(ant awk git git-search grep lein svn)
+desired=(ant awk git git-search grep lein mvn python svn)
 
     for plugin in $desired; do
         if which -a $plugin > /dev/null; then
