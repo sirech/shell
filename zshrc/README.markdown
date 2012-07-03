@@ -18,9 +18,19 @@ machine directory with the name returned by the _ehostname_
 command. This file can contain specific settings, like aliases for the
 folders in the machine.
 
-4. Check if your os is included by looking for the result of `uname
+3. Check if your os is included by looking for the result of `uname
 -s` in the bashrc file. If your os is not there, create a file and
 link it from there.
+
+### Settings for a specific machine
+
+You can add settings for a specific machine by creating a file in the
+machine directory with the name returned by the _ehostname_
+command. Some examples:
+
+* _proxy_: Use a proxy with `activate_proxy host port`.
+* custom aliases.
+* custom environment variables.
 
 ### Setting zsh as the default shell
 

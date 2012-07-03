@@ -25,12 +25,7 @@ export JAVA_OPTS="$JAVA_OPTS -Djava.endorsed.dirs=$JACORB_HOME/lib"
 path=($path ${JAVA_HOME}/bin ${ANT_HOME}/bin ${JMETER_HOME}/bin ${MONGODB_HOME}/bin ${MAVEN_HOME}/bin /opt/play)
 
 export COMPUTERNAME=ls004
-export PROXY_HOST=10.0.175.40
-export PROXY_PORT=3128
-for proxy in http_proxy HTTP_PROXY https_proxy HTTPS_PROXY ; do
-    export $proxy=http://$PROXY_HOST:$PROXY_PORT/
-done
-export GIT_PROXY_COMMAND=git-proxy-cmd
+activate-proxy 10.0.175.40 3128
 
 export WORKSPACE=${HOME}/workspace
 
