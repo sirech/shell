@@ -11,7 +11,6 @@
 ## ENV
 
 export _DOCS=${HOME}/Documents
-export WORKSPACE=${_DOCS}/workspace
 
 # Closure compiler (for JavaScript)
 export CLOSURE_COMPILER=${WORKSPACE}/closure-compiler/compiler.jar
@@ -27,4 +26,3 @@ alias gostuff="cd ${WORKSPACE}/stuff"
 alias goalgs="cd ${WORKSPACE}/algorithms"
 alias gores="cd ${_DOCS}/resume"
 alias gocovers="cd ${_DOCS}/resume/covers-$(year)"
-alias gospace="cd $WORKSPACE"

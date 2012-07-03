@@ -27,8 +27,6 @@ path=($path ${JAVA_HOME}/bin ${ANT_HOME}/bin ${JMETER_HOME}/bin ${MONGODB_HOME}/
 export COMPUTERNAME=ls004
 activate-proxy 10.0.175.40 3128
 
-export WORKSPACE=${HOME}/workspace
-
 export LD_PRELOAD="${HOME}/stderred/lib64/stderred.so"
 
 ## DEFUNS
@@ -77,9 +75,6 @@ function slave-vnc() {
 }
 
 ## ALIASES
-
-# common dirs
-alias gospace="cd $WORKSPACE"
 
 # Workspace related
 alias pub='publish_project'

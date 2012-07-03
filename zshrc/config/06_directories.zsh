@@ -15,6 +15,11 @@ function goshell() {
     cd -P ${SHELL_DIR}
 }
 
+# Goes to the directory where the workspace is located
+function gospace() {
+    cd -P ${WORKSPACE}
+}
+
 # If called without arguments, presents a list of the most visited
 # directories, as well as a number for each of them. If an argument is
 # given, it changes to the directory identified by that number

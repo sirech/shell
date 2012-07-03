@@ -13,5 +13,3 @@ export EMACS_DIR="${WINHOME}/.emacs.d"
 export WORKSPACE="${C}/workspace"
 
 ## ALIASES
-
-alias gospace="cd ${WORKSPACE}"

@@ -30,3 +30,11 @@ export LASTDIR=/
 # Avoid annoying completion problems when ssh'ing to a machine with a
 # different locale
 unset LC_CTYPE
+
+workspaces=(~/workspace ~/Documents/workspace)
+for workspace in $workspaces ; do
+    if [ -d $workspace ] ; then
+        export WORKSPACE=$workspace
+        break
+    fi
+done

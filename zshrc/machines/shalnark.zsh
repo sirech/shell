@@ -7,7 +7,6 @@
 ## ENV
 
 export _DOCS="${HOME}/Documents"
-export _WORKSPACE="${_DOCS}/workspace"
 
 ## ALIASES
 
