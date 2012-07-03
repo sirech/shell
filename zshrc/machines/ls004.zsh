@@ -42,59 +42,6 @@ function ant_build() {
     return $code
 }
 
-function publish_project() {
-
-    local jarFile
-    local oldJar
-
-    ant_build dist.publish
-
-    if [ -d dist ] ; then
-
-        jarFile=$(basename $(find dist/ -name *.jar))
-        echo $jarFile
-
-        for project in ../* ; do
-            oldJar=${project}/lib/${jarFile}
-            if [ -d ${project}/lib ] && [ -f "$oldJar" ]; then
-                cp dist/$jarFile $oldJar
-            fi
-        done
-
-    fi
-}
-
-function left_something_uncommited() {
-    local project
-
-    pushd $WORKSPACE > /dev/null
-
-    for project in * ; do
-        if [ -d ${project}/.svn ] && [ -n "$(grep 'svn://develop.internal.friendscout24.de/dev' ${project}/.svn/entries)" ] ; then
-            if [ -n "$(svn status -q $project)" ] ; then
-                echo "$project has something uncommitted"
-            fi
-        fi
-    done
-
-    popd > /dev/null
-}
-
-function update_every_project() {
-    local project
-
-    pushd $WORKSPACE > /dev/null
-
-    for project in * ; do
-        if [ -d ${project}/.svn ] && [ -n "$(grep 'svn://develop.internal.friendscout24.de/dev' ${project}/.svn/entries)" ] ; then
-            echo "project: $project"
-            svnu $project
-        fi
-    done
-
-    popd > /dev/null
-}
-
 function redeploy_app_to_local() {
     cd ${WORKSPACE}/datingr5
     ant_build clean.web
@@ -117,20 +64,6 @@ function smart_ssh() {
     else
         command ssh $@
     fi
-}
-
-function migrate() {
-    repo=$1
-
-    if [ -z "$repo" ] || [ ! -d $repo/.svn ] ; then
-        echo "No valid svn repository given"
-        exit 1
-    fi
-
-    url=`grep svn $repo/.svn/entries | head -n 1`
-    # mv $repo old-svn
-    git svn clone "$url" test
-    echo "git svn clone $url $repo"
 }
 
 # Convert an epoch from postgresql (stored in ms) to a human-readable
