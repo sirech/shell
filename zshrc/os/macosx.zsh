@@ -15,7 +15,11 @@ EOF
 
 # Launch gitk with using native widgets
 function nice_gitk() {
-    /usr/bin/wish /usr/local/bin/gitk
+   if [ -f /usr/bin/gitk ] ; then
+     /usr/bin/wish /usr/bin/gitk
+   else
+     /usr/bin/wish /usr/local/bin/gitk
+   fi
 }
 
 
