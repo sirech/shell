@@ -10,15 +10,17 @@ Zsh is usually available on most systems.
 _~/shell_. Change the __SHELL_DIR__ in the _zsh_ file if you want to
 use another directory.
 
-2. Run `ln -s ~/shell/zshrc/zsh ~/.zshrc` (modified for your
-directory).
+2. Run the `~/shell/zshrc/isntall.zsh` script. This script sets the
+appropriate symlink and downloads extra repos (_oh-my-zsh_ and
+_zsh-completions_).
 
-3. Add settings for a specific machine by creating a file in the
-machine directory with the name returned by the _ehostname_
-command. This file can contain specific settings, like aliases for the
-folders in the machine.
+### Setting zsh as the default shell
 
-3. Check if your os is included by looking for the result of `uname
+Run: `chsh -s /bin/zsh`
+
+### Settings for a specific os
+
+Check if your os is included by looking for the result of `uname
 -s` in the bashrc file. If your os is not there, create a file and
 link it from there.
 
@@ -32,9 +34,10 @@ command. Some examples:
 * custom aliases.
 * custom environment variables.
 
-### Setting zsh as the default shell
+### Extra stuff
 
-Run: `chsh -s /bin/zsh`
+This is covered by the `install.zsh` script. If you run it, it is done
+for you.
 
 ### Oh-my-zsh
 
