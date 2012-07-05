@@ -7,7 +7,7 @@
 [[ -s "${HOME}/.secrets" ]] && source "${HOME}/.secrets"
 
 # Common path
-path=(/usr/local/bin /opt/local/bin $path ~/bin)
+path=(/usr/local/bin /usr/local/sbin /opt/local/bin $path ~/bin)
 manpath=($manpath /opt/local/share/man)
 infopath=($infopath /opt/local/share/info)
 
