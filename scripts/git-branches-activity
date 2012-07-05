@@ -1,0 +1,15 @@
+# *- mode: Shell-script-*-
+#!/bin/sh
+#
+# git-branches-activity
+#
+# Outputs a line with a short summary of the last commit of every
+# remote in a git repository. The branches are displayed in order,
+# from the most recent to the least one.
+
+git for-each-ref --shell --sort='-authordate' --format="ref=%(refname)" refs/remotes | \
+while read entry
+do
+        eval "$entry"
+        git log -n 1 --pretty=format':%aD %C(yellow)%h%Cred%d%Creset %s %C(cyan) %an%Creset' $ref
+done
