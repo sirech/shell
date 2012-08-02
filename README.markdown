@@ -25,6 +25,7 @@ where _progrc_ is one of:
  * screenrc
  * tmux.conf (link to .tmux.conf instead)
  * vimrc
+ * wgetrc
 
 ## Extra scripts
 
