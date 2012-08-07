@@ -27,6 +27,9 @@ alias ip='ipython'
 alias rb='ruby'
 alias irb='irb'
 
+# ssh
+alias s='ssh'
+
 # tag generation
 alias pytags='gettags py'
 alias javatags='gettags java'

@@ -56,7 +56,7 @@
 
 [push]
         default = current
-        
+
 [gc]
         auto = 1
 
@@ -87,12 +87,15 @@
         dc = diff --cached
         w = whatchanged
 
+        # clone
+        cl = clone
+
         # push
         ps = push
 
         # pull
         pl = pull
-        
+
         # log
         rdi = log --no-merges --stat @{1}..
         lg = log --graph --pretty=format':%C(yellow)%h%Cred%d%Creset %s %C(cyan) %an, %ar%Creset'
@@ -108,8 +111,12 @@
         kconflict = !gitk --left-right HEAD...MERGE_HEAD
         history-all = !gitk --all $( git fsck | awk '/dangling commit/ {print $3}' )
 
+        # remote
+        rem = remote
+
         # revert
         rv = revert
+        rs = reset
         unstage = reset HEAD
         uncommit = reset --soft HEAD^
         pointbranchto = reset --hard
@@ -119,6 +126,6 @@
         sl = stash list                   # list stashes
         sa = stash apply                  # apply stash (restore changes)
         sd = stash drop                   # drop stashes (destory changes)
-  
+
         # config
         info = config --list
