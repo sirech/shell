@@ -3,6 +3,8 @@
 # Settings for auto completion
 #
 
+# Disable autocorrect
+unsetopt correct_all
 # Don't beep before showing matches
 unsetopt list_beep
 # Show list when some characters can be completed
