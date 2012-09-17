@@ -76,6 +76,10 @@ function slave-vnc() {
     vinagre ${1:?HostName is required}:5902:2 &
 }
 
+function test_mode() {
+    export CUCUMBER_SUFFIX=_cucumber && export RAILS_ENV="test" && export RACK_ENV="test"
+}
+
 ## ALIASES
 
 # Workspace related
