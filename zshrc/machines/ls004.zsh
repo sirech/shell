@@ -59,6 +59,8 @@ function redeploy_guest_to_local() {
 function smart_ssh() {
     if [[ "$@" =~ intqm ]] && [[ ! "$@" =~ intqmbuild01 ]] ; then
         command ssh -t intqmbuild01 command ssh -t $@
+    elif [[ "$@" =~ intsec ]] && [[ ! "$@" =~ intsecbe03 ]] ; then
+        command ssh -t intsecbe03 command ssh -t $@
     else
         command ssh $@
     fi
