@@ -89,6 +89,16 @@ It might happen that _readline_ does not work. If _irb_ gives a weird
 error, follow the instructions in this
 [Stack Overflow post](http://stackoverflow.com/questions/4498919/problems-with-the-rails-console-rvm-and-readline).)
 
+#### rbenv & ruby-build
+
+An alternative to _rvm_, follow these steps:
+
+1. _rbenv_: Go to https://github.com/sstephenson/rbenv , follow the
+installation steps.
+
+2. _ruby-build_: Go to https://github.com/sstephenson/ruby-build ,
+follow the instructions to install it as a _rbenv_ plugin.
+
 #### irb
 
 Follow the instructions in `irbrc/README.textile`.

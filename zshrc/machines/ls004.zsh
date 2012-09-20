@@ -4,10 +4,6 @@
 # Settings for the machine 'ls004'
 #
 
-## LOADING STUFF
-
-. ~/.rvm/scripts/rvm
-
 ## ENV
 
 export JAVA_HOME=/opt/jdk
