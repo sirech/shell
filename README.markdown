@@ -93,11 +93,20 @@ error, follow the instructions in this
 
 An alternative to _rvm_, follow these steps:
 
-1. _rbenv_: Go to https://github.com/sstephenson/rbenv , follow the
+1. Install _readline_:
+
+    * Linux: sudo apt-get install libreadline-dev
+
+2. _rbenv_: Go to https://github.com/sstephenson/rbenv , follow the
 installation steps.
 
-2. _ruby-build_: Go to https://github.com/sstephenson/ruby-build ,
+3. _ruby-build_: Go to https://github.com/sstephenson/ruby-build ,
 follow the instructions to install it as a _rbenv_ plugin.
+
+Note that if you want to use _irb_, you have to install a ruby version
+with _readline_ support. Do it like this:
+
+`CONFIGURE_OPTS="--with-readline-dir=/usr/include/readline" rbenv install 1.9.3-p194`
 
 #### irb
 
