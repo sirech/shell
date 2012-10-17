@@ -112,6 +112,10 @@ with _readline_ support. Do it like this:
 
 Follow the instructions in `irbrc/README.textile`.
 
+### MongoDB Shell
+
+Follow the instructions in `mongorc/README.md`.
+
 ### emacsclient
 
 To use _emacsclient_ properly, don't use the version that ships with
