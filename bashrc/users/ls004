@@ -6,8 +6,6 @@
 
 ## LOADING STUFF
 
-. ~/.rvm/scripts/rvm
-
 ## ENV
 
 export JAVA_HOME=/opt/jdk

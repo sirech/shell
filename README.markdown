@@ -98,7 +98,8 @@ An alternative to _rvm_, follow these steps:
     * Linux: sudo apt-get install libreadline-dev
 
 2. _rbenv_: Go to https://github.com/sstephenson/rbenv , follow the
-installation steps.
+installation steps. Keep in mind that most of the path setting is
+already taken care of by the _zsh_ configuration.
 
 3. _ruby-build_: Go to https://github.com/sstephenson/ruby-build ,
 follow the instructions to install it as a _rbenv_ plugin.
