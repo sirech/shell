@@ -60,6 +60,8 @@ function smart_ssh() {
         command ssh -t intsecbe03 command ssh -t $@
     elif [[ "$@" =~ int2sec ]] && [[ ! "$@" =~ int2secbe03 ]] ; then
         command ssh -t int2secbe03 command ssh -t $@
+    elif [[ "$@" =~ int3sec ]] && [[ ! "$@" =~ int3secbe03 ]] ; then
+        command ssh -t int3secbe03 command ssh -t $@
     else
         command ssh $@
     fi
