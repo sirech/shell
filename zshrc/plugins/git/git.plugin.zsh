@@ -4,7 +4,7 @@ load_old_plugin $0
 
 # Git completion is very slow for big repositories
 __git_files () { 
-    _wanted files expl ‘local files’ _files 
+    _wanted files expl 'local files' _files 
 }
 
 ## FUNCTIONS
