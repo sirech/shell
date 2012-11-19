@@ -1,5 +1,12 @@
 load_old_plugin $0
 
+## ENVIRONMENT
+
+# Git completion is very slow for big repositories
+__git_files () { 
+    _wanted files expl ‘local files’ _files 
+}
+
 ## FUNCTIONS
 
 # Create local repo, synchronize with remote one
