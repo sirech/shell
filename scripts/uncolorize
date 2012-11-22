@@ -1,0 +1,10 @@
+# *- mode: Shell-script-*-
+#!/usr/bin/bash
+#
+# uncolorize
+# Author: Mario Fernandez
+#
+# Removes the color codes of the input.
+#
+# This script is intended to use through a pipe.
+sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"
