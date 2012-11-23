@@ -104,6 +104,9 @@ already taken care of by the _zsh_ configuration.
 3. _ruby-build_: Go to https://github.com/sstephenson/ruby-build ,
 follow the instructions to install it as a _rbenv_ plugin.
 
+4. _rbenv-update_: Useful plugin. Clone the repo
+_git://github.com/rkh/rbenv-update.git_ in `~/.rbenv/plugins`.
+
 Note that if you want to use _irb_, you have to install a ruby version
 with _readline_ support. Do it like this:
 
