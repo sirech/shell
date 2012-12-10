@@ -21,6 +21,9 @@ set wildmode=list:longest         " Complete files like a shell.
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 
+" Remap escape
+:imap <C-a> <Esc>
+
 " Search
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
