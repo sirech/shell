@@ -118,7 +118,7 @@
         rv = revert
         rs = reset
         unstage = reset HEAD
-        uncommit = reset --soft HEAD^
+        uncommit = reset --soft 'HEAD^'
         pointbranchto = reset --hard
 
         # stash
