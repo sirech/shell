@@ -30,6 +30,6 @@ function new_remote_git()
 
 # Backup wiki data
 function remote_backup_wiki() {
-    cd ~/wiki
+    cd /srv/www/moin/wiki
     zip -r wiki-bckp-$(date +%Y-%m-%d).zip data
 }
