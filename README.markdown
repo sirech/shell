@@ -96,6 +96,8 @@ An alternative to _rvm_, follow these steps:
 1. Install _readline_:
 
     * Linux: sudo apt-get install libreadline-dev
+    
+    * Mac OS X: brew install readline && brew link readline
 
 2. _rbenv_: Go to https://github.com/sstephenson/rbenv , follow the
 installation steps. Keep in mind that most of the path setting is
@@ -111,6 +113,10 @@ Note that if you want to use _irb_, you have to install a ruby version
 with _readline_ support. Do it like this:
 
 `CONFIGURE_OPTS="--with-readline-dir=/usr/include/readline" rbenv install 1.9.3-p194`
+
+For Mac OS X:
+
+`CONFIGURE_OPTS="--with-readline-dir=/usr/local" rbenv install 1.9.3-p194`
 
 #### irb
 

@@ -51,7 +51,7 @@ desire 'ap'
 desire 'net-http-spy'
 
 # 'lp' to show method lookup path
-desire 'looksee/shortcuts'
+desire 'looksee'
 
 # Tab Completion
 desire 'irb/completion'
