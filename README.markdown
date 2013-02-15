@@ -23,9 +23,10 @@ where _progrc_ is one of:
  * inputrc
  * ackrc
  * screenrc
- * tmux.conf (link to .tmux.conf instead)
+ * tmux.conf (link to `.tmux.conf` instead)
  * vimrc
  * wgetrc
+ * ctags (link to `.ctags`)
 
 ## Extra scripts
 
@@ -38,7 +39,7 @@ like:
 ## SSH
 
 See `ssh/README.markdown`.
-    
+
 ## GIT
 
 See `git/README.markdown`.
@@ -96,7 +97,7 @@ An alternative to _rvm_, follow these steps:
 1. Install _readline_:
 
     * Linux: sudo apt-get install libreadline-dev
-    
+
     * Mac OS X: brew install readline && brew link readline
 
 2. _rbenv_: Go to https://github.com/sstephenson/rbenv , follow the
