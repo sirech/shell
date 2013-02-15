@@ -14,6 +14,7 @@ export JACORB_HOME=/opt/jacorb
 export JMETER_HOME=/opt/jmeter
 export TOMCAT_HOME_GUEST=/opt/guest-tomcat
 export TOMCAT_HOME_MEMBER=/opt/member-tomcat
+export RSENSE_HOME=/opt/rsense
 
 export JRUBY_OPTS="--1.9 -J-Xmx2048m"
 export JAVA_OPTS="$JAVA_OPTS -Djava.endorsed.dirs=$JACORB_HOME/lib"

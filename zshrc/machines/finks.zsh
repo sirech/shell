@@ -13,6 +13,8 @@ export _DOCS=${HOME}/Documents
 # Closure compiler (for JavaScript)
 export CLOSURE_COMPILER=${WORKSPACE}/closure-compiler/compiler.jar
 
+export RSENSE_HOME=/opt/rsense
+
 ## DEFUNS
 
 ## ALIASES
