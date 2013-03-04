@@ -27,6 +27,9 @@ alias ip='ipython'
 alias rb='ruby'
 alias irb='irb'
 
+# find
+alias f='find'
+
 # ssh
 alias s='ssh'
 
