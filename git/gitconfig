@@ -96,10 +96,14 @@
         # pull
         pl = pull
 
+        # rebase
+        ready = rebase -i @{u}
+
         # log
         rdi = log --no-merges --stat @{1}..
         lg = log --graph --pretty=format':%C(yellow)%h%Cred%d%Creset %s %C(cyan) %an, %ar%Creset'
         changes = log --pretty=format:':%C(yellow)%h%Cred%d%Creset %s %C(cyan) %an, %ar%Creset' --name-status
+        standup = !git log –since yesterday –author `git config user.email` –pretty=short
 
         # Creates/deletes the current branch at the remote origin repo
         publish = !sh -c 'CURRENT=$(git symbolic-ref HEAD | sed -e s@.*/@@) \
@@ -120,6 +124,7 @@
         unstage = reset HEAD
         uncommit = reset --soft 'HEAD^'
         pointbranchto = reset --hard
+        wipe = reset --hard HEAD
 
         # stash
         ss = stash                        # stash changes
@@ -129,3 +134,7 @@
 
         # config
         info = config --list
+
+        # Old branches
+        merged = !sh -c 'git branch --merged master | grep -v master'
+        rmerged = !sh -c 'git branch -r --merged master | grep -v master'
