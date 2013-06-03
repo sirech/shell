@@ -100,14 +100,18 @@ An alternative to _rvm_, follow these steps:
 
     * Mac OS X: brew install readline && brew link readline
 
-2. _rbenv_: Go to https://github.com/sstephenson/rbenv , follow the
+2. Install _zlib_:
+
+    * Linux: sudo apt-get install libssl-dev zlib1g-dev
+
+3. _rbenv_: Go to https://github.com/sstephenson/rbenv , follow the
 installation steps. Keep in mind that most of the path setting is
 already taken care of by the _zsh_ configuration.
 
-3. _ruby-build_: Go to https://github.com/sstephenson/ruby-build ,
+4. _ruby-build_: Go to https://github.com/sstephenson/ruby-build ,
 follow the instructions to install it as a _rbenv_ plugin.
 
-4. _rbenv-update_: Useful plugin. Clone the repo
+5. _rbenv-update_: Useful plugin. Clone the repo
 _git://github.com/rkh/rbenv-update.git_ in `~/.rbenv/plugins`.
 
 Note that if you want to use _irb_, you have to install a ruby version
