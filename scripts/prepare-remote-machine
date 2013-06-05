@@ -16,6 +16,9 @@ git clone git://github.com/sirech/shell.git || { echo "Could not clone git repos
 echo ". ~/shell/bashrc/bash.sh" > ~/.bashrc
 echo "source ~/bin/git-prompt.sh" >> ~/.bashrc
 
+# in case ~/.bashrc is not loaded when logged via ssh
+echo "if [ -f ~/.bashrc ] ; then . ~/.bashrc ; fi" >> ~/.bash_profile
+
 # links
 ln -s ~/shell/scripts ~/bin
 for rc in inputrc ackrc vimrc wgetrc gitconfig ; do
