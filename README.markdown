@@ -143,3 +143,10 @@ the OS. Link the good one with `sudo ln -s
 Clone the repository with `git clone
 git://github.com/sickill/stderred.git` and follow the instructions in
 https://github.com/sickill/stderred
+
+### Remote machine
+
+To install some basic utilities and links for a remote machine that
+will be accessed via ssh, do this on the machine:
+
+`bash < <(curl -s https://raw.github.com/sirech/shell/master/scripts/prepare-remote-machine)`
