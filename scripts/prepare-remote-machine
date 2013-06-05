@@ -10,7 +10,7 @@
 # Assumes no root access, needs git installed
 
 # repo
-git clone git://github.com/sirech/shell.git || { echo "Could not clone git repository"; exit 1 }
+git clone git://github.com/sirech/shell.git || { echo "Could not clone git repository"; exit 1; }
 
 # ~/.bashrc
 echo ". ~/shell/bashrc/bash.sh" > ~/.bashrc
