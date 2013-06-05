@@ -1,0 +1,23 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+
+# prepare-remote-machine
+# Author: Mario Fernandez
+#
+# Prepares a remote machine so that it haves a nicer prompt,
+# gitconfig, and so on when accessed via ssh
+#
+# Assumes no root access, needs git installed
+
+# repo
+git clone git://github.com/sirech/shell.git || { echo "Could not clone git repository"; exit 1 }
+
+# ~/.bashrc
+echo ". ~/shell/bashrc/bash.sh" > ~/.bashrc
+echo "source ~/bin/git-prompt.sh" >> ~/.bashrc
+
+# links
+ln -s ~/shell/scripts ~/bin
+for rc in inputrc ackrc vimrc wgetrc gitconfig ; do
+    ln -s ~/shell/${rc} ~/.${rc}
+done
