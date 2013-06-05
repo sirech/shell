@@ -41,6 +41,7 @@ cfg_echo "Loading settings for Terminal: $TERM"
 case $TERM in
     screen|screen-w|xterm)
         export EXTRA_PROMPT_COMMAND=change_title
+        trap 'change_title "$BASH_COMMAND"' DEBUG
         ;;
 esac
 
