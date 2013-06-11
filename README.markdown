@@ -11,22 +11,9 @@ See `bashrc/README.markdown`.
 
 See `zshrc/README.markdown`.
 
-## Dot files
+## Configuration files
 
-There are configuration files for some common programs. To use them,
-link them with something like:
-
-`ln -s ~/shell/progrc ~/.progrc`
-
-where _progrc_ is one of:
-
- * inputrc
- * ackrc
- * screenrc
- * tmux.conf (link to `.tmux.conf` instead)
- * vimrc
- * wgetrc
- * ctags (link to `.ctags`)
+See `rc/README.markdown`.
 
 ## Extra scripts
 
