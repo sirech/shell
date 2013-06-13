@@ -22,8 +22,6 @@ echo "source ~/bin/git-prompt.sh" >> ~/.bashrc
 # in case ~/.bashrc is not loaded when logged via ssh
 echo "if [ -f ~/.bashrc ] ; then . ~/.bashrc ; fi" >> ~/.bash_profile
 
-source ~/.bashrc
-
 # Scripts
 ln -s ${SHELL_DIR}/scripts ~/bin
 
