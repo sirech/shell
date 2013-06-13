@@ -13,7 +13,6 @@
 # Assumes no root access, needs git installed
 #
 # The repository directory is defined in SHELL_DIR, change if needed.
-
 SHELL_DIR=~/shell
 
 # ~/.bashrc

@@ -2,4 +2,8 @@
 #!/usr/bin/bash
 #
 # Installation script for remote machines
-sh scripts/prepare-remote-machine
+if [ ! -d "~/shell" ] ; then
+    ln -s "$(dirname $0)" ~/shell
+fi
+
+sh $(dirname $0)/scripts/prepare-remote-machine
