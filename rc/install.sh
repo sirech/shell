@@ -1,4 +1,5 @@
 # -*- mode: Shell-script-*-
+#!/usr/bin/bash
 #
 # Installation script for the rc files
 

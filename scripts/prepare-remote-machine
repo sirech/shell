@@ -4,23 +4,29 @@
 # prepare-remote-machine
 # Author: Mario Fernandez
 #
-# Prepares a remote machine so that it haves a nicer prompt,
-# gitconfig, and so on when accessed via ssh
+# Prepares a remote machine by installing:
+#
+# - bashrc configuration
+# - config files for multiple utilities (ack,vim,wget,...)
+# - a better gitconfig
 #
 # Assumes no root access, needs git installed
+#
+# The repository directory is defined in SHELL_DIR, change if needed.
 
-# repo
-git clone git://github.com/sirech/shell.git || { echo "Could not clone git repository"; exit 1; }
+SHELL_DIR=~/shell
 
 # ~/.bashrc
-echo ". ~/shell/bashrc/bash.sh" > ~/.bashrc
+echo ". ${SHELL_DIR}/bashrc/bash.sh" > ~/.bashrc
 echo "source ~/bin/git-prompt.sh" >> ~/.bashrc
 
 # in case ~/.bashrc is not loaded when logged via ssh
 echo "if [ -f ~/.bashrc ] ; then . ~/.bashrc ; fi" >> ~/.bash_profile
 
-# links
-ln -s ~/shell/scripts ~/bin
-for rc in inputrc ackrc vimrc wgetrc gitconfig ; do
-    ln -s ~/shell/${rc} ~/.${rc}
-done
+source ~/.bashrc
+
+# Scripts
+ln -s ${SHELL_DIR}/scripts ~/bin
+
+# Configuration for multiple programs
+sh ${SHELL_DIR}/rc/install.sh

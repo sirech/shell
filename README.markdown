@@ -3,6 +3,10 @@
 This project provides a set of defaults, configuration files and
 extensions for shell work.
 
+There is an installation script, `install.sh`, but keep in mind that
+this is only for remote machines, only for bash, and skips some steps
+in the setup.
+
 ## BASH
 
 See `bashrc/README.markdown`.
