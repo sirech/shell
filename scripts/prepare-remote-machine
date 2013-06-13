@@ -27,3 +27,6 @@ ln -s ${SHELL_DIR}/scripts ~/bin
 
 # Configuration for multiple programs
 sh ${SHELL_DIR}/rc/install.sh
+
+# gitconfig
+ln -s ${SHELL_DIR}/git/gitconfig ~/.gitconfig
