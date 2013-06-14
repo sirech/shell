@@ -6,3 +6,6 @@ bashrc/completion/rvm
 
 # completions is an external repository
 zshrc/completions
+
+# Ignore some scripts
+scripts/_xing
