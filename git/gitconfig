@@ -42,6 +42,7 @@
         editor = emacsclient
         pager = less -FRSX
         whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+        excludesfile = ~/.gitignore
 
 [diff]
         # Make diffs shorter when moving/copying files

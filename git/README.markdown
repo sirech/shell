@@ -13,6 +13,13 @@ link the configuration with:
 
 `ln -s ~/shell/git/gitconfig ~/.gitconfig`
 
+## gitignore
+
+A global _gitignore_ with sensible defaults is provided. To use, link
+it with:
+
+`ln -s ~/shell/git/gitignore ~/.gitignore`
+
 ## Gitk
 
 [Gitk](ftp://ftp.kernel.org/pub/software/scm/git/docs/gitk.html) is a
