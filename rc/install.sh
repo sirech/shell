@@ -7,7 +7,10 @@ echo "Installing rc files"
 
 exclude="install.sh README.markdown"
 
-for f in ${SHELL_DIR}/rc/* ; do
+# Using the env var is causing problems for remote machines
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+
+for f in ${DIR}/* ; do
     rc=$(basename "$f")
 
     if [ ! "${exclude#*$rc}" != "$exclude" ] ; then
