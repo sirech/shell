@@ -56,7 +56,7 @@
         verbosity = 1
 
 [push]
-        default = current
+        default = upstream
 
 [gc]
         auto = 1
