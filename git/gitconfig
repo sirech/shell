@@ -51,6 +51,9 @@
         # instead of a/b/c/d as prefixes for patches
         mnemonicprefix = true
 
+[branch]
+        autosetuprebase = always
+
 [merge]
         summary = true
         verbosity = 1
