@@ -1,4 +1,3 @@
 ## ALIASES
 
-# grep: use perl regexps
-alias grep='grep -P --color=always'
+alias grep='grep --color=always'
