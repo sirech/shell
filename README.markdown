@@ -41,11 +41,21 @@ See `git/README.markdown`.
 
 _Very_ useful.
 
-* Mac OS X: `sudo port install p5-app-ack`
+* Mac OS X: `brew install ack`
 
 * Linux: `apt-get install ack-grep`
 
 The configuration file is automatically loaded.
+
+### AG
+
+A replacement for _ack_.
+
+* Mac OS X: `brew install the_silver_searcher`
+
+* Linux: `apt-get install silversearcher-ag`
+
+For older versions of Ubuntu, check https://github.com/ggreer/the_silver_searcher#Installation
 
 ### Ruby
 

@@ -12,7 +12,6 @@ case $(uname -s) in
     CYGWIN_NT* ) os_file=cygwin.zsh ;;
     Linux )
         os_file=linux.zsh
-        plugins+=(debian)
         ;;
 esac
 

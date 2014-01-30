@@ -28,7 +28,7 @@ desired=(ant awk git git-search grep lein mvn python svn)
     done
 
 # Ruby stuff
-plugins+=(bundler cap rails3 rbenv)
+plugins+=(bundler cap rails rbenv)
 
 # Useful plugins
 plugins+=(extract history-substring-search)
