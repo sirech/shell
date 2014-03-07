@@ -31,7 +31,7 @@ desired=(ant awk git git-search grep lein mvn python svn)
 plugins+=(bundler cap rails rbenv)
 
 # Useful plugins
-plugins+=(extract history-substring-search)
+plugins+=(colored-man extract history-substring-search)
 
 
 
