@@ -142,3 +142,6 @@
         # Old branches
         merged = !sh -c 'git branch --merged master | grep -v master'
         rmerged = !sh -c 'git branch -r --merged master | grep -v master'
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
