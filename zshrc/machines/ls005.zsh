@@ -9,6 +9,8 @@
 export CUCUMBER_HOST=stable-mario-fernandez.env.xing.com
 export JRE_HOME=/opt/jre
 
+export XING_APP_CONFIG_FILE=~/.sandbox_config.yml
+
 path=($JRE_HOME/bin $path)
 
 function app_servers_old {
@@ -41,11 +43,11 @@ function multirun {
 
     case $host in
         app )
-            boxes=$(app_servers_old) ;;
+            boxes=$(app_servers) ;;
         api )
-            boxes=$(api_servers_old) ;;
+            boxes=$(api_servers) ;;
         worker )
-            boxes=$(worker_servers_old) ;;
+            boxes=$(worker_servers) ;;
     esac
 
     mussh -h $boxes -c $cmd
