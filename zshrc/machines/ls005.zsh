@@ -9,8 +9,6 @@
 export CUCUMBER_HOST=stable-mario-fernandez.env.xing.com
 export JRE_HOME=/opt/jre
 
-export XING_APP_CONFIG_FILE=~/.sandbox_config.yml
-
 path=($JRE_HOME/bin $path)
 
 function app_servers_old {
