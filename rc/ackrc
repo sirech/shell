@@ -27,3 +27,10 @@
 # Print a filename heading above each file's results and
 # print a break between results from different files
 --group
+
+# haml and sass files are not searched by default anymore
+--type-add
+html=.haml
+--type-add
+css=.sass,.scss
+--type-set=haml=.haml
