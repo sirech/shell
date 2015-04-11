@@ -28,7 +28,7 @@ desired=(ant awk git git-search grep lein mvn python svn)
     done
 
 # Ruby stuff
-plugins+=(bundler capistrano rails rbenv)
+plugins+=(bundler capistrano rbenv)
 
 # Useful plugins
 plugins+=(colored-man extract history history-substring-search)
