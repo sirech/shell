@@ -3,8 +3,8 @@ load_old_plugin $0
 ## ENVIRONMENT
 
 # Git completion is very slow for big repositories
-__git_files () { 
-    _wanted files expl 'local files' _files 
+__git_files () {
+    _wanted files expl 'local files' _files
 }
 
 ## FUNCTIONS
@@ -88,7 +88,6 @@ function add_to_github () {
 ## ALIASES
 
 alias gs='git status'
-alias gpa='git push -v && git push -v public master'
 alias gu='git pull -v'
 alias gup='git pull -v && git push -v'
 alias ga='git add -v'
