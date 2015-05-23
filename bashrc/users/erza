@@ -33,3 +33,23 @@ function remote_backup_wiki() {
     cd /srv/www/moin/wiki
     zip -r wiki-bckp-$(date +%Y-%m-%d).zip data
 }
+
+# Activate automatic synchronization with github for the given project
+function sync_with_github()
+{
+    user=sirech
+
+    if [ -z $1 ]; then
+        echo "usage: $FUNCNAME project-name.git"
+    else
+        project=$1
+        gitdir="$GIT_PATH/$project"
+        pushd $gitdir
+
+        git remote add --mirror=push github git@github.com:$user/$project
+
+        ln -s $GIT_HOOKS/post-receive/sync-to-github hooks/post-receive
+
+        popd
+    fi
+}

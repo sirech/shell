@@ -1,0 +1,9 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+
+set -e
+
+echo "Synchronizing to github..."
+git push github
+
+set +e
