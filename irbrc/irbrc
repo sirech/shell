@@ -15,7 +15,8 @@ def desire(what, &block)
   begin
     require_result = require what
     loaded = true
-
+  rescue LoadError
+    puts "** Warning: Not installed: '#{what}'"
   rescue Exception => ex
     puts "** Unable to require '#{what}'"
     puts "--> #{ex.class}: #{ex.message}"
@@ -30,8 +31,10 @@ end
 desire 'rubygems'
 
 # Load all the configuration files
-Dir.glob(File.join(ENV['SHELL_DIR'], 'irbrc', '*.rb')) do |file|
-  require file
+if ENV['SHELL_DIR']
+  Dir.glob(File.join(ENV['SHELL_DIR'], 'irbrc', '*.rb')) do |file|
+    require file
+  end
 end
 
 # http://drnicutilities.rubyforge.org/map_by_method/
