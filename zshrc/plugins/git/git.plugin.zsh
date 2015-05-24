@@ -63,7 +63,7 @@ function sync_remote_git () {
     echo "Synchronizing repository $1 with the remote version"
 
     ssh hceris new_remote_git $1
-    git remote add origin ssh://hceris/~/git.hceris.com/$1
+    git remote add origin ssh://erza/~/git/$1
     git config branch.master.remote origin
     git config branch.master.merge refs/heads/master
     git push --all
