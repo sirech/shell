@@ -10,7 +10,8 @@
 # Author: Mario Fernandez
 
 [user]
-        name = Mario Fernandez
+	name = Mario Fernandez
+	email = mario.fernandez@xing.com
         # Set up this manually, as the email can vary between machines
         #email = username@mydomain.com
 

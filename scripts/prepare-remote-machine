@@ -13,7 +13,7 @@
 # Assumes no root access, needs git installed
 #
 # The repository directory is defined in SHELL_DIR, change if needed.
-export SHELL_DIR=~/shell
+export SHELL_DIR=${HOME}/shell
 
 # ~/.bashrc
 echo ". ${SHELL_DIR}/bashrc/bash.sh" > ~/.bashrc
@@ -23,10 +23,14 @@ echo "source ~/bin/git-prompt.sh" >> ~/.bashrc
 echo "if [ -f ~/.bashrc ] ; then . ~/.bashrc ; fi" > ~/.bash_profile
 
 # Scripts
-ln -s ${SHELL_DIR}/scripts ~/bin
+if [ ! -h "${HOME}/bin" ] ; then
+    ln -s ${SHELL_DIR}/scripts ~/bin
+fi
 
 # Configuration for multiple programs
 sh ${SHELL_DIR}/rc/install.sh
 
 # gitconfig
-ln -s ${SHELL_DIR}/git/gitconfig ~/.gitconfig
+if [ ! -h "${HOME}/.gitconfig" ] ; then
+    ln -s ${SHELL_DIR}/git/gitconfig ~/.gitconfig
+fi
