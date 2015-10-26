@@ -1,0 +1,8 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/bash
+#
+# screen-off
+# Author: Mario Fernandez
+#
+# Turn main screen off
+xrandr --output eDP1 --off
