@@ -90,3 +90,16 @@ IRB.conf[:AUTO_INDENT]=true
 def eval_lines(fn, lines)
   eval( File.readlines(fn)[lines].join)
 end
+
+require 'csv'
+class Array
+  def to_csv(file_name)
+    file_name = "#{file_name}.csv" unless file_name =~ /.*\.csv$/
+
+    CSV.open(file_name, 'wb') do |writer|
+      self.each do |r|
+        writer << r
+      end
+    end
+  end
+end
