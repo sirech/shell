@@ -44,3 +44,6 @@ alias dsclean='find . -name ".DS_Store" | xargs rm'
 # Use native Tk to launch gitk
 alias gitk="nice_gitk"
 compdef _git nice_gitk=git-log
+
+# htop needs to run with sudo to work properly
+alias htop='sudo htop'
