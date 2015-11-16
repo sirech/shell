@@ -31,8 +31,4 @@ desired=(ant awk git git-search grep lein mvn python svn)
 plugins+=(bundler capistrano rbenv)
 
 # Useful plugins
-plugins+=(colored-man extract history history-substring-search)
-
-
-
-
+plugins+=(colored-man extract gnu-utils history history-substring-search)
