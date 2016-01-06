@@ -32,3 +32,6 @@ plugins+=(bundler capistrano rbenv)
 
 # Useful plugins
 plugins+=(colored-man extract gnu-utils history history-substring-search)
+
+# Other
+plugins+=(jira)

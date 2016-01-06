@@ -9,6 +9,7 @@
 export HERMES_SANDBOX=dev~-mario-fernandez.env.xing.com
 export CUCUMBER_HOST=stable-mario-fernandez.env.xing.com
 export JRE_HOME=/opt/jre
+export JIRA_URL=https://jira.xing.hh/jira
 
 path=($JRE_HOME/bin $path)
 
@@ -51,4 +52,3 @@ function multirun {
 
     mussh -h $boxes -c $cmd
 }
-
