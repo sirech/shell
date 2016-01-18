@@ -27,6 +27,9 @@ export GIT_HOOKS=${SHELL_DIR}/git/hooks
 export DIRLOGSDB=~/.dirlogsdb
 export LASTDIR=/
 
+# Show special characters in less
+export LESSCHARSET=UTF-8
+
 # Avoid annoying completion problems when ssh'ing to a machine with a
 # different locale
 unset LC_CTYPE
