@@ -3,8 +3,7 @@
 ## SSH Profiles
 
 You can add ssh profiles in the ssh/config file. You'll need to link
-it to your ssh config with something like `ln -s ~/shell/ssh/config
-~/.ssh/config` .
+it to your ssh config with something like `ln -s ~/shell/ssh/config ~/.ssh/config` .
 
 To log without a key follow this advice: [RSA without
 pass](http://linuxproblem.org/art_9.html)
