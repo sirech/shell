@@ -10,6 +10,12 @@ export HERMES_SANDBOX=dev~-mario-fernandez.env.xing.com
 export CUCUMBER_HOST=stable-mario-fernandez.env.xing.com
 export JRE_HOME=/opt/jre
 
+# Access JIRA from the console
+export JIRA_URL=https://jira.xing.hh/jira
+
+# iOS
+export OS=9.0
+
 path=($JRE_HOME/bin $path)
 
 function app_servers_old {
@@ -51,4 +57,3 @@ function multirun {
 
     mussh -h $boxes -c $cmd
 }
-
