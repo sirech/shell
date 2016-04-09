@@ -60,3 +60,7 @@ alias -g L="| less"
 alias -g N="| /dev/null"
 alias -g S='| sort'
 alias -g G='| grep' # now you can do: ls foo G something
+
+# Activate configurations for emacs
+alias prelude='rm ~/.emacs.d && ln -s ~/prelude ~/.emacs.d'
+alias spacemacs='rm ~/.emacs.d && ln -s ~/spacemacs ~/.emacs.d'
