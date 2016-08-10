@@ -6,36 +6,17 @@
 # most used commands
 alias rank="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
 
-# number of non-hidden files in current dir
-alias filec='ls | wc -l'
-
-# size of files in the current directory
-alias ndu='du -hsc .[!.]* *'
-
 # less: allow color
 alias less='less -r'
 
 # edit file with set editor
 alias edit="$EDITOR"
 
-# python
-alias py='python'
-alias ip='ipython'
-
-# ruby
-alias rb='ruby'
-alias irb='irb'
-
 # find
 alias f='find'
 
 # ssh
 alias s='ssh'
-
-# tag generation
-alias pytags='gettags py'
-alias javatags='gettags java'
-alias gettags='ffe $1 | xargs etags -a -f TAGS'
 
 # unified diff
 alias udiff='diff -u'
@@ -63,7 +44,3 @@ alias -g G='| grep' # now you can do: ls foo G something
 
 # Ag does not have a proper configuration file
 alias ag='ag --pager "less -r" -C 1'
-
-# Activate configurations for emacs
-alias prelude='rm ~/.emacs.d ; ln -s ~/prelude ~/.emacs.d'
-alias spacemacs='rm ~/.emacs.d ; ln -s ~/spacemacs ~/.emacs.d'

@@ -1,59 +1,10 @@
 # -*- mode: Shell-script-*-
 
 #
-# Settings for the machine 'ls004'
+# Settings for the machine 'ls005'
 #
 
 ## ENV
 
-export HERMES_SANDBOX=dev~-mario-fernandez.env.xing.com
-export CUCUMBER_HOST=stable-mario-fernandez.env.xing.com
-export JRE_HOME=/opt/jre
-
 # Access JIRA from the console
 export JIRA_URL=https://jira.xing.hh/jira
-
-# iOS
-export OS=9.0
-
-path=($JRE_HOME/bin $path)
-
-function app_servers_old {
-    echo events-1.app.fra{1,2}.xing.com
-}
-
-function api_servers_old {
-    echo events-{1,2}.api.fra{1,2}.xing.com
-}
-
-function worker_servers_old {
-    echo events-1.worker.fra{1,2}.xing.com
-}
-
-function app_servers {
-    echo events-{2,3}.app.fra{1,2}.xing.com
-}
-
-function api_servers {
-    echo events-{3,4}.api.fra{1,2}.xing.com
-}
-
-function worker_servers {
-    echo events-{2,3}.worker.fra{1,2}.xing.com
-}
-
-function multirun {
-    host=${1:?No hosts given}
-    cmd=${2:?No cmd given}
-
-    case $host in
-        app )
-            boxes=$(app_servers) ;;
-        api )
-            boxes=$(api_servers) ;;
-        worker )
-            boxes=$(worker_servers) ;;
-    esac
-
-    mussh -h $boxes -c $cmd
-}
