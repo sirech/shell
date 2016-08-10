@@ -19,7 +19,7 @@ done
 # Activate plugins
 
 # Plugins that refer to an executable
-desired=(ant awk git git-search grep lein mvn python svn)
+desired=(git)
 
     for plugin in $desired; do
         if which -a $plugin > /dev/null; then
@@ -28,10 +28,10 @@ desired=(ant awk git git-search grep lein mvn python svn)
     done
 
 # Ruby stuff
-plugins+=(bundler capistrano rbenv)
+plugins+=(bundler rbenv)
 
 # Useful plugins
-plugins+=(colored-man extract gnu-utils history history-substring-search)
+plugins+=(extract history)
 
 # Other
 plugins+=(jira)
