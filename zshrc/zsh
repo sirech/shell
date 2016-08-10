@@ -67,7 +67,7 @@ source ${SHELL_DIR}/zshrc/activate-os-config ${SHELL_DIR}/zshrc
 source ${SHELL_DIR}/zshrc/activate-machine-config ${SHELL_DIR}/zshrc
 source ${SHELL_DIR}/zshrc/activate-plugins ${SHELL_DIR}/zshrc
 
-export ZSH_THEME="sirech"
+export ZSH_THEME="agnoster"
 cfg_echo "Plugins to load: $plugins"
 export DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
