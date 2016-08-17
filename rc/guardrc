@@ -1,2 +1,0 @@
-# -*- mode: ruby-*-
-Guard.options[:clear] = true
