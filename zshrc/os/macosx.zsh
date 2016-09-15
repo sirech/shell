@@ -18,3 +18,5 @@ fi
 
 # htop needs to run with sudo to work properly
 alias htop='sudo htop'
+
+alias godocs='cd ~/Documents'
