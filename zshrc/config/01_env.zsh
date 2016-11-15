@@ -35,7 +35,7 @@ export LESSCHARSET=UTF-8
 unset LC_CTYPE
 
 # Needed for glyphs in tmux
-export LANG="en_US-UTF-8"
+export LANG="en_US.UTF-8"
 
 workspaces=(~/workspace ~/Documents/workspace)
 for workspace in $workspaces ; do
