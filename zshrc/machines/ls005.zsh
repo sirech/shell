@@ -9,3 +9,7 @@
 # Access JIRA from the console
 export JIRA_URL=https://jira.xing.hh/jira
 export HERMES_SANDBOX=http://hood-mario-fernandez.env.xing.com/
+
+## ALIASES
+
+alias de='docker exec -it events'
