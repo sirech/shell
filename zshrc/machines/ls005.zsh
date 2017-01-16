@@ -14,3 +14,4 @@ export ESPFP_API_KEY=c0abac272b72f7037f8367ef9251cd86
 ## ALIASES
 
 alias de='docker exec -it events'
+alias rrspec='de bin/rspec --color'
