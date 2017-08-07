@@ -10,6 +10,8 @@ Host *
 
      GSSAPIAuthentication no
 
+     UseKeychain yes
+
 Host erza
-     HostName 178.79.132.62
-     User sirech
+     HostName 45.32.187.162
+     User root
