@@ -30,11 +30,11 @@ desired=(docker docker-compose git travis)
 # Ruby stuff
 plugins+=(bundler rbenv)
 
-# JS stuff
-plugins+=(yarn)
-
 # Android stuff
 plugins+=(adb)
+
+# Cloud
+plugins+=(kubectl)
 
 # Useful plugins
 plugins+=(extract history)

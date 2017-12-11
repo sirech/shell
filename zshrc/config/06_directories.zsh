@@ -85,5 +85,5 @@ function find_class_in_jars() {
 
 ## ALIASES
 
-alias go='go_frequency'
+alias gof='go_frequency'
 alias gor='go_recent'
