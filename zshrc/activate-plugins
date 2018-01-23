@@ -21,11 +21,11 @@ done
 # Plugins that refer to an executable
 desired=(docker docker-compose git travis)
 
-    for plugin in $desired; do
-        if which -a $plugin > /dev/null; then
-            plugins+=($plugin)
-        fi
-    done
+for plugin in $desired; do
+    if which -a $plugin > /dev/null; then
+        plugins+=($plugin)
+    fi
+done
 
 # Ruby stuff
 plugins+=(bundler rbenv)
