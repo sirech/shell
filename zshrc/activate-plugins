@@ -40,4 +40,4 @@ plugins+=(kubectl)
 plugins+=(extract history)
 
 # Other
-plugins+=(jira)
+plugins+=(jira gpg-agent)
