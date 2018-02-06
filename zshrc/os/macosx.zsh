@@ -8,6 +8,7 @@
 
 # Use colors than can actually be seen
 export CLICOLOR=1
+export LSCOLORS=DxGxcxdxCxegedabagacad
 
 if test $(which brew); then
   export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
