@@ -1,9 +1,0 @@
-# -*- mode: Shell-script-*-
-#!/usr/bin/bash
-
-set -e
-
-sh ${GIT_HOOKS}/pre-commit/no-conflicts
-sh ${GIT_HOOKS}/pre-commit/py-syntax-check
-
-set +e
