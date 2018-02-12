@@ -10,6 +10,7 @@ Host *
 
      GSSAPIAuthentication no
 
+     IgnoreUnknown UseKeychain
      UseKeychain yes
 
 Host erza
