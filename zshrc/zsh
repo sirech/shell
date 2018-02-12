@@ -86,6 +86,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # export ZSH_THEME="agnoster"
 cfg_echo "Plugins to load: $plugins"
 export DISABLE_AUTO_UPDATE="true"
+export DISABLE_UPDATE_PROMPT="true"
 source $ZSH/oh-my-zsh.sh
 
 unset plugins

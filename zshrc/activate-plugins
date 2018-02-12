@@ -30,9 +30,6 @@ done
 # Ruby stuff
 plugins+=(bundler rbenv)
 
-# Android stuff
-plugins+=(adb)
-
 # Cloud
 plugins+=(kubectl)
 
