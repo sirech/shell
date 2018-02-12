@@ -67,7 +67,23 @@ source ${SHELL_DIR}/zshrc/activate-os-config ${SHELL_DIR}/zshrc
 source ${SHELL_DIR}/zshrc/activate-machine-config ${SHELL_DIR}/zshrc
 source ${SHELL_DIR}/zshrc/activate-plugins ${SHELL_DIR}/zshrc
 
-export ZSH_THEME="agnoster"
+export TERM="xterm-256color"
+POWERLEVEL9K_MODE='awesome-patched'
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator)
+
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_unique"
+
+POWERLEVEL9K_STATUS_OK=false
+
+
+export ZSH_THEME="powerlevel9k/powerlevel9k"
+DISABLE_LS_COLORS="false"
+HIST_STAMPS="dd/mm/yyyy"
+
+# export ZSH_THEME="agnoster"
 cfg_echo "Plugins to load: $plugins"
 export DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
