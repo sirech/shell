@@ -1,3 +1,4 @@
 source ~/.vimrc
 
 set surround
+set clipboard+=unnamedplus
