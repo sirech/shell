@@ -1,0 +1,2 @@
+# GPG Configuration
+
