@@ -5,7 +5,6 @@
 #
 
 ## ENV
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 # Access JIRA from the console
 
