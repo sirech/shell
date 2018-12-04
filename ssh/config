@@ -12,6 +12,7 @@ Host *
 
      IgnoreUnknown UseKeychain
      UseKeychain yes
+     AddKeysToAgent yes
 
 Host erza
      HostName 45.32.187.162
