@@ -37,7 +37,7 @@ plugins+=(npm npx)
 plugins+=(kubectl)
 
 # Useful plugins
-plugins+=(extract history z)
+plugins+=(extract fzf history z)
 
 # Other
 plugins+=(jira gpg-agent)

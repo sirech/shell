@@ -41,6 +41,7 @@ alias -g L="| less"
 alias -g N="| /dev/null"
 alias -g S='| sort'
 alias -g G='| grep' # now you can do: ls foo G something
+alias -g F='| fzf'
 
 # Ag does not have a proper configuration file
 alias ag='ag --pager "less -r" -C 1'
