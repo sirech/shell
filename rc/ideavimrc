@@ -1,5 +1,3 @@
-source ~/.vimrc
-
-set surround
-set multiple-cursors
-set clipboard+=unnamedplus
+source ~/intelli-space/spacemacs.vim
+source ~/intelli-space/extra.vim
+source ~/intelli-space/major.vim
