@@ -4,6 +4,12 @@
 # Mac OS X specific settings
 #
 
+## DEFUNS
+
+function restart_sound() {
+  sudo kill -9 `ps ax| grep 'coreaudio[a-z]' | awk '{print $1}'`
+}
+
 ## ENV
 
 # Use colors than can actually be seen
