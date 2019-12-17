@@ -15,7 +15,12 @@ function goshell() {
     cd -P ${SHELL_DIR}
 }
 
-# Goes to the directory where the workspace is located
-function gospace() {
+# Goes to the directory where work stuff is located
+function gowork() {
     cd -P ${WORKSPACE}
+}
+
+# Goes to the directory where personal stuff is located
+function gomine() {
+    cd -P ${MINE}
 }
