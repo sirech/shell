@@ -16,8 +16,12 @@ function restart_sound() {
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
+
 if test $(which brew); then
   export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+  export PATH=$(brew --prefix findutils)/libexec/gnubin:$PATH
+  export PATH=$(brew --prefix grep)/libexec/gnubin:$PATH
+  export PATH=$(brew --prefix gnu-sed)/libexec/gnubin:$PATH
 fi
 
 ## ALIASES
