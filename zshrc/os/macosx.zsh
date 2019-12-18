@@ -20,11 +20,6 @@ if test $(which brew); then
   export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 fi
 
-if [[ -d "${HOME}/Library/Android/sdk/platform-tools" ]]; then
-  echo "Android Studio is present, adding to path"
-  export PATH=$PATH:~/Library/Android/sdk/platform-tools
-fi
-
 ## ALIASES
 
 # htop needs to run with sudo to work properly
