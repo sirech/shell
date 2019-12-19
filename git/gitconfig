@@ -99,7 +99,7 @@
 
         # log
         rdi = log --no-merges --stat @{1}..
-        lg = log --graph --pretty=format':%C(yellow)%h%Cred%d%Creset %s %C(cyan) %an, %ar%Creset'
+        lg = log --graph --pretty=format':%C(yellow)%h%Cred%d%Creset %C(green)%G?%Creset %s %C(cyan) %an, %ar%Creset'
         changes = log --pretty=format:':%C(yellow)%h%Cred%d%Creset %s %C(cyan) %an, %ar%Creset' --name-status
         standup = !git log –since yesterday –author `git config user.email` –pretty=short
 
