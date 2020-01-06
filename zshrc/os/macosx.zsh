@@ -18,10 +18,10 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 
 
 if test $(which brew); then
-  export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
-  export PATH=$(brew --prefix findutils)/libexec/gnubin:$PATH
-  export PATH=$(brew --prefix grep)/libexec/gnubin:$PATH
-  export PATH=$(brew --prefix gnu-sed)/libexec/gnubin:$PATH
+  [ -d /usr/local/opt/coreutils ] && export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+  [ -d /usr/local/opt/findutils ] && export PATH=/usr/local/opt/findutils/libexec/gnubin:$PATH
+  [ -d /usr/local/opt/grep ] && export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
+  [ -d /usr/local/opt/gnu-sed ] && export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
 fi
 
 ## ALIASES
