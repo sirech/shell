@@ -13,4 +13,5 @@ load-nvmrc() {
   fi
 }
 
-add-zsh-hook chpwd load-nvmrc
+# This is quite slow
+# add-zsh-hook chpwd load-nvmrc
