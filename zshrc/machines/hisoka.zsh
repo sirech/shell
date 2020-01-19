@@ -12,6 +12,3 @@
 alias tf=terraform
 
 ## Setup
-script_dir=~/workspace/cloud-helpers
-source ${script_dir}/cloud-helpers.sh
-# source ${script_dir}/cloud-helpers-completion.sh
