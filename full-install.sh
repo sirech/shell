@@ -18,6 +18,8 @@ if [ ! -h "${HOME}/.ssh/config" ] ; then
 fi
 
 # GPG
+mkdir -p ~/.gnupg
+chmod 700 ~/.gnupg
 if [ ! -h "${HOME}/.gnupg/gpg-agent.conf" ] ; then
     ln -s ${SHELL_DIR}/gpg/gpg-agent.conf ${HOME}/.gnupg
 fi
