@@ -148,5 +148,20 @@
 	smudge = git lfs smudge %f
 	required = true
 
+[includeIf "gitdir:~/shell/"]
+  path = ~/mine/gitconfig
+
+[includeIf "gitdir:~/.spacemacs.d/"]
+  path = ~/mine/gitconfig
+
+[includeIf "gitdir:~/mine/"]
+  path = ~/mine/gitconfig
+
+[includeIf "gitdir:~/dev-setup/"]
+  path = ~/mine/gitconfig
+
+[includeIf "gitdir:~/.hammerspoon/"]
+  path = ~/mine/gitconfig
+
 [includeIf "gitdir:~/work/"]
   path = ~/work/gitconfig
