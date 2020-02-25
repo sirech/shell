@@ -31,7 +31,7 @@ done
 plugins+=(bundler rbenv)
 
 # Node stuff
-plugins+=(npm nvm)
+plugins+=(npm)
 
 # Cloud
 plugins+=()
