@@ -34,7 +34,7 @@ plugins+=(bundler rbenv)
 plugins+=(npm)
 
 # Rust stuff
-plugins+=(rust)
+plugins+=(rust cargo)
 
 # Cloud
 plugins+=()
