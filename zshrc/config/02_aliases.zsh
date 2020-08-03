@@ -13,7 +13,7 @@ alias less='less -r'
 alias edit="$EDITOR"
 
 # find
-alias f='find'
+alias f='fd'
 
 # ssh
 alias s='ssh'
