@@ -78,7 +78,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_unique"
 
 POWERLEVEL9K_STATUS_OK=false
 
-export ZSH_THEME="powerlevel9k/powerlevel9k"
+export ZSH_THEME="powerlevel10k/powerlevel10k"
 DISABLE_LS_COLORS="false"
 HIST_STAMPS="yyyy-mm-dd"
 
