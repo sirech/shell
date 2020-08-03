@@ -45,3 +45,6 @@ alias -g F='| fzf'
 
 # Ag does not have a proper configuration file
 alias ag='ag --pager "less -r" -C 1'
+
+# Replace ls with exa
+alias l='exa -lah'

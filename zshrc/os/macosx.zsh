@@ -32,5 +32,3 @@ fi
 alias htop='sudo htop'
 
 alias godocs='cd ~/Documents'
-
-alias l='ls -lah --color=auto'
