@@ -39,6 +39,7 @@
 
 [delta]
         syntax-theme = Monokai Extended Bright
+        plus-style = auto bold "#268BD2"
 
 [interactive]
         diffFilter = delta --color-only
