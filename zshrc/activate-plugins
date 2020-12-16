@@ -19,7 +19,7 @@ done
 # Activate plugins
 
 # Plugins that refer to an executable
-desired=(docker docker-compose git go)
+desired=(docker docker-compose git go kubectl)
 
 for plugin in $desired; do
     if which -a $plugin > /dev/null; then
