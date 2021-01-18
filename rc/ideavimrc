@@ -1,3 +1,3 @@
-source ~/intelli-space/spacemacs.vim
-source ~/intelli-space/extra.vim
-source ~/intelli-space/major.vim
+source ~/.intellimacs/spacemacs.vim
+source ~/.intellimacs/extra.vim
+source ~/.intellimacs/major.vim
