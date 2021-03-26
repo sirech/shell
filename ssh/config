@@ -25,5 +25,9 @@ Host *
      AddKeysToAgent yes
 
 Host erza
-     HostName 45.32.187.162
+     HostName 95.179.138.41
+     User root
+
+Host natsu
+     HostName 95.179.142.150
      User root
