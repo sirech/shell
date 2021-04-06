@@ -36,3 +36,5 @@ export LANG="en_US.UTF-8"
 
 export WORKSPACE=~/work
 export MINE=~/mine
+
+export ZSH_DISABLE_COMPFIX=true
