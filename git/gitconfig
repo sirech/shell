@@ -37,6 +37,8 @@
         whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
         excludesfile = ~/.gitignore
 
+        preloadindex = true
+
 [delta]
         syntax-theme = Monokai Extended Bright
         plus-style = auto bold "#268BD2"
@@ -53,6 +55,9 @@
 
 [branch]
         autosetuprebase = always
+
+[fetch]
+        prune = true
 
 [merge]
         summary = true
