@@ -37,4 +37,8 @@ export LANG="en_US.UTF-8"
 export WORKSPACE=~/work
 export MINE=~/mine
 
+# Add N in case it's present
+export N_PREFIX=$HOME/.n
+[ -d $N_PREFIX ] && export PATH=$N_PREFIX/bin:$PATH
+
 export ZSH_DISABLE_COMPFIX=true
