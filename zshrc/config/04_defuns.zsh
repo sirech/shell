@@ -5,8 +5,8 @@
 
 rg() {
   if [ -t 1 ]; then
-    command rg -C 1 -p "$@" | less -RFX
+    command rg --hidden -C 1 -p "$@" | less -RFX
   else
-    command rg "$@"
+    command rg --hidden "$@"
   fi
 }
