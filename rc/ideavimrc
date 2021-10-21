@@ -1,3 +1,13 @@
 source ~/.intellimacs/spacemacs.vim
 source ~/.intellimacs/extra.vim
 source ~/.intellimacs/major.vim
+
+
+" Move to opposite group
+let g:WhichKeyDesc_Windows_MoveOppositeGroup = "<leader>wL opposite-group"
+nnoremap <leader>wL          :action MoveEditorToOppositeTabGroup<CR>
+vnoremap <leader>wL          :action MoveEditorToOppositeTabGroup<CR>
+
+let g:WhichKeyDesc_Windows_MoveOppositeGroup2 = "<leader>wL opposite-group-2"
+nnoremap <leader>wH          :action MoveEditorToOppositeTabGroup<CR>
+vnoremap <leader>wH          :action MoveEditorToOppositeTabGroup<CR>
