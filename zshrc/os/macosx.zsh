@@ -16,6 +16,9 @@ function restart_sound() {
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
+if [ -d "${HOME}/homebrew" ] ; then
+  export PATH="$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH"
+fi
 
 if test $(which brew); then
   [ -d /usr/local/opt/coreutils ] && export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
